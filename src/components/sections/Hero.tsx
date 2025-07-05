@@ -114,68 +114,270 @@ const Hero: React.FC = () => {
             className="flex justify-center items-center"
           >
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
-              {/* Cercles concentriques - avec rotation */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute border border-orange-500/50 rounded-full"
-                  style={{
-                    width: `${60 + i * 15}px`,
-                    height: `${60 + i * 15}px`,
-                  }}
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 25 + i * 8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-              ))}
-
-              {/* Cercle central A.I. - avec rotation */}
-              <motion.div 
-                className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-2xl"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              {/* Circuit imprimé style IA */}
+              <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 400 400"
+                className="absolute inset-0"
               >
-                <span className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-white">A.I.</span>
-              </motion.div>
+                {/* Tracés de circuit - lignes principales */}
+                <g stroke="rgb(59 130 246)" strokeWidth="2" fill="none" opacity="0.6">
+                  {/* Lignes horizontales principales */}
+                  <line x1="50" y1="150" x2="350" y2="150" />
+                  <line x1="50" y1="200" x2="350" y2="200" />
+                  <line x1="50" y1="250" x2="350" y2="250" />
+                  
+                  {/* Lignes verticales principales */}
+                  <line x1="150" y1="50" x2="150" y2="350" />
+                  <line x1="200" y1="50" x2="200" y2="350" />
+                  <line x1="250" y1="50" x2="250" y2="350" />
+                </g>
 
-              {/* Points animés qui orbitent autour des cercles */}
-              {[...Array(8)].map((_, i) => {
-                const radius = 30 + i * 12; // Adapté au responsive
-                const angle = (i * 45) * (Math.PI / 180);
-                
-                return (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 sm:w-2 sm:h-2 md:w-3 md:h-3 bg-orange-400 rounded-full"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      marginLeft: '-2px',
-                      marginTop: '-2px',
-                    }}
+                {/* Tracés secondaires */}
+                <g stroke="rgb(59 130 246)" strokeWidth="1" fill="none" opacity="0.4">
+                  {/* Diagonales */}
+                  <line x1="100" y1="100" x2="300" y2="300" />
+                  <line x1="300" y1="100" x2="100" y2="300" />
+                  
+                  {/* Circuits en L */}
+                  <path d="M50,100 L120,100 L120,170" />
+                  <path d="M280,100 L350,100 L350,170" />
+                  <path d="M50,300 L120,300 L120,230" />
+                  <path d="M280,300 L350,300 L350,230" />
+                </g>
+
+                {/* Processeur central "AI" */}
+                <motion.g>
+                  <rect
+                    x="170"
+                    y="170"
+                    width="60"
+                    height="60"
+                    fill="rgb(59 130 246)"
+                    stroke="rgb(147 197 253)"
+                    strokeWidth="2"
+                    rx="5"
                     animate={{
-                      x: [
-                        Math.cos(angle) * radius,
-                        Math.cos(angle + Math.PI) * radius,
-                        Math.cos(angle + 2 * Math.PI) * radius,
-                      ],
-                      y: [
-                        Math.sin(angle) * radius,
-                        Math.sin(angle + Math.PI) * radius,
-                        Math.sin(angle + 2 * Math.PI) * radius,
-                      ],
+                      fill: ["rgb(59 130 246)", "rgb(147 197 253)", "rgb(59 130 246)"],
+                      strokeWidth: [2, 4, 2],
                     }}
                     transition={{
-                      duration: 8 + i * 2,
+                      duration: 2,
                       repeat: Infinity,
-                      ease: "linear",
+                      ease: "easeInOut",
                     }}
                   />
-                );
-              })}
+                  <text
+                    x="200"
+                    y="205"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="white"
+                    fontSize="18"
+                    fontWeight="bold"
+                  >
+                    AI
+                  </text>
+                </motion.g>
+
+                {/* Composants électroniques autour */}
+                {/* Résistances */}
+                {[
+                  { x: 80, y: 120, delay: 0 },
+                  { x: 320, y: 120, delay: 0.5 },
+                  { x: 80, y: 280, delay: 1 },
+                  { x: 320, y: 280, delay: 1.5 },
+                ].map((comp, i) => (
+                  <motion.rect
+                    key={`resistor-${i}`}
+                    x={comp.x - 15}
+                    y={comp.y - 5}
+                    width="30"
+                    height="10"
+                    fill="rgb(34 197 94)"
+                    stroke="rgb(74 222 128)"
+                    strokeWidth="1"
+                    rx="2"
+                    animate={{
+                      fill: ["rgb(34 197 94)", "rgb(74 222 128)", "rgb(34 197 94)"],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: comp.delay,
+                    }}
+                  />
+                ))}
+
+                {/* Condensateurs */}
+                {[
+                  { x: 120, y: 80, delay: 0.2 },
+                  { x: 280, y: 80, delay: 0.7 },
+                  { x: 120, y: 320, delay: 1.2 },
+                  { x: 280, y: 320, delay: 1.7 },
+                ].map((comp, i) => (
+                  <motion.g key={`capacitor-${i}`}>
+                    <rect
+                      x={comp.x - 8}
+                      y={comp.y - 12}
+                      width="4"
+                      height="24"
+                      fill="rgb(251 146 60)"
+                      animate={{
+                        fill: ["rgb(251 146 60)", "rgb(253 186 116)", "rgb(251 146 60)"],
+                      }}
+                      transition={{
+                        duration: 1.8,
+                        repeat: Infinity,
+                        delay: comp.delay,
+                      }}
+                    />
+                    <rect
+                      x={comp.x + 4}
+                      y={comp.y - 12}
+                      width="4"
+                      height="24"
+                      fill="rgb(251 146 60)"
+                      animate={{
+                        fill: ["rgb(251 146 60)", "rgb(253 186 116)", "rgb(251 146 60)"],
+                      }}
+                      transition={{
+                        duration: 1.8,
+                        repeat: Infinity,
+                        delay: comp.delay,
+                      }}
+                    />
+                  </motion.g>
+                ))}
+
+                {/* Puces/IC */}
+                {[
+                  { x: 100, y: 200, delay: 0.3 },
+                  { x: 300, y: 200, delay: 0.8 },
+                  { x: 200, y: 100, delay: 1.3 },
+                  { x: 200, y: 300, delay: 1.8 },
+                ].map((comp, i) => (
+                  <motion.rect
+                    key={`ic-${i}`}
+                    x={comp.x - 12}
+                    y={comp.y - 8}
+                    width="24"
+                    height="16"
+                    fill="rgb(15 23 42)"
+                    stroke="rgb(148 163 184)"
+                    strokeWidth="1"
+                    rx="2"
+                    animate={{
+                      stroke: ["rgb(148 163 184)", "rgb(226 232 240)", "rgb(148 163 184)"],
+                    }}
+                    transition={{
+                      duration: 2.2,
+                      repeat: Infinity,
+                      delay: comp.delay,
+                    }}
+                  />
+                ))}
+
+                {/* Impulsions électriques qui parcourent les circuits */}
+                {[...Array(12)].map((_, i) => {
+                  const paths = [
+                    // Horizontales
+                    [[50, 150], [350, 150]],
+                    [[50, 200], [350, 200]],
+                    [[50, 250], [350, 250]],
+                    // Verticales
+                    [[150, 50], [150, 350]],
+                    [[200, 50], [200, 350]],
+                    [[250, 50], [250, 350]],
+                    // Diagonales
+                    [[100, 100], [300, 300]],
+                    [[300, 100], [100, 300]],
+                  ];
+                  
+                  const path = paths[i % paths.length];
+                  const [start, end] = path;
+                  
+                  return (
+                    <motion.circle
+                      key={`pulse-${i}`}
+                      r="3"
+                      fill="rgb(34 211 238)"
+                      animate={{
+                        cx: [start[0], end[0]],
+                        cy: [start[1], end[1]],
+                        opacity: [1, 0.3, 1],
+                      }}
+                      transition={{
+                        duration: 3 + (i % 3),
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                        ease: "linear",
+                      }}
+                    />
+                  );
+                })}
+
+                {/* Points de connexion lumineux */}
+                {[
+                  { x: 150, y: 150 }, { x: 200, y: 150 }, { x: 250, y: 150 },
+                  { x: 150, y: 200 }, { x: 250, y: 200 },
+                  { x: 150, y: 250 }, { x: 200, y: 250 }, { x: 250, y: 250 },
+                ].map((point, i) => (
+                  <motion.circle
+                    key={`connection-${i}`}
+                    cx={point.x}
+                    cy={point.y}
+                    r="4"
+                    fill="rgb(34 211 238)"
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
+                  />
+                ))}
+
+                {/* Effets de lueur sur les tracés actifs */}
+                {[...Array(6)].map((_, i) => {
+                  const lines = [
+                    { x1: 50, y1: 150, x2: 350, y2: 150 },
+                    { x1: 50, y1: 200, x2: 350, y2: 200 },
+                    { x1: 50, y1: 250, x2: 350, y2: 250 },
+                    { x1: 150, y1: 50, x2: 150, y2: 350 },
+                    { x1: 200, y1: 50, x2: 200, y2: 350 },
+                    { x1: 250, y1: 50, x2: 250, y2: 350 },
+                  ];
+                  
+                  const line = lines[i];
+                  
+                  return (
+                    <motion.line
+                      key={`glow-${i}`}
+                      x1={line.x1}
+                      y1={line.y1}
+                      x2={line.x2}
+                      y2={line.y2}
+                      stroke="rgb(34 211 238)"
+                      strokeWidth="3"
+                      strokeOpacity="0.4"
+                      animate={{
+                        strokeOpacity: [0, 0.8, 0],
+                        strokeWidth: [1, 4, 1],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                      }}
+                    />
+                  );
+                })}
+              </svg>
             </div>
           </motion.div>
         </div>
