@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "timeline": "Parcours",
+    "skills": "Compétences",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Welcome",
+    "intro": "Technico-commercial avec une solide expérience en vente, bâtiment, et gestion d'entreprise. Passionné par l'IA, le digital et l'entrepreneuriat.",
+    "cv": "📄 Visualisez mon CV",
+    "typewriter": [
+      "Technico-commercial",
+      "Entrepreneur",
+      "Créateur d'agents IA",
+      "Business Developer",
+      "Expert en prospection",
+      "Passionné de digital",
+      "Fondateur de startups",
+      "Formateur",
+      "Stratégie marketing",
+      "Proactif"
+    ]
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Passionné par l'innovation et l'entrepreneuriat",
+    "description": "Avec une formation solide dans le bâtiment et une expérience variée en vente et gestion d'entreprise, je combine expertise technique et vision entrepreneuriale. Ma passion pour l'IA et le digital me pousse à créer des solutions innovantes pour les entreprises.",
+    "traits": {
+      "adaptability": "Adaptabilité",
+      "autonomy": "Autonomie",
+      "teamwork": "Travail d'équipe",
+      "entrepreneurship": "Esprit entrepreneurial"
+    }
+  },
+  "timeline": {
+    "title": "Mon Parcours",
+    "subtitle": "Un chemin vers l'innovation",
+    "education": "Formation",
+    "experience": "Expérience",
+    "project": "Projet"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Expertise technique et commerciale"
+  },
+  "blog": {
+    "title": "Blog Personnel",
+    "subtitle": "Mes réflexions et expériences",
+    "categories": {
+      "learning": "Mes années d'apprentissage",
+      "professional": "Mes débuts professionnels",
+      "entrepreneurial": "Mes projets entrepreneuriaux",
+      "reading": "Lecture d'article classique"
+    },
+    "readTime": "min de lecture",
+    "listenMode": "Mode écoute",
+    "stopListening": "Arrêter l'écoute"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Discutons de vos projets",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi"
+    }
+  },
+  "footer": {
+    "tagline": "From Sales to Systems — Driving Business Through Innovation",
+    "rights": "Tous droits réservés"
+  }
+}

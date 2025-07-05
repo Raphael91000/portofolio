@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "私について",
+    "timeline": "経歴",
+    "skills": "スキル",
+    "blog": "ブログ",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "welcome": "ようこそ",
+    "intro": "営業、建設、企業管理における豊富な経験を持つ技術営業のプロフェッショナル。AI、デジタル、起業に情熱を注いでいます。",
+    "cv": "📄 履歴書を見る",
+    "typewriter": [
+      "技術営業",
+      "起業家",
+      "AIエージェント作成者",
+      "ビジネス開発",
+      "営業開拓専門家",
+      "デジタル愛好家",
+      "スタートアップ創設者",
+      "トレーナー",
+      "マーケティング戦略",
+      "積極的"
+    ]
+  },
+  "about": {
+    "title": "私について",
+    "subtitle": "イノベーションと起業に情熱を注ぐ",
+    "description": "建設分野での確かな訓練と営業・企業管理での多様な経験により、技術的専門知識と起業家精神を組み合わせています。AIとデジタルへの情熱が、企業向けの革新的なソリューションを創造する原動力となっています。",
+    "traits": {
+      "adaptability": "適応性",
+      "autonomy": "自律性",
+      "teamwork": "チームワーク",
+      "entrepreneurship": "起業家精神"
+    }
+  },
+  "timeline": {
+    "title": "私の経歴",
+    "subtitle": "イノベーションへの道",
+    "education": "教育",
+    "experience": "経験",
+    "project": "プロジェクト"
+  },
+  "skills": {
+    "title": "スキル",
+    "subtitle": "技術的・商業的専門知識"
+  },
+  "blog": {
+    "title": "個人ブログ",
+    "subtitle": "私の考えと経験",
+    "categories": {
+      "learning": "私の学習時代",
+      "professional": "私の職業の始まり",
+      "entrepreneurial": "私の起業プロジェクト",
+      "reading": "古典的記事の読書"
+    },
+    "readTime": "分で読める",
+    "listenMode": "聞くモード",
+    "stopListening": "聞くのを止める"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "あなたのプロジェクトについて話し合いましょう",
+    "form": {
+      "name": "名前",
+      "email": "メール",
+      "message": "メッセージ",
+      "send": "送信",
+      "sending": "送信中...",
+      "success": "メッセージが正常に送信されました！",
+      "error": "メッセージの送信中にエラーが発生しました"
+    }
+  },
+  "footer": {
+    "tagline": "From Sales to Systems — Driving Business Through Innovation",
+    "rights": "全著作権所有"
+  }
+}

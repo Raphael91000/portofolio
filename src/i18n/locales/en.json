@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "timeline": "Timeline",
+    "skills": "Skills",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Welcome",
+    "intro": "Technical sales professional with solid experience in sales, construction, and business management. Passionate about AI, digital, and entrepreneurship.",
+    "cv": "📄 View my CV",
+    "typewriter": [
+      "Technical Sales",
+      "Entrepreneur",
+      "AI Agent Creator",
+      "Business Developer",
+      "Prospecting Expert",
+      "Digital Enthusiast",
+      "Startup Founder",
+      "Trainer",
+      "Marketing Strategy",
+      "Proactive"
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate about innovation and entrepreneurship",
+    "description": "With solid training in construction and diverse experience in sales and business management, I combine technical expertise with entrepreneurial vision. My passion for AI and digital drives me to create innovative solutions for businesses.",
+    "traits": {
+      "adaptability": "Adaptability",
+      "autonomy": "Autonomy",
+      "teamwork": "Teamwork",
+      "entrepreneurship": "Entrepreneurial Spirit"
+    }
+  },
+  "timeline": {
+    "title": "My Journey",
+    "subtitle": "A path to innovation",
+    "education": "Education",
+    "experience": "Experience",
+    "project": "Project"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technical and commercial expertise"
+  },
+  "blog": {
+    "title": "Personal Blog",
+    "subtitle": "My thoughts and experiences",
+    "categories": {
+      "learning": "My learning years",
+      "professional": "My professional beginnings",
+      "entrepreneurial": "My entrepreneurial projects",
+      "reading": "Classic article reading"
+    },
+    "readTime": "min read",
+    "listenMode": "Listen mode",
+    "stopListening": "Stop listening"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's discuss your projects",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message"
+    }
+  },
+  "footer": {
+    "tagline": "From Sales to Systems — Driving Business Through Innovation",
+    "rights": "All rights reserved"
+  }
+}
