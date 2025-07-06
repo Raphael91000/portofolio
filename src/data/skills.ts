@@ -51,10 +51,16 @@ export const skillsData: SkillCategory[] = [
         description: 'Gestion de versions'
       },
       {
-        name: 'Microsoft Excel',
+        name: 'Microsoft Office',
         icon: 'FileSpreadsheet',
         level: 70,
         description: 'Tableurs et données'
+      },
+      {
+        name: 'CapCut',
+        icon: 'Video',
+        level: 78,
+        description: 'Montage vidéo mobile'
       }
     ]
   },
@@ -150,10 +156,10 @@ export const skillsData: SkillCategory[] = [
         description: 'Travail indépendant'
       },
       {
-        name: 'Écoute Active',
-        icon: 'Ear',
-        level: 88,
-        description: 'Communication'
+        name: 'Multitâches',
+        icon: 'RotateCw',
+        level: 90,
+        description: 'Gestion simultanée de plusieurs projets'
       },
       {
         name: 'Apprentissage',

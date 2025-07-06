@@ -42,11 +42,11 @@ const Skills: React.FC = () => {
         }}
         className="group relative"
       >
-        <div className={`bg-white dark:bg-gray-700 rounded-xl ${isCompact ? 'p-3' : 'p-4'} text-center hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:border-orange-500 dark:hover:border-orange-500 cursor-pointer transform hover:scale-105 hover:shadow-md`}>
+        <div className={`bg-white dark:bg-gray-700 rounded-xl ${isCompact ? 'p-3' : 'p-4'} text-center hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:border-orange-500 dark:hover:border-orange-500 cursor-pointer transform hover:scale-105 hover:shadow-md h-full flex flex-col justify-center min-h-[120px]`}>
           <div className={`flex items-center justify-center ${isCompact ? 'w-10 h-10' : 'w-12 h-12'} bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg ${isCompact ? 'mb-2' : 'mb-3'} mx-auto group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-300 shadow-md`}>
             <IconComponent className={`${isCompact ? 'h-5 w-5' : 'h-6 w-6'} text-white`} />
           </div>
-          <h4 className={`text-gray-900 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300 leading-tight`}>
+          <h4 className={`text-gray-900 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300 leading-tight line-clamp-2`}>
             {skill.name}
           </h4>
           <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/10 to-orange-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
