@@ -3,9 +3,9 @@ import { TimelineItem } from '../types';
 export const timelineData: TimelineItem[] = [
   {
     year: '2024-Present',
-    title: 'Créateur d\'agents IA',
+    title: 'Freelance IA, Automatisation & Web',
     company: 'Freelance',
-    description: 'Développement d\'assistants virtuels et solutions d\'automatisation.',
+    description: 'Développement d\'assistants virtuels et solutions d\'automatisation, site web sur mesure, intégration IA/API, workflows automatisés.',
     type: 'project'
   },
   {
@@ -75,7 +75,7 @@ export const timelineData: TimelineItem[] = [
     year: '2017-2019',
     title: 'Bac Pro Intervention sur le Patrimoine Bâti',
     company: 'CFA BTP Blois - Cazy Guillaume',
-    description: 'Formation en alternance - Interventions sur le Patrimoine Bâti.',
+    description: 'Formation en alternance - Interventions sur le Patrimoine Bâti, pose de pierres de taille, moellons.',
     type: 'education'
   },
   {
