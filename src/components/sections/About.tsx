@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Languages, Award } from 'lucide-react';
+import { Languages, Award, GraduationCap } from 'lucide-react';
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -31,15 +31,84 @@ const About: React.FC = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            {/* Colonne gauche - Langues et Certifications */}
+            {/* Colonne gauche - Formations, Langues et Certifications */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-1"
+              className="lg:col-span-1 space-y-8"
             >
+              {/* Formations */}
+              <div>
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                    <GraduationCap className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Formations
+                  </h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="border-l-2 border-orange-500 pl-4">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                        Mai-Sep 2025
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      Formation Anglais
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                      Duke Languages School Bangkok
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-2 border-orange-500 pl-4">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                        2019-2021
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      BTS Bâtiment
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                      CFA BTP Blois - Cazy Guillaume
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-2 border-orange-500 pl-4">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                        2017-2019
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      Bac Pro Patrimoine Bâti
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                      CFA BTP Blois - Cazy Guillaume
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-2 border-orange-500 pl-4">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                        2015-2017
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      CAP Maçon
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                      CFA BTP Blois - Cazy Guillaume
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Langues */}
-              <div className="mb-8">
+              <div>
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
                     <Languages className="h-5 w-5 text-white" />
