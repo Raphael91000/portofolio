@@ -1,58 +1,166 @@
 import { Skill } from '../types';
 
-export const skillsData: Skill[] = [
+export interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}
+
+export const skillsData: SkillCategory[] = [
   {
-    name: 'Agents IA',
-    icon: 'Bot',
-    level: 90,
-    description: 'Création et déploiement d\'assistants virtuels intelligents'
+    title: 'Tech / Web',
+    skills: [
+      {
+        name: 'HTML',
+        icon: 'Code',
+        level: 85,
+        description: 'Langage de balisage web'
+      },
+      {
+        name: 'CSS',
+        icon: 'Palette',
+        level: 80,
+        description: 'Styles et mise en forme'
+      },
+      {
+        name: 'JavaScript',
+        icon: 'FileCode',
+        level: 75,
+        description: 'Programmation web interactive'
+      }
+    ]
   },
   {
-    name: 'Marketing Digital',
-    icon: 'Megaphone',
-    level: 85,
-    description: 'Stratégies digitales et campagnes marketing performantes'
+    title: 'Outils',
+    skills: [
+      {
+        name: 'CRM',
+        icon: 'Database',
+        level: 85,
+        description: 'Gestion relation client'
+      },
+      {
+        name: 'Canva',
+        icon: 'Palette',
+        level: 80,
+        description: 'Design graphique'
+      },
+      {
+        name: 'GitHub',
+        icon: 'Github',
+        level: 75,
+        description: 'Gestion de versions'
+      },
+      {
+        name: 'Microsoft Excel',
+        icon: 'FileSpreadsheet',
+        level: 70,
+        description: 'Tableurs et données'
+      }
+    ]
   },
   {
-    name: 'Gestion d\'équipe',
-    icon: 'Users',
-    level: 80,
-    description: 'Leadership et management d\'équipes commerciales'
+    title: 'IA',
+    skills: [
+      {
+        name: 'ChatGPT Prompting',
+        icon: 'Brain',
+        level: 95,
+        description: 'Optimisation des prompts'
+      },
+      {
+        name: 'Agents IA',
+        icon: 'Bot',
+        level: 90,
+        description: 'Création d\'assistants virtuels'
+      },
+      {
+        name: 'Automatisation',
+        icon: 'Zap',
+        level: 85,
+        description: 'Processus automatisés'
+      }
+    ]
   },
   {
-    name: 'Prospection Terrain',
-    icon: 'MapPin',
-    level: 95,
-    description: 'Développement commercial et acquisition de nouveaux clients'
+    title: 'Commercial',
+    skills: [
+      {
+        name: 'Vente',
+        icon: 'TrendingUp',
+        level: 92,
+        description: 'Techniques de vente'
+      },
+      {
+        name: 'Relation Client',
+        icon: 'Users',
+        level: 88,
+        description: 'Gestion clientèle'
+      },
+      {
+        name: 'Formation',
+        icon: 'GraduationCap',
+        level: 85,
+        description: 'Formation commerciale'
+      },
+      {
+        name: 'Négociation',
+        icon: 'Handshake',
+        level: 90,
+        description: 'Closing et négociation'
+      },
+      {
+        name: 'Prospection Terrain',
+        icon: 'MapPin',
+        level: 95,
+        description: 'Développement commercial'
+      },
+      {
+        name: 'Prospection Digitale',
+        icon: 'Smartphone',
+        level: 82,
+        description: 'Marketing digital'
+      }
+    ]
   },
   {
-    name: 'Négociation',
-    icon: 'Handshake',
-    level: 88,
-    description: 'Techniques de négociation et closing commercial'
-  },
-  {
-    name: 'Création d\'entreprise',
-    icon: 'Rocket',
-    level: 85,
-    description: 'Entrepreneuriat et développement de projets innovants'
-  },
-  {
-    name: 'Gestion de projet',
-    icon: 'Target',
-    level: 82,
-    description: 'Planification et coordination de projets complexes'
-  },
-  {
-    name: 'Stratégie d\'entreprise',
-    icon: 'TrendingUp',
-    level: 78,
-    description: 'Développement de stratégies business et croissance'
-  },
-  {
-    name: 'Soft Skills',
-    icon: 'Heart',
-    level: 92,
-    description: 'Communication, empathie et intelligence émotionnelle'
+    title: 'Soft Skills',
+    skills: [
+      {
+        name: 'Gestion d\'Équipe',
+        icon: 'Users',
+        level: 85,
+        description: 'Management et leadership'
+      },
+      {
+        name: 'Création d\'Entreprise',
+        icon: 'Rocket',
+        level: 90,
+        description: 'Entrepreneuriat'
+      },
+      {
+        name: 'Résistance au Stress',
+        icon: 'Shield',
+        level: 90,
+        description: 'Gestion de la pression'
+      },
+      {
+        name: 'Autonomie',
+        icon: 'Target',
+        level: 95,
+        description: 'Travail indépendant'
+      },
+      {
+        name: 'Écoute Active',
+        icon: 'Ear',
+        level: 88,
+        description: 'Communication'
+      },
+      {
+        name: 'Apprentissage',
+        icon: 'BookOpen',
+        level: 92,
+        description: 'Capacité d\'adaptation'
+      }
+    ]
   }
 ];

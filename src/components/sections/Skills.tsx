@@ -30,40 +30,57 @@ const Skills: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillsData.map((skill, index) => {
-            const IconComponent = Icons[skill.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
-            
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-orange-300 dark:group-hover:border-orange-600">
-                  {/* Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="h-8 w-8 text-white" />
-                  </div>
+        {/* Grille de blocs propre et organisée */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {skillsData.map((category, categoryIndex) => (
+            <motion.div
+              key={categoryIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              className="bg-gray-800 dark:bg-gray-800 rounded-2xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300 hover:scale-105"
+            >
+              {/* Titre de la catégorie */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-2 truncate">
+                  {category.title}
+                </h3>
+                <div className="w-12 h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full"></div>
+              </div>
 
-                  {/* Skill name */}
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {skill.name}
-                  </h3>
+              {/* Grille de compétences organisée */}
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill, skillIndex) => {
+                  const IconComponent = Icons[skill.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
+                  
+                  return (
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: categoryIndex * 0.1 + skillIndex * 0.05 
+                      }}
+                      className="group relative"
+                    >
+                      <div className="bg-gray-700 dark:bg-gray-700 rounded-lg p-4 text-center hover:bg-gray-600 transition-all duration-300 border border-transparent hover:border-orange-500 cursor-pointer min-h-[100px] flex flex-col justify-center">
+                        {/* Icône */}
+                        <div className="flex items-center justify-center w-10 h-10 bg-orange-500 rounded-lg mb-3 mx-auto group-hover:bg-orange-600 transition-colors duration-300 shrink-0">
+                          <IconComponent className="h-5 w-5 text-white" />
+                        </div>
 
-                  {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {skill.description}
-                  </p>
-
-                  {/* Hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              </motion.div>
-            );
-          })}
+                        {/* Nom de la compétence */}
+                        <h4 className="text-white font-medium text-sm group-hover:text-orange-300 transition-colors duration-300 leading-tight line-clamp-2">
+                          {skill.name}
+                        </h4>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
