@@ -84,9 +84,9 @@ const Timeline: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <div className={`w-5/12 ${isEven ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                  <div className={`w-5/12 ${isEven ? 'pr-8' : 'pl-8'}`}>
                     <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <div className="flex items-center mb-3">
+                      <div className={`flex items-center mb-3 ${isEven ? 'justify-end' : 'justify-start'}`}>
                         <span className="text-sm font-medium text-orange-500 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
                           {item.year}
                         </span>
@@ -94,13 +94,13 @@ const Timeline: React.FC = () => {
                           {t(`timeline.${item.type}`)}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-left">
                         {item.title}
                       </h3>
-                      <p className="text-orange-600 dark:text-orange-400 font-medium mb-3">
+                      <p className="text-orange-600 dark:text-orange-400 font-medium mb-3 text-left">
                         {item.company}
                       </p>
-                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed text-left">
                         {item.description}
                       </p>
                     </div>
