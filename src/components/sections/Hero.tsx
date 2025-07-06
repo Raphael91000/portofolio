@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, ExternalLink, FileText } from 'lucide-react';
 import { useTypewriter } from '../../hooks/useTypewriter';
+
+// Composant pour l'effet machine à écrire
+const TypewriterText: React.FC = () => {
+  const [displayText, setDisplayText] = useState('');
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const words = [
+    'Commercial',
+    'Entrepreneur', 
+    'Digital Marketing',
+    'Intelligence Artificielle',
+    'Développeur Web'
+  ];
+
+  useEffect(() => {
+    const currentWord = words[currentWordIndex];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        // Écriture
+        if (currentCharIndex < currentWord.length) {
+          setDisplayText(currentWord.slice(0, currentCharIndex + 1));
+          setCurrentCharIndex(currentCharIndex + 1);
+        } else {
+          // Petite pause avant suppression (800ms)
+          setTimeout(() => setIsDeleting(true), 800);
+        }
+      } else {
+        // Suppression
+        if (currentCharIndex > 0) {
+          setDisplayText(currentWord.slice(0, currentCharIndex - 1));
+          setCurrentCharIndex(currentCharIndex - 1);
+        } else {
+          // Passer au mot suivant immédiatement
+          setIsDeleting(false);
+          setCurrentWordIndex((currentWordIndex + 1) % words.length);
+        }
+      }
+    }, isDeleting ? 50 : 100); // Écriture et suppression rapides
+
+    return () => clearTimeout(timeout);
+  }, [currentCharIndex, currentWordIndex, isDeleting, words]);
+
+  return (
+    <span className="min-w-[300px]">
+      {displayText}
+      <span className="animate-pulse text-orange-500">|</span>
+    </span>
+  );
+};
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -64,8 +115,11 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-6 sm:mb-12"
             >
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-orange-400 mb-2">
-                intelligence artificielle
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-2">
+                Je suis un
+              </div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 h-12 flex items-center">
+                <TypewriterText />
               </div>
             </motion.div>
 
