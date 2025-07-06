@@ -48,12 +48,33 @@ const Timeline: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
             {t('timeline.title')}
           </h2>
-          <p className="text-xl text-orange-600 dark:text-orange-400 font-medium">
-            {t('timeline.subtitle')}
-          </p>
+          
+          {/* Légende */}
+          <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+                <GraduationCap className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-blue-500 font-medium">Formation</span>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                <Briefcase className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-green-500 font-medium">Expérience</span>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
+                <Rocket className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-orange-500 font-medium">Projet</span>
+            </div>
+          </div>
         </motion.div>
 
         <div className="relative">
