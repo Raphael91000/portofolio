@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-left">
             {/* Welcome title */}
@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="flex justify-center items-center"
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-80 lg:h-80 xl:w-96 xl:h-96 flex items-center justify-center">
               {/* Circuit imprimé style IA */}
               <svg
                 width="100%"
