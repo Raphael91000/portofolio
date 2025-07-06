@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { GraduationCap, Briefcase, Rocket } from 'lucide-react';
+import { Briefcase, Rocket } from 'lucide-react';
 import { timelineData } from '../../data/timeline';
 
 const Timeline: React.FC = () => {
@@ -14,8 +14,6 @@ const Timeline: React.FC = () => {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'education':
-        return GraduationCap;
       case 'experience':
         return Briefcase;
       case 'project':
@@ -27,8 +25,6 @@ const Timeline: React.FC = () => {
 
   const getColor = (type: string) => {
     switch (type) {
-      case 'education':
-        return 'bg-blue-500';
       case 'experience':
         return 'bg-green-500';
       case 'project':
@@ -40,8 +36,6 @@ const Timeline: React.FC = () => {
 
   const getBorderColor = (type: string) => {
     switch (type) {
-      case 'education':
-        return 'border-blue-500';
       case 'experience':
         return 'border-green-500';
       case 'project':
@@ -53,8 +47,6 @@ const Timeline: React.FC = () => {
 
   const getHoverBgColor = (type: string) => {
     switch (type) {
-      case 'education':
-        return 'hover:bg-blue-50 dark:hover:bg-blue-900/10';
       case 'experience':
         return 'hover:bg-green-50 dark:hover:bg-green-900/10';
       case 'project':
@@ -80,13 +72,6 @@ const Timeline: React.FC = () => {
           
           {/* Légende */}
           <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-                <GraduationCap className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-blue-500 font-medium">Formation</span>
-            </div>
-            
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
                 <Briefcase className="h-4 w-4 text-white" />
