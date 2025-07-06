@@ -35,17 +35,9 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center"
           >
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-              {t('about.description')}
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+              Après 7 ans dans le bâtiment, j'ai décidé de changer de cap. J'ai commencé par la vente, en CDI, où j'ai affûté mes compétences commerciales sur le terrain. En parallèle, j'ai lancé mes premiers projets entrepreneuriaux. Cette double expérience — salarié et entrepreneur — m'a appris à vendre, gérer, structurer… et surtout à m'adapter. Aujourd'hui, je combine cette rigueur avec ma passion pour le digital et l'IA pour créer des solutions concrètes et innovantes. Mon ambition : transformer les idées en leviers de croissance et construire les entreprises de demain.
             </p>
-
-            <div className="prose dark:prose-invert max-w-none text-center">
-              <p className="text-gray-600 dark:text-gray-400">
-                Mon approche combine l'expertise technique acquise dans le bâtiment avec une vision
-                moderne du business. J'ai appris que chaque projet, qu'il s'agisse d'un mur ou d'une
-                startup, nécessite des fondations solides et une exécution minutieuse.
-              </p>
-            </div>
           </motion.div>
         </div>
       </div>
