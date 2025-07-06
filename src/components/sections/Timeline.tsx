@@ -38,6 +38,32 @@ const Timeline: React.FC = () => {
     }
   };
 
+  const getBorderColor = (type: string) => {
+    switch (type) {
+      case 'education':
+        return 'border-blue-500';
+      case 'experience':
+        return 'border-green-500';
+      case 'project':
+        return 'border-orange-500';
+      default:
+        return 'border-gray-500';
+    }
+  };
+
+  const getHoverBgColor = (type: string) => {
+    switch (type) {
+      case 'education':
+        return 'hover:bg-blue-50 dark:hover:bg-blue-900/10';
+      case 'experience':
+        return 'hover:bg-green-50 dark:hover:bg-green-900/10';
+      case 'project':
+        return 'hover:bg-orange-50 dark:hover:bg-orange-900/10';
+      default:
+        return 'hover:bg-gray-50 dark:hover:bg-gray-900/10';
+    }
+  };
+
   return (
     <section id="timeline" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +132,7 @@ const Timeline: React.FC = () => {
 
                   {/* Content */}
                   <div className={`w-5/12 ${isEven ? 'pr-8' : 'pl-8'}`}>
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className={`bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 ${getBorderColor(item.type)} ${getHoverBgColor(item.type)}`}>
                       <div className="flex items-center mb-3 justify-start">
                         <span className="text-sm font-medium text-orange-500 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
                           {item.year}
