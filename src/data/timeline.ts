@@ -2,9 +2,23 @@ import { TimelineItem } from '../types';
 
 export const timelineData: TimelineItem[] = [
   {
+    year: 'Mai-Sep 2025',
+    title: 'Étudiant en anglais',
+    company: 'Duke Languages School Bangkok',
+    description: 'Formation intensive en anglais pour améliorer mes compétences linguistiques et préparer mon développement international.',
+    type: 'education'
+  },
+  {
+    year: 'Mar 2025-Present',
+    title: 'Co-Fondateur',
+    company: 'Felizbella Cosmetic',
+    description: 'Vente de produits cosmétiques en e-commerce, digital marketing, automatisation, relation clients, site web, études de marché, tunnel de conversion, logistique/livraison, SEO.',
+    type: 'project'
+  },
+  {
     year: '2024-Present',
-    title: 'Freelance IA, Automatisation & Web',
-    company: 'Freelance',
+    title: 'CO-Fondateur',
+    company: 'KR GLOBAL SOLUTION',
     description: 'Développement d\'assistants virtuels et solutions d\'automatisation, site web sur mesure, intégration IA/API, workflows automatisés.',
     type: 'project'
   },
@@ -24,21 +38,21 @@ export const timelineData: TimelineItem[] = [
   },
   {
     year: '2022-2024',
-    title: 'Fondateur & Associé',
+    title: 'Co-Fondateur',
     company: 'Restaurant Le Kin Di Thaï',
     description: 'Création et organisation complète du restaurant. Recrutement, gestion d\'équipes, stratégie marketing digital et optimisation logistique.',
     type: 'project'
   },
   {
     year: '2022-2023',
-    title: 'Fondateur',
+    title: 'Co-Fondateur',
     company: 'Wash Center',
     description: 'Lancement du projet, développement du concept et gestion complète. Management d\'équipe, marketing digital et planification stratégique.',
     type: 'project'
   },
   {
     year: '2021-2024',
-    title: 'Fondateur & Associé',
+    title: 'Co-Fondateur',
     company: 'Entreprise de transport colis',
     description: 'Création, gestion de flotte et des litiges clients. Optimisation des tournées, scan automatisé et négociation tarifaire.',
     type: 'project'
