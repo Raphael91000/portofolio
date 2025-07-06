@@ -86,7 +86,7 @@ const Timeline: React.FC = () => {
                   {/* Content */}
                   <div className={`w-5/12 ${isEven ? 'pr-8' : 'pl-8'}`}>
                     <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <div className={`flex items-center mb-3 ${isEven ? 'justify-end' : 'justify-start'}`}>
+                      <div className="flex items-center mb-3 justify-start">
                         <span className="text-sm font-medium text-orange-500 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
                           {item.year}
                         </span>
