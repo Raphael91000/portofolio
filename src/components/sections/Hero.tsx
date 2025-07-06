@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
               className="mb-6 sm:mb-12"
             >
               <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-2">
-                Je suis un
+      
               </div>
               <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 h-12 flex items-center">
                 <TypewriterText />
