@@ -61,6 +61,12 @@ export const skillsData: SkillCategory[] = [
         icon: 'Video',
         level: 78,
         description: 'Montage vidéo mobile'
+      },
+      {
+        name: 'ChatGPT',
+        icon: 'Brain',
+        level: 90,
+        description: 'Optimisation des prompts et automatisation'
       }
     ]
   },
@@ -138,7 +144,7 @@ export const skillsData: SkillCategory[] = [
         description: 'Management et leadership'
       },
       {
-        name: 'Création d\'Entreprise',
+        name: 'Motivation',
         icon: 'Rocket',
         level: 90,
         description: 'Entrepreneuriat'
