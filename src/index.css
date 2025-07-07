@@ -165,7 +165,52 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
-   EFFETS HOVER - SOLUTION ROBUSTE
+   BOUTONS HOVER EFFECTS
+   ======================================== */
+
+/* Bouton CV - Effet hover orange plus foncé */
+.bg-orange-500:hover {
+  background-color: #ea580c !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+}
+
+/* Bouton KR Global Solutions - Effet hover */
+.bg-gray-700:hover {
+  background-color: #f97316 !important;
+  border-color: #f97316 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3) !important;
+}
+
+/* Mode clair - Bouton KR Global */
+html.light .bg-gray-700:hover {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  border-color: #f97316 !important;
+}
+
+/* Textes des boutons au hover */
+.bg-orange-500:hover span,
+.bg-gray-700:hover span {
+  color: #ffffff !important;
+}
+
+/* Icônes des boutons au hover */
+.bg-orange-500:hover svg,
+.bg-gray-700:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Transitions pour les boutons */
+a[href="/cv-raphael-theuillon.pdf"],
+a[href="https://krglobalsolutionsltd.com/"] {
+  transition: all 0.3s ease !important;
+}
+
+/* ========================================
+   AUTRES EFFETS HOVER
    ======================================== */
 
 /* Hover pour les cards de compétences - MODES CLAIR ET SOMBRE */
@@ -263,6 +308,24 @@ html.light .group:hover {
   box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3) !important;
   border-color: #f97316 !important;
   transition: all 0.3s ease !important;
+}
+
+/* NOUVEAU : Contour orange pour les grandes cards de section au hover */
+.bg-gray-50:hover,
+html.light .bg-gray-50:hover,
+.bg-gray-800:hover,
+html.light .bg-gray-800:hover {
+  border: 2px solid #f97316 !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Exclure les petites cards individuelles du contour */
+.group .bg-white:hover,
+.group .bg-gray-700:hover,
+html.light .group .bg-white:hover,
+html.light .group .bg-gray-700:hover {
+  border: 1px solid #e5e7eb !important;
 }
 
 /* Assurer que tous les enfants sont visibles */
