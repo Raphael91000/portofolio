@@ -138,18 +138,32 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8"
+              className="flex flex-col space-y-4"
             >
-              {/* CV Button */}
-              <a
-                href="/cv-raphael-theuillon.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base"
-              >
-                <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span>{t('hero.cv')}</span>
-              </a>
+              {/* Buttons container */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                {/* CV Button */}
+                <a
+                  href="/cv-raphael-theuillon.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base"
+                >
+                  <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span>{t('hero.cv')}</span>
+                </a>
+
+                {/* KR Global Solutions Button */}
+                <a
+                  href="https://krglobalsolutionsltd.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base border border-gray-600 hover:border-orange-500"
+                >
+                  <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span>KR GLOBAL SOLUTIONS LTD</span>
+                </a>
+              </div>
 
               {/* Social Links */}
               <div className="flex space-x-4">
