@@ -11,6 +11,20 @@ const About: React.FC = () => {
     threshold: 0.1,
   });
 
+  // Récupération des données d'éducation depuis les traductions
+  const formations = t('education.formations', { returnObjects: true }) as Array<{
+    period: string;
+    title: string;
+    institution: string;
+  }>;
+  
+  const languages = t('education.languages', { returnObjects: true }) as Array<{
+    name: string;
+    level: string;
+  }>;
+  
+  const certifications = t('education.certifications', { returnObjects: true }) as string[];
+
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,65 +59,25 @@ const About: React.FC = () => {
                     <GraduationCap className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Formations
+                    {t('about.formations')}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <div className="border-l-2 border-orange-500 pl-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
-                        Mai-Sep 2025
-                      </span>
+                  {formations.map((formation, index) => (
+                    <div key={index} className="border-l-2 border-orange-500 pl-4">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                          {formation.period}
+                        </span>
+                      </div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                        {formation.title}
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-xs">
+                        {formation.institution}
+                      </p>
                     </div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                      Formation Anglais
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs">
-                      Duke Languages School Bangkok
-                    </p>
-                  </div>
-                  
-                  <div className="border-l-2 border-orange-500 pl-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
-                        2019-2021
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                      BTS Bâtiment
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs">
-                      CFA BTP Blois - Cazy Guillaume
-                    </p>
-                  </div>
-                  
-                  <div className="border-l-2 border-orange-500 pl-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
-                        2017-2019
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                      Bac Pro Patrimoine Bâti
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs">
-                      CFA BTP Blois - Cazy Guillaume
-                    </p>
-                  </div>
-                  
-                  <div className="border-l-2 border-orange-500 pl-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
-                        2015-2017
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                      CAP Maçon
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs">
-                      CFA BTP Blois - Cazy Guillaume
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -114,26 +88,20 @@ const About: React.FC = () => {
                     <Languages className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Langues
+                    {t('about.languages')}
                   </h3>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
-                      Français
-                    </span>
-                    <span className="text-sm text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
-                      Natif
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
-                      Anglais
-                    </span>
-                    <span className="text-sm text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
-                      A2
-                    </span>
-                  </div>
+                  {languages.map((language, index) => (
+                    <div key={index} className="flex justify-between items-center">
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">
+                        {language.name}
+                      </span>
+                      <span className="text-sm text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
+                        {language.level}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -144,15 +112,17 @@ const About: React.FC = () => {
                     <Award className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Certifications
+                    {t('about.certifications')}
                   </h3>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex items-center">
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
-                      Permis de conduire
-                    </span>
-                  </div>
+                  {certifications.map((certification, index) => (
+                    <div key={index} className="flex items-center">
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">
+                        {certification}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -165,12 +135,8 @@ const About: React.FC = () => {
               className="lg:col-span-2"
             >
               <div className="text-left">
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Après 7 ans dans le bâtiment, j'ai décidé de changer de cap. J'ai commencé par la vente, en CDI, où j'ai affûté mes compétences commerciales sur le terrain. En parallèle, j'ai lancé mes premiers projets entrepreneuriaux.
-                  <br /><br />
-                  Cette double expérience — salarié et entrepreneur — m'a appris à vendre, gérer, structurer… et surtout à m'adapter.
-                  <br /><br />
-                  Aujourd'hui, je combine cette rigueur avec ma passion pour le digital et l'IA pour créer des solutions concrètes et innovantes. Mon ambition : transformer les idées en leviers de croissance et construire les entreprises de demain.
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  {t('about.description_long')}
                 </p>
               </div>
             </motion.div>

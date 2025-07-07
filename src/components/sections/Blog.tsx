@@ -130,7 +130,7 @@ const Blog: React.FC = () => {
                     onClick={() => setSelectedPost(selectedPost === post.id ? null : post.id)}
                     className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium text-sm"
                   >
-                    {selectedPost === post.id ? 'Réduire' : 'Lire plus'}
+                    {selectedPost === post.id ? t('blog.readLess') : t('blog.readMore')}
                   </button>
                   <button
                     onClick={() => handleListen(post)}

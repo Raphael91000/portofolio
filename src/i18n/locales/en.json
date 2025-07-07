@@ -33,7 +33,11 @@
       "autonomy": "Autonomy",
       "teamwork": "Teamwork",
       "entrepreneurship": "Entrepreneurial Spirit"
-    }
+    },
+    "formations": "Education",
+    "languages": "Languages",
+    "certifications": "Certifications",
+    "description_long": "After 7 years in construction, I decided to change direction. I started with sales, in permanent employment, where I honed my commercial skills in the field. In parallel, I launched my first entrepreneurial projects.\n\nThis dual experience — employee and entrepreneur — taught me to sell, manage, structure... and above all to adapt.\n\nToday, I combine this rigor with my passion for digital and AI to create concrete and innovative solutions. My ambition: transform ideas into growth drivers and build the companies of tomorrow."
   },
   "timeline": {
     "title": "My Journey",
@@ -57,7 +61,9 @@
     },
     "readTime": "min read",
     "listenMode": "Listen mode",
-    "stopListening": "Stop listening"
+    "stopListening": "Stop listening",
+    "readMore": "Read more",
+    "readLess": "Read less"
   },
   "contact": {
     "title": "Contact",
@@ -70,10 +76,53 @@
       "sending": "Sending...",
       "success": "Message sent successfully!",
       "error": "Error sending message"
-    }
+    },
+    "stayConnected": "Let's stay connected",
+    "stayConnectedDescription": "Feel free to contact me to discuss your projects, explore collaboration opportunities or simply exchange ideas about innovation and entrepreneurship.",
+    "socialNetworks": "My social networks"
   },
   "footer": {
     "tagline": "From Sales to Systems — Driving Business Through Innovation",
     "rights": "All rights reserved"
+  },
+  "education": {
+    "formations": [
+      {
+        "period": "May-Sep 2025",
+        "title": "English Training",
+        "institution": "Duke Languages School Bangkok"
+      },
+      {
+        "period": "2019-2021",
+        "title": "Building Construction Degree",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2017-2019",
+        "title": "Building Heritage Baccalaureate",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2015-2017",
+        "title": "Mason Certificate",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      }
+    ],
+    "languages": [
+      {
+        "name": "French",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "A2"
+      }
+    ],
+    "certifications": [
+      "Driving License"
+    ]
+  },
+  "companies": {
+    "krGlobal": "KR GLOBAL SOLUTIONS LTD"
   }
 }

@@ -33,7 +33,11 @@
       "autonomy": "自律性",
       "teamwork": "チームワーク",
       "entrepreneurship": "起業家精神"
-    }
+    },
+    "formations": "教育",
+    "languages": "言語",
+    "certifications": "資格",
+    "description_long": "建設業界で7年間働いた後、方向転換を決意しました。正社員として営業から始め、現場で商業スキルを磨きました。並行して、最初の起業プロジェクトを立ち上げました。\n\nこの二重の経験 — 従業員と起業家 — は、販売、管理、構築...そして何よりも適応することを教えてくれました。\n\n今日、私はこの厳格さとデジタルやAIへの情熱を組み合わせて、具体的で革新的なソリューションを創造しています。私の野望：アイデアを成長の推進力に変え、明日の企業を構築することです。"
   },
   "timeline": {
     "title": "私の経歴",
@@ -57,7 +61,9 @@
     },
     "readTime": "分で読める",
     "listenMode": "聞くモード",
-    "stopListening": "聞くのを止める"
+    "stopListening": "聞くのを止める",
+    "readMore": "続きを読む",
+    "readLess": "たたむ"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -70,10 +76,53 @@
       "sending": "送信中...",
       "success": "メッセージが正常に送信されました！",
       "error": "メッセージの送信中にエラーが発生しました"
-    }
+    },
+    "stayConnected": "つながりを保ちましょう",
+    "stayConnectedDescription": "プロジェクトについて話し合ったり、協力の機会を探ったり、単純にイノベーションや起業についてアイデアを交換したりするために、お気軽にお声をかけください。",
+    "socialNetworks": "私のソーシャルネットワーク"
   },
   "footer": {
     "tagline": "From Sales to Systems — Driving Business Through Innovation",
     "rights": "全著作権所有"
+  },
+  "education": {
+    "formations": [
+      {
+        "period": "2025年5月-9月",
+        "title": "英語研修",
+        "institution": "バンコク・デューク語学学校"
+      },
+      {
+        "period": "2019-2021",
+        "title": "建設技術学位",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2017-2019",
+        "title": "建築遺産職業学士号",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2015-2017",
+        "title": "石工資格証明書",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      }
+    ],
+    "languages": [
+      {
+        "name": "フランス語",
+        "level": "ネイティブ"
+      },
+      {
+        "name": "英語",
+        "level": "A2"
+      }
+    ],
+    "certifications": [
+      "運転免許証"
+    ]
+  },
+  "companies": {
+    "krGlobal": "KRグローバルソリューションズ株式会社"
   }
 }

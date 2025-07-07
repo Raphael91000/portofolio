@@ -6,18 +6,13 @@ import { useTypewriter } from '../../hooks/useTypewriter';
 
 // Composant pour l'effet machine à écrire
 const TypewriterText: React.FC = () => {
+  const { t } = useTranslation();
   const [displayText, setDisplayText] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const words = [
-    'Commercial',
-    'Entrepreneur', 
-    'Digital Marketing',
-    'Intelligence Artificielle',
-    'Développeur Web'
-  ];
+  const words = t('hero.typewriter', { returnObjects: true }) as string[];
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -161,7 +156,7 @@ const Hero: React.FC = () => {
                   className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base border border-gray-600 hover:border-orange-500"
                 >
                   <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span>KR GLOBAL SOLUTIONS LTD</span>
+                  <span>{t('companies.krGlobal')}</span>
                 </a>
               </div>
 

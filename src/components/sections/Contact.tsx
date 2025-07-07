@@ -175,18 +175,16 @@ const Contact: React.FC = () => {
           >
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Restons connectés
+                {t('contact.stayConnected')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                N'hésitez pas à me contacter pour discuter de vos projets, 
-                explorer des opportunités de collaboration ou simplement 
-                échanger sur l'innovation et l'entrepreneuriat.
+                {t('contact.stayConnectedDescription')}
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Mes réseaux sociaux
+                {t('contact.socialNetworks')}
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((link) => (

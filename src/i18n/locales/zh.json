@@ -33,7 +33,11 @@
       "autonomy": "自主性",
       "teamwork": "团队合作",
       "entrepreneurship": "创业精神"
-    }
+    },
+    "formations": "教育",
+    "languages": "语言",
+    "certifications": "认证",
+    "description_long": "在建筑行业工作7年后，我决定改变方向。我从销售开始，担任正式员工，在实践中磨练了我的商业技能。与此同时，我启动了我的第一批创业项目。\n\n这种双重经验——员工和企业家——教会了我销售、管理、构建...尤其是适应。\n\n今天，我将这种严谨性与我对数字化和人工智能的热情相结合，创造具体和创新的解决方案。我的雄心：将想法转化为增长杠杆，构建明天的企业。"
   },
   "timeline": {
     "title": "我的经历",
@@ -57,7 +61,9 @@
     },
     "readTime": "分钟阅读",
     "listenMode": "听取模式",
-    "stopListening": "停止听取"
+    "stopListening": "停止听取",
+    "readMore": "阅读更多",
+    "readLess": "收起"
   },
   "contact": {
     "title": "联系",
@@ -70,10 +76,53 @@
       "sending": "发送中...",
       "success": "消息发送成功！",
       "error": "发送消息时出错"
-    }
+    },
+    "stayConnected": "保持联系",
+    "stayConnectedDescription": "请随时联系我讨论您的项目，探索合作机会，或者简单地就创新和创业交流想法。",
+    "socialNetworks": "我的社交网络"
   },
   "footer": {
     "tagline": "From Sales to Systems — Driving Business Through Innovation",
     "rights": "版权所有"
+  },
+  "education": {
+    "formations": [
+      {
+        "period": "2025年5月-9月",
+        "title": "英语培训",
+        "institution": "曼谷杜克语言学校"
+      },
+      {
+        "period": "2019-2021",
+        "title": "建筑技术学位",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2017-2019",
+        "title": "建筑遗产职业学士",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2015-2017",
+        "title": "泥瓦工证书",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      }
+    ],
+    "languages": [
+      {
+        "name": "法语",
+        "level": "母语"
+      },
+      {
+        "name": "英语",
+        "level": "A2"
+      }
+    ],
+    "certifications": [
+      "驾驶执照"
+    ]
+  },
+  "companies": {
+    "krGlobal": "KR 全球解决方案有限公司"
   }
 }

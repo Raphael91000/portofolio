@@ -33,7 +33,11 @@
       "autonomy": "Autonomía",
       "teamwork": "Trabajo en equipo",
       "entrepreneurship": "Espíritu emprendedor"
-    }
+    },
+    "formations": "Formación",
+    "languages": "Idiomas",
+    "certifications": "Certificaciones",
+    "description_long": "Después de 7 años en la construcción, decidí cambiar de rumbo. Comencé con las ventas, en empleo permanente, donde afilé mis habilidades comerciales en el campo. En paralelo, lancé mis primeros proyectos empresariales.\n\nEsta doble experiencia — empleado y emprendedor — me enseñó a vender, gestionar, estructurar... y sobre todo a adaptarme.\n\nHoy, combino este rigor con mi pasión por lo digital y la IA para crear soluciones concretas e innovadoras. Mi ambición: transformar ideas en palancas de crecimiento y construir las empresas del mañana."
   },
   "timeline": {
     "title": "Mi Trayectoria",
@@ -57,7 +61,9 @@
     },
     "readTime": "min de lectura",
     "listenMode": "Modo escucha",
-    "stopListening": "Detener escucha"
+    "stopListening": "Detener escucha",
+    "readMore": "Leer más",
+    "readLess": "Leer menos"
   },
   "contact": {
     "title": "Contacto",
@@ -70,10 +76,53 @@
       "sending": "Enviando...",
       "success": "¡Mensaje enviado con éxito!",
       "error": "Error al enviar mensaje"
-    }
+    },
+    "stayConnected": "Mantengámonos conectados",
+    "stayConnectedDescription": "No dudes en contactarme para discutir tus proyectos, explorar oportunidades de colaboración o simplemente intercambiar ideas sobre innovación y emprendimiento.",
+    "socialNetworks": "Mis redes sociales"
   },
   "footer": {
     "tagline": "From Sales to Systems — Driving Business Through Innovation",
     "rights": "Todos los derechos reservados"
+  },
+  "education": {
+    "formations": [
+      {
+        "period": "May-Sep 2025",
+        "title": "Formación en Inglés",
+        "institution": "Duke Languages School Bangkok"
+      },
+      {
+        "period": "2019-2021",
+        "title": "Técnico Superior en Construcción",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2017-2019",
+        "title": "Bachillerato Profesional Patrimonio Construido",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2015-2017",
+        "title": "Certificado de Albañil",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Francés",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "A2"
+      }
+    ],
+    "certifications": [
+      "Licencia de conducir"
+    ]
+  },
+  "companies": {
+    "krGlobal": "KR GLOBAL SOLUTIONS LTD"
   }
 }

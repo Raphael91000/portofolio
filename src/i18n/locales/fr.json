@@ -33,7 +33,11 @@
       "autonomy": "Autonomie",
       "teamwork": "Travail d'équipe",
       "entrepreneurship": "Esprit entrepreneurial"
-    }
+    },
+    "formations": "Formations",
+    "languages": "Langues",
+    "certifications": "Certifications",
+    "description_long": "Après 7 ans dans le bâtiment, j'ai décidé de changer de cap. J'ai commencé par la vente, en CDI, où j'ai affûté mes compétences commerciales sur le terrain. En parallèle, j'ai lancé mes premiers projets entrepreneuriaux.\n\nCette double expérience — salarié et entrepreneur — m'a appris à vendre, gérer, structurer… et surtout à m'adapter.\n\nAujourd'hui, je combine cette rigueur avec ma passion pour le digital et l'IA pour créer des solutions concrètes et innovantes. Mon ambition : transformer les idées en leviers de croissance et construire les entreprises de demain."
   },
   "timeline": {
     "title": "Mon Parcours",
@@ -57,7 +61,9 @@
     },
     "readTime": "min de lecture",
     "listenMode": "Mode écoute",
-    "stopListening": "Arrêter l'écoute"
+    "stopListening": "Arrêter l'écoute",
+    "readMore": "Lire plus",
+    "readLess": "Réduire"
   },
   "contact": {
     "title": "Contact",
@@ -70,10 +76,53 @@
       "sending": "Envoi en cours...",
       "success": "Message envoyé avec succès !",
       "error": "Erreur lors de l'envoi"
-    }
+    },
+    "stayConnected": "Restons connectés",
+    "stayConnectedDescription": "N'hésitez pas à me contacter pour discuter de vos projets, explorer des opportunités de collaboration ou simplement échanger sur l'innovation et l'entrepreneuriat.",
+    "socialNetworks": "Mes réseaux sociaux"
   },
   "footer": {
     "tagline": "From Sales to Systems — Driving Business Through Innovation",
     "rights": "Tous droits réservés"
+  },
+  "education": {
+    "formations": [
+      {
+        "period": "Mai-Sep 2025",
+        "title": "Formation Anglais",
+        "institution": "Duke Languages School Bangkok"
+      },
+      {
+        "period": "2019-2021",
+        "title": "BTS Bâtiment",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2017-2019",
+        "title": "Bac Pro Patrimoine Bâti",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      },
+      {
+        "period": "2015-2017",
+        "title": "CAP Maçon",
+        "institution": "CFA BTP Blois - Cazy Guillaume"
+      }
+    ],
+    "languages": [
+      {
+        "name": "Français",
+        "level": "Natif"
+      },
+      {
+        "name": "Anglais",
+        "level": "A2"
+      }
+    ],
+    "certifications": [
+      "Permis de conduire"
+    ]
+  },
+  "companies": {
+    "krGlobal": "KR GLOBAL SOLUTIONS LTD"
   }
 }
