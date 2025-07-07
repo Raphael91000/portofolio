@@ -85,7 +85,21 @@ html.light section {
 }
 
 html.light section#home {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  background: #ffffff !important;
+}
+
+/* MODE CLAIR - Forcer toutes les sections à être blanches */
+html.light section,
+html.light .min-h-screen {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Forcer spécifiquement la section Hero */
+html.light section[id="home"],
+html.light .bg-gradient-to-br {
+  background: #ffffff !important;
+  background-image: none !important;
 }
 
 /* ========================================
@@ -168,37 +182,67 @@ html.light .bg-orange-500 {
    BOUTONS HOVER EFFECTS
    ======================================== */
 
-/* Bouton CV - Effet hover orange plus foncé */
-.bg-orange-500:hover {
-  background-color: #ea580c !important;
+/* MODE SOMBRE - Boutons semi-transparents */
+html.dark .bg-orange-500,
+html.dark .bg-gray-700 {
+  background-color: rgba(107, 114, 128, 0.8) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* MODE CLAIR - Boutons transparents avec contour orange */
+html.light .bg-orange-500,
+html.light .bg-gray-700 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f97316 !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(10px);
+  border: 2px solid #f97316 !important;
+}
+
+/* MODE CLAIR - Texte et icônes orange par défaut */
+html.light .bg-orange-500 span,
+html.light .bg-gray-700 span {
+  color: #f97316 !important;
+}
+
+html.light .bg-orange-500 svg,
+html.light .bg-gray-700 svg {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* HOVER - Mode sombre (inchangé) */
+html.dark .bg-orange-500:hover,
+html.dark .bg-gray-700:hover {
+  background-color: #f97316 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
-}
-
-/* Bouton KR Global Solutions - Effet hover */
-.bg-gray-700:hover {
-  background-color: #f97316 !important;
+  opacity: 1 !important;
   border-color: #f97316 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3) !important;
 }
 
-/* Mode clair - Bouton KR Global */
+/* HOVER - Mode clair (remplissage orange) */
+html.light .bg-orange-500:hover,
 html.light .bg-gray-700:hover {
   background-color: #f97316 !important;
   color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  opacity: 1 !important;
   border-color: #f97316 !important;
 }
 
-/* Textes des boutons au hover */
-.bg-orange-500:hover span,
-.bg-gray-700:hover span {
+/* MODE CLAIR - Texte et icônes blancs au hover */
+html.light .bg-orange-500:hover span,
+html.light .bg-gray-700:hover span {
   color: #ffffff !important;
 }
 
-/* Icônes des boutons au hover */
-.bg-orange-500:hover svg,
-.bg-gray-700:hover svg {
+html.light .bg-orange-500:hover svg,
+html.light .bg-gray-700:hover svg {
   color: #ffffff !important;
   stroke: #ffffff !important;
 }
