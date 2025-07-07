@@ -1,3 +1,416 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================
+   CSS POUR THEME DARK/LIGHT MODE
+   ======================================== */
+
+/* Transitions globales pour tous les éléments */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              transform 0.3s ease;
+}
+
+/* Variables CSS pour les couleurs de thème */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+:root.dark {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-card: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --border-color: #4b5563;
+  --shadow-dark: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   STYLES DE BASE
+   ======================================== */
+
+/* Body - Application du thème */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Classes de thème */
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+/* ========================================
+   FORÇAGE DES THEMES
+   ======================================== */
+
+/* MODE SOMBRE */
+html.dark,
+html.dark body,
+html.dark main,
+html.dark section {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+}
+
+html.dark section#home {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important;
+}
+
+/* MODE CLAIR */
+html.light,
+html.light body,
+html.light main,
+html.light section {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+html.light section#home {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* ========================================
+   COULEURS SPÉCIFIQUES MODE CLAIR
+   ======================================== */
+
+/* Backgrounds des conteneurs */
+html.light .bg-gray-50 {
+  background-color: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+html.light .bg-gray-800 {
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+html.light .bg-gray-700 {
+  background-color: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+html.light .bg-gray-900 {
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+/* Cards blanches */
+html.light .bg-white {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  color: #1f2937 !important;
+}
+
+/* Bordures */
+html.light .border-gray-200,
+html.light .border-gray-700,
+html.light .border-gray-600 {
+  border-color: #d1d5db !important;
+}
+
+/* Textes */
+html.light .text-white {
+  color: #1f2937 !important;
+}
+
+html.light .text-gray-300,
+html.light .text-gray-400 {
+  color: #4b5563 !important;
+}
+
+html.light .text-gray-600 {
+  color: #6b7280 !important;
+}
+
+html.light h1,
+html.light h2, 
+html.light h3,
+html.light h4 {
+  color: #1f2937 !important;
+}
+
+html.light p,
+html.light span:not(.text-orange-500):not(.text-orange-400):not(.text-orange-600) {
+  color: #374151 !important;
+}
+
+/* Préserver les couleurs orange */
+html.light .text-orange-500,
+html.light .text-orange-400,
+html.light .text-orange-600 {
+  color: #f97316 !important;
+}
+
+html.light .bg-orange-500 {
+  background-color: #f97316 !important;
+}
+
+/* ========================================
+   EFFETS HOVER - SOLUTION ROBUSTE
+   ======================================== */
+
+/* Hover pour les cards de compétences - MODES CLAIR ET SOMBRE */
+.group:hover .bg-white,
+.group:hover .bg-gray-700,
+html.light .group:hover .bg-white,
+html.light .group:hover .bg-gray-700,
+html.dark .group:hover .bg-white,
+html.dark .group:hover .bg-gray-700 {
+  background-color: #f97316 !important;
+}
+
+/* TEXTE VISIBLE AU HOVER - FORCÉ BLANC */
+.group:hover h4,
+.group:hover p,
+.group:hover span,
+.group:hover div,
+.group:hover .skill-name,
+.group:hover .skill-text,
+html.light .group:hover h4,
+html.light .group:hover p,
+html.light .group:hover span,
+html.light .group:hover div {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+  position: relative !important;
+  text-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+/* ICÔNES VISIBLES AU HOVER - FORCÉ BLANC */
+.group:hover svg,
+.group:hover i,
+.group:hover [data-lucide],
+.group:hover .lucide,
+.group:hover [class*="lucide"],
+.group:hover [class^="lucide-"],
+html.light .group:hover svg,
+html.light .group:hover i,
+html.light .group:hover [data-lucide],
+html.light .group:hover .lucide,
+html.light .group:hover [class*="lucide"],
+html.light .group:hover [class^="lucide-"] {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+/* Conteneur d'icônes au hover - BLANC SEULEMENT AU HOVER */
+.group:hover .bg-gradient-to-br,
+.group:hover .bg-orange-500,
+html.light .group:hover .bg-gradient-to-br,
+html.light .group:hover .bg-orange-500 {
+  background: #ffffff !important;
+  border: 1px solid rgba(249, 115, 22, 0.3) !important;
+}
+
+/* ÉTAT NORMAL - Logos orange par défaut en mode clair */
+html.light .bg-gradient-to-br,
+html.light .bg-orange-500 {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+}
+
+html.light .bg-gradient-to-br svg,
+html.light .bg-gradient-to-br i,
+html.light .bg-orange-500 svg,
+html.light .bg-orange-500 i {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* FORCER LES ICÔNES À L'INTÉRIEUR DES CONTENEURS AU HOVER SEULEMENT */
+.group:hover .bg-gradient-to-br svg,
+.group:hover .bg-gradient-to-br i,
+.group:hover .bg-orange-500 svg,
+.group:hover .bg-orange-500 i,
+html.light .group:hover .bg-gradient-to-br svg,
+html.light .group:hover .bg-gradient-to-br i,
+html.light .group:hover .bg-orange-500 svg,
+html.light .group:hover .bg-orange-500 i {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* Effet de surélévation au hover */
+.group:hover,
+html.light .group:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3) !important;
+  border-color: #f97316 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Assurer que tous les enfants sont visibles */
+.group:hover > *,
+html.light .group:hover > * {
+  z-index: 5 !important;
+  position: relative !important;
+}
+
+/* SOLUTION BRUTALE SPÉCIFIQUE POUR MODE CLAIR */
+html.light .group:hover * {
+  color: #ffffff !important;
+}
+
+html.light .group:hover svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* ========================================
+   CARDS TIMELINE - COULEURS SPÉCIFIQUES
+   ======================================== */
+
+/* Cards Timeline avec couleurs de hover */
+html.light .border-blue-500:hover,
+html.dark .border-blue-500:hover {
+  background-color: #3b82f6 !important;
+}
+
+html.light .border-green-500:hover,
+html.dark .border-green-500:hover {
+  background-color: #10b981 !important;
+}
+
+html.light .border-orange-500:hover,
+html.dark .border-orange-500:hover {
+  background-color: #f97316 !important;
+}
+
+html.light .border-purple-500:hover,
+html.dark .border-purple-500:hover {
+  background-color: #8b5cf6 !important;
+}
+
+html.light .border-red-500:hover,
+html.dark .border-red-500:hover {
+  background-color: #ef4444 !important;
+}
+
+/* Textes dans les cards Timeline au hover */
+.border-blue-500:hover *,
+.border-green-500:hover *,
+.border-orange-500:hover *,
+.border-purple-500:hover *,
+.border-red-500:hover * {
+  color: #ffffff !important;
+}
+
+/* Hover effects spécifiques selon le type */
+html.light .hover\:bg-blue-50:hover {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+html.light .hover\:bg-green-50:hover {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+html.light .hover\:bg-orange-50:hover {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+}
+
+/* ========================================
+   OMBRES ET EFFETS
+   ======================================== */
+
+/* Ombres adaptées selon le thème */
+html.light .shadow-lg,
+html.light .shadow-xl {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Animation pour le changement de thème */
+@keyframes theme-transition {
+  0% { opacity: 0.9; }
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+
+.theme-transition {
+  animation: theme-transition 0.3s ease-in-out;
+}
+
+/* ========================================
+   CLASSES UTILITAIRES
+   ======================================== */
+
+/* Classes pour les hovers élégants */
+.hover-elegant {
+  transition: all 0.3s ease;
+}
+
+.hover-elegant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   SOLUTIONS DE SECOURS
+   ======================================== */
+
+/* Si les styles ne s'appliquent pas, forcer brutalement */
+.skills-card:hover,
+.skill-card:hover {
+  background-color: #f97316 !important;
+}
+
+.skills-card:hover *,
+.skill-card:hover * {
+  color: #ffffff !important;
+}
+
+.skills-card:hover svg,
+.skill-card:hover svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Forcer pour tous les composants de skills */
+[class*="skill"]:hover {
+  background-color: #f97316 !important;
+}
+
+[class*="skill"]:hover * {
+  color: #ffffff !important;
+}
+
+[class*="skill"]:hover svg {
+  stroke: #ffffff !important;
+}
