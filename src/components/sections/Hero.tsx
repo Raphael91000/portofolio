@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
                   href="/cv-raphael-theuillon.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base"
+                  className="group flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 border border-orange-500 text-orange-500 rounded-lg transition-colors duration-300 font-medium text-sm sm:text-base hover:bg-orange-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
                 >
                   <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span>{t('hero.cv')}</span>
