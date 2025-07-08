@@ -12,48 +12,32 @@ const Timeline: React.FC = () => {
     threshold: 0.1,
   });
 
-  const getIcon = (type: string) => {
-    switch (type) {
-      case 'experience':
-        return Briefcase;
-      case 'project':
-        return Rocket;
-      default:
-        return Briefcase;
-    }
-  };
-
-  const getColor = (type: string) => {
-    switch (type) {
-      case 'experience':
-        return 'bg-green-500';
-      case 'project':
-        return 'bg-orange-500';
-      default:
-        return 'bg-gray-500';
-    }
-  };
-
-  const getBorderColor = (type: string) => {
-    switch (type) {
-      case 'experience':
-        return 'border-green-500';
-      case 'project':
-        return 'border-orange-500';
-      default:
-        return 'border-gray-500';
-    }
-  };
-
-  const getHoverBgColor = (type: string) => {
-    switch (type) {
-      case 'experience':
-        return 'hover:bg-green-50 dark:hover:bg-green-900/10';
-      case 'project':
-        return 'hover:bg-orange-50 dark:hover:bg-orange-900/10';
-      default:
-        return 'hover:bg-gray-50 dark:hover:bg-gray-900/10';
-    }
+  // Configuration complète pour chaque type - 100% fiable
+  const getTypeConfig = (type: string) => {
+    const configs = {
+      experience: {
+        icon: Briefcase,
+        iconBgColor: 'bg-green-500',
+        iconBgColorInline: '#10b981', // Vert
+        borderColor: 'border-green-500',
+        hoverBgColor: 'hover:bg-green-50 dark:hover:bg-green-900/10',
+        textColor: 'text-green-500',
+        badgeBgColor: 'bg-green-100 dark:bg-green-900/20',
+        dataType: 'experience'
+      },
+      project: {
+        icon: Rocket,
+        iconBgColor: 'bg-orange-500',
+        iconBgColorInline: '#f97316', // Orange
+        borderColor: 'border-orange-500',
+        hoverBgColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/10',
+        textColor: 'text-orange-500',
+        badgeBgColor: 'bg-orange-100 dark:bg-orange-900/20',
+        dataType: 'project'
+      }
+    };
+    
+    return configs[type] || configs.project; // Fallback sur project
   };
 
   return (
@@ -70,20 +54,28 @@ const Timeline: React.FC = () => {
             {t('timeline.title')}
           </h2>
           
-          {/* Légende */}
+          {/* Légende avec couleurs forcées */}
           <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+              <div 
+                className="w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: '#10b981' }} // Vert forcé
+                data-type="experience"
+              >
                 <Briefcase className="h-4 w-4 text-white" />
               </div>
-              <span className="text-green-500 font-medium">Expérience</span>
+              <span className="text-green-500 font-medium">{t('timeline.experience')}</span>
             </div>
             
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
+              <div 
+                className="w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: '#f97316' }} // Orange forcé
+                data-type="project"
+              >
                 <Rocket className="h-4 w-4 text-white" />
               </div>
-              <span className="text-orange-500 font-medium">Projet</span>
+              <span className="text-orange-500 font-medium">{t('timeline.project')}</span>
             </div>
           </div>
         </motion.div>
@@ -95,7 +87,8 @@ const Timeline: React.FC = () => {
           {/* Timeline items */}
           <div className="space-y-12">
             {timelineData.map((item, index) => {
-              const Icon = getIcon(item.type);
+              const config = getTypeConfig(item.type);
+              const Icon = config.icon;
               const isEven = index % 2 === 0;
 
               return (
@@ -107,33 +100,45 @@ const Timeline: React.FC = () => {
                   className={`relative flex items-center ${
                     isEven ? 'flex-row' : 'flex-row-reverse'
                   }`}
+                  data-timeline-item={config.dataType}
                 >
-                  {/* Timeline dot */}
+                  {/* Timeline dot avec style inline pour garantir la couleur */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                    <div className={`w-12 h-12 rounded-full ${getColor(item.type)} flex items-center justify-center shadow-lg`}>
-                      <Icon className="h-6 w-6 text-white" />
+                    <div 
+                      className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg timeline-icon-${config.dataType}`}
+                      style={{ 
+                        backgroundColor: config.iconBgColorInline,
+                        opacity: 1,
+                        visibility: 'visible'
+                      }}
+                      data-type={config.dataType}
+                    >
+                      <Icon className="h-6 w-6 text-white" style={{ color: '#ffffff' }} />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className={`w-5/12 ${isEven ? 'pr-8' : 'pl-8'}`}>
-                    <div className={`bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 ${getBorderColor(item.type)} ${getHoverBgColor(item.type)}`}>
+                    <div 
+                      className={`bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 ${config.borderColor} ${config.hoverBgColor}`}
+                      data-content-type={config.dataType}
+                    >
                       <div className="flex items-center mb-3 justify-start">
-                        <span className="text-sm font-medium text-orange-500 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
-                          {item.year}
+                        <span className={`text-sm font-medium ${config.textColor} ${config.badgeBgColor} px-3 py-1 rounded-full`}>
+                          {t(item.year)}
                         </span>
                         <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">
                           {t(`timeline.${item.type}`)}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-left">
-                        {item.title}
+                        {t(item.title)}
                       </h3>
                       <p className="text-orange-600 dark:text-orange-400 font-medium mb-3 text-left">
-                        {item.company}
+                        {t(item.company)}
                       </p>
                       <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed text-left">
-                        {item.description}
+                        {t(item.description)}
                       </p>
                     </div>
                   </div>

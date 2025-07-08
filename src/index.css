@@ -254,6 +254,116 @@ a[href="https://krglobalsolutionsltd.com/"] {
 }
 
 /* ========================================
+   TIMELINE - ICÔNES TOUJOURS VISIBLES ET ORANGE (Section "Mon Parcours" uniquement)
+   ======================================== */
+
+/* NOUVEAU : Icônes de timeline toujours visibles - UNIQUEMENT pour la section timeline/parcours */
+#timeline .opacity-0,
+#parcours .opacity-0,
+section[id*="timeline"] .opacity-0,
+section[id*="parcours"] .opacity-0 {
+  opacity: 1 !important;
+}
+
+#timeline .invisible,
+#parcours .invisible,
+section[id*="timeline"] .invisible,
+section[id*="parcours"] .invisible {
+  visibility: visible !important;
+}
+
+/* Forcer l'affichage et la couleur ORANGE des icônes dans les cercles de la timeline */
+#timeline .bg-green-500,
+#timeline .bg-orange-500,
+#timeline .bg-gray-500,
+#timeline .bg-gray-600,
+#timeline .bg-gray-700,
+#parcours .bg-green-500,
+#parcours .bg-orange-500,
+#parcours .bg-gray-500,
+#parcours .bg-gray-600,
+#parcours .bg-gray-700,
+section[id*="timeline"] .bg-green-500,
+section[id*="timeline"] .bg-orange-500,
+section[id*="timeline"] .bg-gray-500,
+section[id*="timeline"] .bg-gray-600,
+section[id*="timeline"] .bg-gray-700,
+section[id*="parcours"] .bg-green-500,
+section[id*="parcours"] .bg-orange-500,
+section[id*="parcours"] .bg-gray-500,
+section[id*="parcours"] .bg-gray-600,
+section[id*="parcours"] .bg-gray-700 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #f97316 !important; /* FORCER ORANGE */
+}
+
+/* Icônes vertes pour les expériences */
+#timeline [data-type="experience"],
+#parcours [data-type="experience"],
+section[id*="timeline"] [data-type="experience"],
+section[id*="parcours"] [data-type="experience"] {
+  background-color: #10b981 !important; /* FORCER VERT */
+}
+
+/* Icônes SVG dans la timeline - toujours visibles et BLANCHES */
+#timeline .bg-green-500 svg,
+#timeline .bg-orange-500 svg,
+#timeline .bg-gray-500 svg,
+#timeline .bg-gray-600 svg,
+#timeline .bg-gray-700 svg,
+#parcours .bg-green-500 svg,
+#parcours .bg-orange-500 svg,
+#parcours .bg-gray-500 svg,
+#parcours .bg-gray-600 svg,
+#parcours .bg-gray-700 svg,
+section[id*="timeline"] svg,
+section[id*="parcours"] svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+}
+
+/* Supprimer les effets hover uniquement pour les icônes timeline */
+#timeline .group-hover\:opacity-100,
+#parcours .group-hover\:opacity-100,
+section[id*="timeline"] .group-hover\:opacity-100,
+section[id*="parcours"] .group-hover\:opacity-100 {
+  opacity: 1 !important;
+}
+
+/* Timeline spécifique - cercles d'icônes toujours visibles et colorés */
+.timeline-circle,
+.timeline-icon-container,
+[data-timeline-icon] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* FORCER spécifiquement pour tous les cercles dans la timeline */
+section[id*="timeline"] .w-8.h-8.rounded-full,
+section[id*="parcours"] .w-8.h-8.rounded-full,
+#timeline .w-8.h-8.rounded-full,
+#parcours .w-8.h-8.rounded-full {
+  background-color: #f97316 !important; /* ORANGE par défaut */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Cercles verts pour expériences */
+section[id*="timeline"] .w-8.h-8.rounded-full[data-type="experience"],
+section[id*="parcours"] .w-8.h-8.rounded-full[data-type="experience"],
+#timeline .w-8.h-8.rounded-full[data-type="experience"],
+#parcours .w-8.h-8.rounded-full[data-type="experience"] {
+  background-color: #10b981 !important; /* VERT pour expériences */
+}
+
+/* ========================================
    AUTRES EFFETS HOVER
    ======================================== */
 
