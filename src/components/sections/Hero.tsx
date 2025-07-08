@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
                   rel="noopener noreferrer"
                   className="group flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 border border-orange-500 text-orange-500 rounded-lg transition-colors duration-300 font-medium text-sm sm:text-base hover:bg-orange-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
                 >
-                  <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <FileText className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
                   <span>{t('hero.cv')}</span>
                 </a>
 
