@@ -51,7 +51,8 @@ const TypewriterText: React.FC = () => {
 };
 
 const Hero: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
   const typewriterWords = t('hero.typewriter', { returnObjects: true }) as string[];
   const displayText = useTypewriter(typewriterWords, 100);
 
@@ -136,13 +137,13 @@ const Hero: React.FC = () => {
               className="flex flex-col space-y-4"
             >
               {/* Buttons container */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+              <div dir={isRTL ? 'rtl' : 'ltr'} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
                 {/* CV Button */}
                 <a
                   href="/cv-raphael-theuillon.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 border border-orange-500 text-orange-500 rounded-lg transition-colors duration-300 font-medium text-sm sm:text-base hover:bg-orange-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className="group flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-orange-500 text-orange-500 rounded-lg transition-colors duration-300 font-medium text-sm sm:text-base hover:bg-orange-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
                 >
                   <FileText className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
                   <span>{t('hero.cv')}</span>
@@ -153,7 +154,7 @@ const Hero: React.FC = () => {
                   href="https://krglobalsolutionsltd.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base border border-gray-600 hover:border-orange-500"
+                  className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base border border-gray-600 hover:border-orange-500"
                 >
                   <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span>{t('companies.krGlobal')}</span>
@@ -161,7 +162,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex gap-4">
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.name}
