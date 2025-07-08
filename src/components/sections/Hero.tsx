@@ -88,35 +88,41 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col space-y-4"
+              className={`flex flex-col space-y-4 ${isRTL ? 'items-end' : 'items-start'}`}
             >
-              <div
-                dir={isRTL ? 'rtl' : 'ltr'}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
-              >
-                <a
-                  href="/cv-raphael-theuillon.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-orange-500 text-orange-500 rounded-lg transition-colors duration-300 font-medium text-sm sm:text-base hover:bg-orange-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+
+{/* Buttons container – VERSION RTL FIXÉE */}
+<div
+  dir={isRTL ? 'rtl' : 'ltr'}
+  className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 ${
+    isRTL ? 'sm:flex-row-reverse' : ''
+  }`}
+></div>
                 >
                   <FileText className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
                   <span>{t('hero.cv')}</span>
                 </a>
 
-                {/* KR Global Solutions Button - MÊME STYLE QUE CV EN LIGHT */}
+                {/* KR Global Solutions Button - MÊME STYLE QUE CV */}
                 <a
                   href="https://krglobalsolutionsltd.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105"
+                  className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105 ${
+                    isRTL ? 'flex-row-reverse' : ''
+                  }`}
                 >
                   <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span>{t('companies.krGlobal')}</span>
                 </a>
               </div>
 
+<<<<<<< HEAD
               <div className="flex gap-4">
+=======
+              {/* Social Links - ALIGNEMENT PARFAIT AVEC BOUTONS */}
+              <div className={`flex gap-4 ${isRTL ? 'self-end' : 'self-start'}`}>
+>>>>>>> 24a42ab (nodif arab)
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.name}
