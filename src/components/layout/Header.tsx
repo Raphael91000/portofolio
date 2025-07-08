@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               RT
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex gap-8">
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Desktop Controls */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <LanguageSelector />
           </div>
@@ -96,7 +96,7 @@ const Header: React.FC = () => {
             >
               <div className="p-6 space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Code2 className="h-6 w-6 text-orange-500" />
                     <span className="text-lg font-bold text-gray-900 dark:text-white">RT</span>
                   </div>
