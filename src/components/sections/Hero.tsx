@@ -104,11 +104,12 @@ const Hero: React.FC = () => {
                   <span>{t('hero.cv')}</span>
                 </a>
 
+                {/* KR Global Solutions Button - MÊME STYLE QUE CV EN LIGHT */}
                 <a
                   href="https://krglobalsolutionsltd.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors font-medium text-sm sm:text-base border border-gray-600 hover:border-orange-500"
+                  className="flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105"
                 >
                   <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span>{t('companies.krGlobal')}</span>

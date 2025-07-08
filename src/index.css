@@ -287,14 +287,12 @@ html.dark .bg-gray-700:hover {
   border-color: #f97316 !important;
 }
 
-/* MODE CLAIR - Texte et icônes orange par défaut */
-html.light .bg-orange-500 span,
-html.light .bg-gray-700 span {
+/* MODE CLAIR - Texte et icônes orange par défaut pour les boutons avec contour orange */
+html.light .bg-white.border-orange-500 span {
   color: #f97316 !important;
 }
 
-html.light .bg-orange-500 svg,
-html.light .bg-gray-700 svg {
+html.light .bg-white.border-orange-500 svg {
   color: #f97316 !important;
   stroke: #f97316 !important;
 }
