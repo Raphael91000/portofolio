@@ -27,7 +27,6 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isMobile = false })
   const handleLanguageChange = (langCode: Language) => {
     i18n.changeLanguage(langCode);
     setIsOpen(false);
-    document.documentElement.setAttribute('dir', langCode === 'ar' ? 'rtl' : 'ltr');
   };
 
   if (isMobile) {
