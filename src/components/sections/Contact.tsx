@@ -6,7 +6,8 @@ import { Send, CheckCircle, AlertCircle, Linkedin, Github, ExternalLink } from '
 import { ContactForm } from '../../types';
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -80,16 +81,23 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 ${isRTL ? 'lg:grid-flow-col-dense' : ''}`}>
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className={isRTL ? 'lg:order-2' : 'lg:order-1'}
+            dir={isRTL ? 'rtl' : 'ltr'}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label 
+                  htmlFor="name" 
+                  className={`block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                >
                   {t('contact.form.name')}
                 </label>
                 <input
@@ -99,12 +107,20 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                  dir={isRTL ? 'rtl' : 'ltr'}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label 
+                  htmlFor="email" 
+                  className={`block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                >
                   {t('contact.form.email')}
                 </label>
                 <input
@@ -114,12 +130,20 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
+                  className={`w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                  dir={isRTL ? 'rtl' : 'ltr'}
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label 
+                  htmlFor="message" 
+                  className={`block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                >
                   {t('contact.form.message')}
                 </label>
                 <textarea
@@ -129,14 +153,23 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   rows={5}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors resize-none"
+                  className={`w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors resize-none ${
+                    isRTL ? 'text-right' : 'text-left'
+                  }`}
+                  dir={isRTL ? 'rtl' : 'ltr'}
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === 'sending'}
+<<<<<<< HEAD
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium"
+=======
+                className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium ${
+                  isRTL ? 'flex-row-reverse' : ''
+                }`}
+>>>>>>> 477ebdb (modif button arab)
               >
                 {status === 'sending' ? (
                   <>
@@ -165,25 +198,36 @@ const Contact: React.FC = () => {
 
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
+            className={`space-y-8 ${isRTL ? 'lg:order-1 text-right' : 'lg:order-2 text-left'}`}
+            dir={isRTL ? 'rtl' : 'ltr'}
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4 ${
+                isRTL ? 'text-right' : 'text-left'
+              }`}>
                 {t('contact.stayConnected')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className={`text-gray-600 dark:text-gray-400 leading-relaxed ${
+                isRTL ? 'text-right' : 'text-left'
+              }`}>
                 {t('contact.stayConnectedDescription')}
               </p>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <h4 className={`text-lg font-semibold text-gray-900 dark:text-white mb-4 ${
+                isRTL ? 'text-right' : 'text-left'
+              }`}>
                 {t('contact.socialNetworks')}
               </h4>
+<<<<<<< HEAD
               <div className="flex gap-4">
+=======
+              <div className={`flex gap-4 ${isRTL ? 'justify-end flex-row-reverse' : 'justify-start'}`}>
+>>>>>>> 477ebdb (modif button arab)
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.name}

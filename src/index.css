@@ -298,6 +298,211 @@ html.light .bg-white.border-orange-500 svg {
 }
 
 /* ========================================
+   SUPPORT RTL POUR SECTION CONTACT
+   ======================================== */
+
+/* Espacement correct pour les icônes sociales en RTL */
+[dir="rtl"] #contact .flex.gap-4 {
+  gap: 1rem !important;
+}
+
+[dir="rtl"] #contact .justify-end {
+  justify-content: flex-end !important;
+}
+
+[dir="rtl"] #contact .justify-start {
+  justify-content: flex-start !important;
+}
+
+[dir="rtl"] #contact .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Alignement du texte en RTL */
+[dir="rtl"] #contact .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] #contact .text-left {
+  text-align: left !important;
+}
+
+/* Formulaire en RTL */
+[dir="rtl"] #contact input,
+[dir="rtl"] #contact textarea {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] #contact label {
+  text-align: right !important;
+}
+
+/* Bouton du formulaire en RTL */
+[dir="rtl"] #contact button .gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Ordre des colonnes en RTL */
+[dir="rtl"] #contact .lg\:order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] #contact .lg\:order-2 {
+  order: 2 !important;
+}
+
+/* Grid flow pour RTL */
+[dir="rtl"] #contact .lg\:grid-flow-col-dense {
+  grid-auto-flow: column dense !important;
+}
+
+/* Corrections spécifiques pour les icônes sociales */
+[dir="rtl"] #contact .social-links {
+  gap: 1rem !important;
+}
+
+/* Forcer l'espacement des icônes sociales */
+[dir="rtl"] #contact a + a {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR SECTION ABOUT
+   ======================================== */
+
+/* Espacement des icônes dans la section About */
+[dir="rtl"] #about .flex.items-center.gap-3 {
+  gap: 0.75rem !important;
+}
+
+[dir="rtl"] #about .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Bordures des formations en RTL */
+[dir="rtl"] #about .border-r-2 {
+  border-right-width: 2px !important;
+  border-left-width: 0 !important;
+}
+
+[dir="rtl"] #about .pr-4 {
+  padding-right: 1rem !important;
+  padding-left: 0 !important;
+}
+
+/* Alignement du texte en RTL */
+[dir="rtl"] #about .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] #about .text-left {
+  text-align: left !important;
+}
+
+/* Justification du contenu en RTL */
+[dir="rtl"] #about .justify-end {
+  justify-content: flex-end !important;
+}
+
+[dir="rtl"] #about .justify-start {
+  justify-content: flex-start !important;
+}
+
+/* Ordre des colonnes en RTL */
+[dir="rtl"] #about .lg\:order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] #about .lg\:order-2 {
+  order: 2 !important;
+}
+
+/* Grid flow pour RTL */
+[dir="rtl"] #about .lg\:grid-flow-col-dense {
+  grid-auto-flow: column dense !important;
+}
+
+/* Corrections spécifiques pour les éléments About */
+[dir="rtl"] #about .space-y-3 > * + *,
+[dir="rtl"] #about .space-y-4 > * + * {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Forcer l'espacement des icônes en RTL */
+[dir="rtl"] #about .w-10.h-10 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR HEADER/NAVBAR
+   ======================================== */
+
+/* Espacement correct pour les contrôles de header en RTL */
+[dir="rtl"] .gap-4 {
+  gap: 1rem !important;
+}
+
+[dir="rtl"] .gap-2 {
+  gap: 0.5rem !important;
+}
+
+[dir="rtl"] .gap-8 {
+  gap: 2rem !important;
+}
+
+/* Forcer l'ordre des éléments header en RTL */
+[dir="rtl"] .order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] .order-2 {
+  order: 2 !important;
+}
+
+[dir="rtl"] .order-3 {
+  order: 3 !important;
+}
+
+/* Flex direction pour les contrôles header */
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Menu mobile RTL */
+[dir="rtl"] .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-left {
+  text-align: left !important;
+}
+
+/* Espacement spécifique pour les boutons de contrôle header */
+[dir="rtl"] header .hidden.md\\:flex.items-center {
+  gap: 1rem !important;
+}
+
+/* Correction pour le logo en RTL */
+[dir="rtl"] .flex.items-center.gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Animation du menu mobile selon la direction */
+[dir="rtl"] .absolute.left-0 {
+  left: 0 !important;
+  right: auto !important;
+}
+
+[dir="rtl"] .absolute.right-0 {
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* ========================================
    SUPPORT RTL POUR LES BOUTONS ET RÉSEAUX SOCIAUX
    ======================================== */
 

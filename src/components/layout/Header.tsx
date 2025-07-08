@@ -6,8 +6,9 @@ import LanguageSelector from '../common/LanguageSelector';
 import ThemeToggle from '../common/ThemeToggle';
 
 const Header: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isRTL = i18n.dir() === 'rtl';
 
   const navItems = [
     { key: 'home', href: '#home' },
@@ -36,16 +37,26 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+<<<<<<< HEAD
           {/* Logo */}
           <div className="flex items-center gap-2">
+=======
+          {/* Logo - Avec support RTL */}
+          <div className={`flex items-center gap-2 ${isRTL ? 'order-3' : 'order-1'}`}>
+>>>>>>> 477ebdb (modif button arab)
             <Code2 className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               RT
             </span>
           </div>
 
+<<<<<<< HEAD
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8">
+=======
+          {/* Desktop Navigation - Centre */}
+          <nav className={`hidden md:flex gap-8 ${isRTL ? 'order-2' : 'order-2'}`}>
+>>>>>>> 477ebdb (modif button arab)
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -57,8 +68,18 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
+<<<<<<< HEAD
           {/* Desktop Controls */}
           <div className="hidden md:flex items-center gap-4">
+=======
+          {/* Desktop Controls - CORRECTION RTL */}
+          <div 
+            className={`hidden md:flex items-center gap-4 ${
+              isRTL ? 'order-1 flex-row-reverse' : 'order-3'
+            }`}
+            dir={isRTL ? 'rtl' : 'ltr'}
+          >
+>>>>>>> 477ebdb (modif button arab)
             <ThemeToggle />
             <LanguageSelector />
           </div>
@@ -66,7 +87,9 @@ const Header: React.FC = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className={`md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
+              isRTL ? 'order-1' : 'order-4'
+            }`}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
@@ -88,15 +111,27 @@ const Header: React.FC = () => {
             onClick={handleOutsideClick}
           >
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: isRTL ? '-100%' : '100%' }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              exit={{ x: isRTL ? '-100%' : '100%' }}
               transition={{ type: 'spring', damping: 25 }}
-              className="absolute right-0 top-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl"
+              className={`absolute ${
+                isRTL ? 'left-0' : 'right-0'
+              } top-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl`}
+              dir={isRTL ? 'rtl' : 'ltr'}
             >
               <div className="p-6 space-y-6">
+<<<<<<< HEAD
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
+=======
+                <div className={`flex items-center justify-between ${
+                  isRTL ? 'flex-row-reverse' : ''
+                }`}>
+                  <div className={`flex items-center gap-2 ${
+                    isRTL ? 'flex-row-reverse' : ''
+                  }`}>
+>>>>>>> 477ebdb (modif button arab)
                     <Code2 className="h-6 w-6 text-orange-500" />
                     <span className="text-lg font-bold text-gray-900 dark:text-white">RT</span>
                   </div>
@@ -113,7 +148,9 @@ const Header: React.FC = () => {
                     <button
                       key={item.key}
                       onClick={() => scrollToSection(item.href)}
-                      className="w-full text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                      className={`w-full px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium ${
+                        isRTL ? 'text-right' : 'text-left'
+                      }`}
                     >
                       {t(`nav.${item.key}`)}
                     </button>
@@ -121,12 +158,20 @@ const Header: React.FC = () => {
                 </nav>
 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Theme</span>
+                  <div className={`flex items-center justify-between ${
+                    isRTL ? 'flex-row-reverse' : ''
+                  }`}>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {t('theme')}
+                    </span>
                     <ThemeToggle />
                   </div>
                   <div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400 mb-2 block">Language</span>
+                    <span className={`text-sm text-gray-500 dark:text-gray-400 mb-2 block ${
+                      isRTL ? 'text-right' : 'text-left'
+                    }`}>
+                      {t('language')}
+                    </span>
                     <LanguageSelector isMobile />
                   </div>
                 </div>
