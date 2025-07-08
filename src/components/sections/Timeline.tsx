@@ -55,8 +55,8 @@ const Timeline: React.FC = () => {
           </h2>
           
           {/* Légende avec couleurs forcées */}
-          <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
-            <div className="flex items-center space-x-2">
+          <div className="flex justify-center items-center flex-wrap gap-y-4 gap-x-8">
+            <div className="flex items-center gap-2">
               <div 
                 className="w-8 h-8 rounded-full flex items-center justify-center"
                 style={{ backgroundColor: '#50cf01' }} // Vert lime flashy
@@ -67,7 +67,7 @@ const Timeline: React.FC = () => {
               <span className="text-black dark:text-white font-medium">{t('timeline.experience')}</span>
             </div>
             
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <div 
                 className="w-8 h-8 rounded-full flex items-center justify-center"
                 style={{ backgroundColor: '#f97316' }} // Orange forcé
@@ -123,11 +123,11 @@ const Timeline: React.FC = () => {
                       className={`bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 ${config.borderColor} ${config.hoverBgColor}`}
                       data-content-type={config.dataType}
                     >
-                      <div className="flex items-center mb-3 justify-start">
+                      <div className="flex items-center mb-3 justify-start gap-2">
                         <span className={`text-sm font-medium ${config.textColor} ${config.badgeBgColor} px-3 py-1 rounded-full`}>
                           {t(item.year)}
                         </span>
-                        <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
                           {t(`timeline.${item.type}`)}
                         </span>
                       </div>

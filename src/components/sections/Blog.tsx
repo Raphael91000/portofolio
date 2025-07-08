@@ -91,12 +91,12 @@ const Blog: React.FC = () => {
                   <span className={`px-3 py-1 rounded-full text-white text-xs font-medium ${getCategoryColor(post.category)}`}>
                     {t(`blog.categories.${post.category}`)}
                   </span>
-                  <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center space-x-1">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center gap-1">
                       <Calendar className="h-4 w-4" />
                       <span>{new Date(post.date).toLocaleDateString()}</span>
                     </div>
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center gap-1">
                       <Clock className="h-4 w-4" />
                       <span>{post.readTime} {t('blog.readTime')}</span>
                     </div>
@@ -134,7 +134,7 @@ const Blog: React.FC = () => {
                   </button>
                   <button
                     onClick={() => handleListen(post)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm"
+                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm"
                   >
                     {isListening ? (
                       <>

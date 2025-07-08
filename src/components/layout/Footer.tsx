@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center gap-2 mb-4">
               <Code2 className="h-8 w-8 text-orange-500" />
               <span className="text-xl font-bold">RT</span>
             </div>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           {/* Social Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <div className="flex space-x-4">
+            <div className="flex gap-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}

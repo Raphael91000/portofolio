@@ -36,13 +36,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isMobile = false })
           <button
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
-            className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
+            className={`w-full text-left px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               i18n.language === lang.code
                 ? 'bg-orange-500 text-white'
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
-            <span className="mr-2">{lang.flag}</span>
+            <span>{lang.flag}</span>
             {lang.name}
           </button>
         ))}
@@ -54,7 +54,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isMobile = false })
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
       >
         <Globe className="h-4 w-4" />
         <span className="hidden sm:inline">{currentLanguage.flag}</span>
@@ -68,11 +68,11 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isMobile = false })
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
-              className={`w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors first:rounded-t-lg last:rounded-b-lg text-gray-700 dark:text-gray-300 ${
+              className={`w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors first:rounded-t-lg last:rounded-b-lg text-gray-700 dark:text-gray-300 flex items-center gap-2 ${
                 i18n.language === lang.code ? 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400' : ''
               }`}
             >
-              <span className="mr-2">{lang.flag}</span>
+              <span>{lang.flag}</span>
               {lang.name}
             </button>
           ))}
