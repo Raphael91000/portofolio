@@ -37,26 +37,16 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-<<<<<<< HEAD
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-=======
           {/* Logo - Avec support RTL */}
           <div className={`flex items-center gap-2 ${isRTL ? 'order-3' : 'order-1'}`}>
->>>>>>> 477ebdb (modif button arab)
             <Code2 className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               RT
             </span>
           </div>
 
-<<<<<<< HEAD
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8">
-=======
           {/* Desktop Navigation - Centre */}
           <nav className={`hidden md:flex gap-8 ${isRTL ? 'order-2' : 'order-2'}`}>
->>>>>>> 477ebdb (modif button arab)
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -68,10 +58,6 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-<<<<<<< HEAD
-          {/* Desktop Controls */}
-          <div className="hidden md:flex items-center gap-4">
-=======
           {/* Desktop Controls - CORRECTION RTL */}
           <div 
             className={`hidden md:flex items-center gap-4 ${
@@ -79,7 +65,6 @@ const Header: React.FC = () => {
             }`}
             dir={isRTL ? 'rtl' : 'ltr'}
           >
->>>>>>> 477ebdb (modif button arab)
             <ThemeToggle />
             <LanguageSelector />
           </div>
@@ -121,17 +106,12 @@ const Header: React.FC = () => {
               dir={isRTL ? 'rtl' : 'ltr'}
             >
               <div className="p-6 space-y-6">
-<<<<<<< HEAD
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-=======
                 <div className={`flex items-center justify-between ${
                   isRTL ? 'flex-row-reverse' : ''
                 }`}>
                   <div className={`flex items-center gap-2 ${
                     isRTL ? 'flex-row-reverse' : ''
                   }`}>
->>>>>>> 477ebdb (modif button arab)
                     <Code2 className="h-6 w-6 text-orange-500" />
                     <span className="text-lg font-bold text-gray-900 dark:text-white">RT</span>
                   </div>

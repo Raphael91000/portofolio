@@ -163,13 +163,9 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-<<<<<<< HEAD
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium"
-=======
                 className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium ${
                   isRTL ? 'flex-row-reverse' : ''
                 }`}
->>>>>>> 477ebdb (modif button arab)
               >
                 {status === 'sending' ? (
                   <>
@@ -223,11 +219,7 @@ const Contact: React.FC = () => {
               }`}>
                 {t('contact.socialNetworks')}
               </h4>
-<<<<<<< HEAD
-              <div className="flex gap-4">
-=======
               <div className={`flex gap-4 ${isRTL ? 'justify-end flex-row-reverse' : 'justify-start'}`}>
->>>>>>> 477ebdb (modif button arab)
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.name}

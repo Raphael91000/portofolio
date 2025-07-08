@@ -56,11 +56,7 @@ const About: React.FC = () => {
             >
               {/* Formations */}
               <div>
-<<<<<<< HEAD
-                <div className="flex items-center mb-4 gap-3">
-=======
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
->>>>>>> 477ebdb (modif button arab)
                   <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <GraduationCap className="h-5 w-5 text-white" />
                   </div>
@@ -102,11 +98,7 @@ const About: React.FC = () => {
 
               {/* Langues */}
               <div>
-<<<<<<< HEAD
-                <div className="flex items-center mb-4 gap-3">
-=======
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
->>>>>>> 477ebdb (modif button arab)
                   <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <Languages className="h-5 w-5 text-white" />
                   </div>
@@ -135,11 +127,7 @@ const About: React.FC = () => {
 
               {/* Certifications */}
               <div>
-<<<<<<< HEAD
-                <div className="flex items-center mb-4 gap-3">
-=======
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
->>>>>>> 477ebdb (modif button arab)
                   <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <Award className="h-5 w-5 text-white" />
                   </div>
