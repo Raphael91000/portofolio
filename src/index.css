@@ -202,16 +202,79 @@ html.light .bg-gray-700 {
   border: 2px solid #f97316 !important;
 }
 
-/* MODE CLAIR - Texte et icônes orange par défaut */
-html.light .bg-orange-500 span,
-html.light .bg-gray-700 span {
+/* NOUVEAU : Support pour le bouton CV - MODE LIGHT SEULEMENT blanc avec contour orange */
+html.light .bg-white.border-orange-500 {
+  background-color: #ffffff !important;
+  color: #f97316 !important;
+  border: 2px solid #f97316 !important;
+}
+
+/* NOUVEAU : Support pour le bouton CV - MODE DARK orange classique */
+html.dark .dark\:bg-orange-500 {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  border: 2px solid #f97316 !important;
+}
+
+/* NOUVEAU : Bouton CV MODE LIGHT - texte et icônes orange */
+html.light .bg-white.border-orange-500 span {
   color: #f97316 !important;
 }
 
-html.light .bg-orange-500 svg,
-html.light .bg-gray-700 svg {
+html.light .bg-white.border-orange-500 svg {
   color: #f97316 !important;
   stroke: #f97316 !important;
+}
+
+/* NOUVEAU : Bouton CV MODE DARK - texte et icônes blancs */
+html.dark .dark\:bg-orange-500 span {
+  color: #ffffff !important;
+}
+
+html.dark .dark\:bg-orange-500 svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* NOUVEAU : Hover pour bouton CV MODE LIGHT - blanc vers orange */
+html.light .bg-white.border-orange-500:hover {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  border-color: #f97316 !important;
+}
+
+/* NOUVEAU : Hover pour bouton CV MODE DARK - orange vers orange foncé */
+html.dark .dark\:bg-orange-500:hover,
+html.dark .dark\:hover\:bg-orange-600:hover {
+  background-color: #ea580c !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  border-color: #ea580c !important;
+}
+
+/* NOUVEAU : Bouton CV hover MODE LIGHT - texte et icônes blancs */
+html.light .bg-white.border-orange-500:hover span {
+  color: #ffffff !important;
+}
+
+html.light .bg-white.border-orange-500:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* NOUVEAU : Bouton CV hover MODE DARK - texte et icônes restent blancs */
+html.dark .dark\:bg-orange-500:hover span,
+html.dark .dark\:hover\:bg-orange-600:hover span {
+  color: #ffffff !important;
+}
+
+html.dark .dark\:bg-orange-500:hover svg,
+html.dark .dark\:hover\:bg-orange-600:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 /* HOVER - Mode sombre (inchangé) */
@@ -222,6 +285,18 @@ html.dark .bg-gray-700:hover {
   box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
   opacity: 1 !important;
   border-color: #f97316 !important;
+}
+
+/* MODE CLAIR - Texte et icônes orange par défaut */
+html.light .bg-orange-500 span,
+html.light .bg-gray-700 span {
+  color: #f97316 !important;
+}
+
+html.light .bg-orange-500 svg,
+html.light .bg-gray-700 svg {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
 }
 
 /* HOVER - Mode clair (remplissage orange) */
