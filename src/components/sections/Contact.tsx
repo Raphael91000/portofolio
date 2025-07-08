@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white rounded-lg transition-colors font-medium"
               >
                 {status === 'sending' ? (
                   <>
@@ -183,7 +183,7 @@ const Contact: React.FC = () => {
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 {t('contact.socialNetworks')}
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex gap-4">
                 {socialLinks.map((link) => (
                   <motion.a
                     key={link.name}

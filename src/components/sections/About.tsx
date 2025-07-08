@@ -54,8 +54,8 @@ const About: React.FC = () => {
             >
               {/* Formations */}
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                <div className="flex items-center mb-4 gap-3">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <GraduationCap className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -83,8 +83,8 @@ const About: React.FC = () => {
 
               {/* Langues */}
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                <div className="flex items-center mb-4 gap-3">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <Languages className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -107,8 +107,8 @@ const About: React.FC = () => {
 
               {/* Certifications */}
               <div>
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                <div className="flex items-center mb-4 gap-3">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
                     <Award className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
