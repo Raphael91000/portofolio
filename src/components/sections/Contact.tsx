@@ -24,19 +24,16 @@ const Contact: React.FC = () => {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/raphael-theuillon-689139261',
       icon: Linkedin,
-      color: 'hover:text-blue-600',
     },
     {
       name: 'GitHub',
       href: 'https://github.com/Raphael91000',
       icon: Github,
-      color: 'hover:text-gray-800 dark:hover:text-gray-200',
     },
     {
       name: 'Fiverr',
       href: 'https://www.fiverr.com/users/raph910/seller_dashboard',
       icon: ExternalLink,
-      color: 'hover:text-green-600',
     },
   ];
 
@@ -193,11 +190,24 @@ const Contact: React.FC = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-400 ${link.color}`}
-                    whileHover={{ scale: 1.05 }}
+                    className={`
+                      p-3 rounded-lg border-2 border-transparent
+                      bg-gray-100 dark:bg-gray-800
+                      text-gray-600 dark:text-gray-400
+                      transition-all duration-300 ease-in-out
+                      transform hover:scale-110 hover:-translate-y-1
+                      hover:shadow-lg hover:shadow-orange-500/20
+                      hover:bg-orange-500 hover:text-white
+                      dark:hover:bg-orange-500 dark:hover:text-white
+                    `}
+                    whileHover={{ 
+                      scale: 1.1,
+                      y: -4,
+                      transition: { duration: 0.2 }
+                    }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <link.icon className="h-6 w-6" />
+                    <link.icon className="h-6 w-6 transition-all duration-300" />
                   </motion.a>
                 ))}
               </div>
