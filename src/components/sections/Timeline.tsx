@@ -18,7 +18,7 @@ const Timeline: React.FC = () => {
       experience: {
         icon: Briefcase,
         iconBgColor: 'bg-green-500',
-        iconBgColorInline: '#10b981', // Vert
+        iconBgColorInline: '#50cf01', // Vert lime flashy
         borderColor: 'border-green-500',
         hoverBgColor: 'hover:bg-green-50 dark:hover:bg-green-900/10',
         textColor: 'text-green-500',
@@ -59,12 +59,12 @@ const Timeline: React.FC = () => {
             <div className="flex items-center space-x-2">
               <div 
                 className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: '#10b981' }} // Vert forcé
+                style={{ backgroundColor: '#50cf01' }} // Vert lime flashy
                 data-type="experience"
               >
                 <Briefcase className="h-4 w-4 text-white" />
               </div>
-              <span className="text-green-500 font-medium">{t('timeline.experience')}</span>
+              <span className="text-black dark:text-white font-medium">{t('timeline.experience')}</span>
             </div>
             
             <div className="flex items-center space-x-2">
@@ -75,7 +75,7 @@ const Timeline: React.FC = () => {
               >
                 <Rocket className="h-4 w-4 text-white" />
               </div>
-              <span className="text-orange-500 font-medium">{t('timeline.project')}</span>
+              <span className="text-black dark:text-white font-medium">{t('timeline.project')}</span>
             </div>
           </div>
         </motion.div>
