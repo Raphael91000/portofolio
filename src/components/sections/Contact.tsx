@@ -21,9 +21,18 @@ const Contact: React.FC = () => {
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  // Initialisation d'EmailJS
+  // Initialisation d'EmailJS avec debug
   useEffect(() => {
-    emailjs.init("b7g8fAENSrRYsQcP9");
+    console.log('🔧 Initialisation EmailJS...');
+    try {
+      // Méthode alternative d'initialisation
+      emailjs.init({
+        publicKey: "b7g8fAENSrRYsQcP9",
+      });
+      console.log('✅ EmailJS initialisé avec succès (méthode alternative)');
+    } catch (error) {
+      console.error('❌ Erreur lors de l\'initialisation EmailJS:', error);
+    }
   }, []);
 
   const socialLinks = [
@@ -46,14 +55,22 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('📨 Début de l\'envoi du formulaire');
+    
+    // Vérification de la disponibilité d'EmailJS
+    console.log('🔍 EmailJS disponible:', typeof emailjs);
+    console.log('🔍 Méthode send disponible:', typeof emailjs.send);
     
     // Validation
     if (!formData.name || !formData.email || !formData.message) {
+      console.log('❌ Validation échouée - champs manquants');
+      alert('Veuillez remplir tous les champs');
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
       return;
     }
 
+    console.log('📝 Données du formulaire:', formData);
     setStatus('sending');
 
     try {
@@ -64,20 +81,37 @@ const Contact: React.FC = () => {
         message: formData.message
       };
 
-      // Envoi via EmailJS
-      await emailjs.send(
-        'service_n2zc241',
-        'template_9ug02na', 
-        templateParams
+      console.log('🚀 Envoi avec les paramètres:', {
+        serviceId: 'service_pr9szhk',
+        templateId: 'template_9ug02na',
+        templateParams: templateParams,
+        publicKey: 'b7g8fAENSrRYsQcP9'
+      });
+
+      // Test avec le bon Service ID
+      const response = await emailjs.send(
+        'service_pr9szhk',    // Nouveau Service ID correct
+        'template_9ug02na',   // Template ID vérifié  
+        templateParams,
+        {
+          publicKey: 'b7g8fAENSrRYsQcP9'
+        }
       );
 
+      console.log('✅ Email envoyé avec succès!', response);
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
       // Reset status after 3 seconds
       setTimeout(() => setStatus('idle'), 3000);
     } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error);
+      console.error('❌ Erreur complète lors de l\'envoi:', error);
+      console.error('❌ Type d\'erreur:', typeof error);
+      console.error('❌ Status de l\'erreur:', (error as any)?.status);
+      console.error('❌ Text de l\'erreur:', (error as any)?.text);
+      console.error('❌ Message d\'erreur:', (error as any)?.message);
+      console.error('❌ Détails complets:', JSON.stringify(error, null, 2));
+      
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }
