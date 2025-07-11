@@ -1238,9 +1238,10 @@ html.light .border-orange-500 .text-orange-600 {
   color: #f97316 !important;
 }
 
-/* MODE LIGHT - AU HOVER : Fond orange et TOUT en blanc */
+/* MODE LIGHT - AU HOVER : Fond orange, cadre blanc, texte blanc SAUF dates orange */
 html.light .border-orange-500:hover {
   background-color: #f97316 !important;
+  border-color: #ffffff !important; /* Cadre blanc au lieu d'orange */
 }
 
 html.light .border-orange-500:hover *,
@@ -1252,11 +1253,18 @@ html.light .border-orange-500:hover h5,
 html.light .border-orange-500:hover h6,
 html.light .border-orange-500:hover p,
 html.light .border-orange-500:hover span,
-html.light .border-orange-500:hover div,
+html.light .border-orange-500:hover div {
+  color: #ffffff !important;
+}
+
+/* FORCER LES DATES À RESTER ORANGE AVEC LEUR STYLE ORIGINAL */
 html.light .border-orange-500:hover .text-orange-500,
 html.light .border-orange-500:hover .text-orange-400,
-html.light .border-orange-500:hover .text-orange-600 {
-  color: #ffffff !important;
+html.light .border-orange-500:hover .text-orange-600,
+html.light .border-orange-500:hover .bg-orange-100,
+html.light .border-orange-500:hover .bg-orange-50 {
+  color: #f97316 !important; /* Orange normal */
+  background-color: rgba(249, 115, 22, 0.1) !important; /* Fond orange clair normal */
 }
 
 /* PAREIL POUR HOVER BG ORANGE */
