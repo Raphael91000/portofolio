@@ -380,6 +380,8 @@ html.light .bg-white.border-orange-500:hover svg {
   stroke: #ffffff !important;
 }
 
+
+
 /* NOUVEAU : Bouton CV hover MODE DARK - texte et icônes restent blancs */
 html.dark .dark\:bg-orange-500:hover span,
 html.dark .dark\:hover\:bg-orange-600:hover span {

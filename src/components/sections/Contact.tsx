@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, CheckCircle, AlertCircle, Linkedin, Github, ExternalLink } from 'lucide-react';
 import { ContactForm } from '../../types';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +20,11 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  // Initialisation d'EmailJS
+  useEffect(() => {
+    emailjs.init("b7g8fAENSrRYsQcP9");
+  }, []);
 
   const socialLinks = [
     {
@@ -40,17 +46,38 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
+
     setStatus('sending');
 
     try {
-      // Simulate sending email
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Paramètres pour EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message
+      };
+
+      // Envoi via EmailJS
+      await emailjs.send(
+        'service_n2zc241',
+        'template_9ug02na', 
+        templateParams
+      );
+
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
       // Reset status after 3 seconds
       setTimeout(() => setStatus('idle'), 3000);
     } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }
