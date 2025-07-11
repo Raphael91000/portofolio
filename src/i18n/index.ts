@@ -5,7 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import fr from './locales/fr.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
-import ar from './locales/ar.json';
 import ru from './locales/ru.json';
 import zh from './locales/zh.json';
 import ja from './locales/ja.json';
@@ -19,7 +18,6 @@ i18n
       fr: { translation: fr },
       en: { translation: en },
       es: { translation: es },
-      ar: { translation: ar },
       ru: { translation: ru },
       zh: { translation: zh },
       ja: { translation: ja },

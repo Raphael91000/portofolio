@@ -1213,3 +1213,91 @@ html.dark .shadow-xl {
 [class*="skill"]:hover svg {
   stroke: #ffffff !important;
 }
+
+/* ========================================
+   🎯 CARDS TIMELINE - ÉTAT NORMAL ET HOVER CORRECT
+   ======================================== */
+
+/* MODE LIGHT - ÉTAT NORMAL : Texte noir, seule la date reste orange */
+html.light .border-orange-500 h1,
+html.light .border-orange-500 h2,
+html.light .border-orange-500 h3,
+html.light .border-orange-500 h4,
+html.light .border-orange-500 h5,
+html.light .border-orange-500 h6,
+html.light .border-orange-500 p,
+html.light .border-orange-500 span:not(.text-orange-500):not(.text-orange-400):not(.text-orange-600),
+html.light .border-orange-500 div {
+  color: #000000 !important;
+}
+
+/* MODE LIGHT - GARDER LA DATE EN ORANGE */
+html.light .border-orange-500 .text-orange-500,
+html.light .border-orange-500 .text-orange-400,
+html.light .border-orange-500 .text-orange-600 {
+  color: #f97316 !important;
+}
+
+/* MODE LIGHT - AU HOVER : Fond orange et TOUT en blanc */
+html.light .border-orange-500:hover {
+  background-color: #f97316 !important;
+}
+
+html.light .border-orange-500:hover *,
+html.light .border-orange-500:hover h1,
+html.light .border-orange-500:hover h2,
+html.light .border-orange-500:hover h3,
+html.light .border-orange-500:hover h4,
+html.light .border-orange-500:hover h5,
+html.light .border-orange-500:hover h6,
+html.light .border-orange-500:hover p,
+html.light .border-orange-500:hover span,
+html.light .border-orange-500:hover div,
+html.light .border-orange-500:hover .text-orange-500,
+html.light .border-orange-500:hover .text-orange-400,
+html.light .border-orange-500:hover .text-orange-600 {
+  color: #ffffff !important;
+}
+
+/* PAREIL POUR HOVER BG ORANGE */
+html.light .hover\:bg-orange-50:hover {
+  background-color: #f97316 !important;
+}
+
+html.light .hover\:bg-orange-50:hover * {
+  color: #ffffff !important;
+}
+
+/* ANNULER LES RÈGLES GÉNÉRALES POUR LE RESTE DU SITE */
+html.light .text-orange-500,
+html.light .text-orange-400,
+html.light .text-orange-600 {
+  color: #f97316 !important;
+}
+
+/* PRÉSERVER LES BOUTONS ET LIENS NORMAUX */
+html.light a .text-orange-500,
+html.light button .text-orange-500,
+html.light .btn .text-orange-500,
+html.light a,
+html.light button {
+  color: #f97316 !important;
+}
+
+/* PRÉSERVER LES TITRES ET TEXTES NORMAUX DE LA PAGE */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light p:not(.border-orange-500 *),
+html.light span:not(.border-orange-500 *) {
+  color: inherit !important;
+}
+
+/* GARDER LES COULEURS NORMALES POUR LA SECTION HERO ET AUTRES */
+html.light #hero *,
+html.light .hero *,
+html.light header *,
+html.light nav * {
+  color: inherit !important;
+}
