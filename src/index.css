@@ -1,4 +1,20 @@
-/* CARDS ÉTAT NORMAL - MODE LIGHT : Contour orange */
+/* DIMENSIONS UNIFORMES TIMELINE - 32px × 32px */
+#timeline .w-8.h-8, #parcours .w-8.h-8, section[id*="timeline"] .w-8.h-8, section[id*="parcours"] .w-8.h-8, .timeline .w-8.h-8 {
+  width: 2rem !important; /* 32px */
+  height: 2rem !important; /* 32px */
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  max-width: 2rem !important;
+  max-height: 2rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* SVG TIMELINE - 20px PROPORTIONNELS */
+#timeline .w-8.h-8 svg, #parcours .w-8.h-8 svg, section[id*="timeline"] .w-8.h-8 svg, section[id*="parcours"] .w-8.h-8 svg, .timeline .w-8.h-8 svg {
+  width: 1.25rem !important; /* 20px */
+  height: 1.25rem !important; /* 20px */
+  margin: auto !important;
+}/* CARDS ÉTAT NORMAL - MODE LIGHT : Contour orange */
 html.light .group .bg-white,
 html.light .group .bg-gray-50,
 html.light .group .bg-gray-100 {
@@ -188,13 +204,10 @@ html.light .bg-orange-500 {
    🎯 CORRECTION 1: CARDS SKILLS - HOVER UNIFORME #ff6a00
    ======================================== */
 
-/* HOVER ORANGE UNIFORME - TOUS MODES ET LANGUES */
+/* HOVER ORANGE UNIFORME */
 .group:hover,
 html.light .group:hover,
-html.dark .group:hover,
-[dir="rtl"] .group:hover,
-[dir="rtl"] html.light .group:hover,
-[dir="rtl"] html.dark .group:hover {
+html.dark .group:hover {
   background-color: #ff6a00 !important;
   background-image: none !important;
   background: #ff6a00 !important;
@@ -228,19 +241,14 @@ html.light .group:hover p, html.light .group:hover span, html.light .group:hover
 }
 
 html.dark .group:hover h1, html.dark .group:hover h2, html.dark .group:hover h3, html.dark .group:hover h4, html.dark .group:hover h5, html.dark .group:hover h6,
-html.dark .group:hover p, html.dark .group:hover span, html.dark .group:hover div,
-[dir="rtl"] .group:hover h1, [dir="rtl"] .group:hover h2, [dir="rtl"] .group:hover h3, [dir="rtl"] .group:hover h4, [dir="rtl"] .group:hover h5, [dir="rtl"] .group:hover h6,
-[dir="rtl"] .group:hover p, [dir="rtl"] .group:hover span, [dir="rtl"] .group:hover div,
-[dir="rtl"] html.dark .group:hover h1, [dir="rtl"] html.dark .group:hover h2, [dir="rtl"] html.dark .group:hover h3, [dir="rtl"] html.dark .group:hover h4, [dir="rtl"] html.dark .group:hover h5, [dir="rtl"] html.dark .group:hover h6,
-[dir="rtl"] html.dark .group:hover p, [dir="rtl"] html.dark .group:hover span, [dir="rtl"] html.dark .group:hover div {
+html.dark .group:hover p, html.dark .group:hover span, html.dark .group:hover div {
   color: #ffffff !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
 /* ICÔNES AU HOVER - MODE CLAIR : NOIR, MODE SOMBRE : BLANC */
-html.light .group:hover svg, html.light .group:hover i, html.light .group:hover [data-lucide], html.light .group:hover .lucide, html.light .group:hover [class*="lucide"], html.light .group:hover [class^="lucide-"],
-[dir="rtl"] html.light .group:hover svg, [dir="rtl"] html.light .group:hover i, [dir="rtl"] html.light .group:hover [data-lucide], [dir="rtl"] html.light .group:hover .lucide, [dir="rtl"] html.light .group:hover [class*="lucide"], [dir="rtl"] html.light .group:hover [class^="lucide-"] {
+html.light .group:hover svg, html.light .group:hover i, html.light .group:hover [data-lucide], html.light .group:hover .lucide, html.light .group:hover [class*="lucide"], html.light .group:hover [class^="lucide-"] {
   color: #000000 !important;
   stroke: #000000 !important;
   fill: none !important;
@@ -248,9 +256,7 @@ html.light .group:hover svg, html.light .group:hover i, html.light .group:hover 
   visibility: visible !important;
 }
 
-html.dark .group:hover svg, html.dark .group:hover i, html.dark .group:hover [data-lucide], html.dark .group:hover .lucide, html.dark .group:hover [class*="lucide"], html.dark .group:hover [class^="lucide-"],
-[dir="rtl"] .group:hover svg, [dir="rtl"] .group:hover i, [dir="rtl"] .group:hover [data-lucide], [dir="rtl"] .group:hover .lucide, [dir="rtl"] .group:hover [class*="lucide"], [dir="rtl"] .group:hover [class^="lucide-"],
-[dir="rtl"] html.dark .group:hover svg, [dir="rtl"] html.dark .group:hover i, [dir="rtl"] html.dark .group:hover [data-lucide], [dir="rtl"] html.dark .group:hover .lucide, [dir="rtl"] html.dark .group:hover [class*="lucide"], [dir="rtl"] html.dark .group:hover [class^="lucide-"] {
+html.dark .group:hover svg, html.dark .group:hover i, html.dark .group:hover [data-lucide], html.dark .group:hover .lucide, html.dark .group:hover [class*="lucide"], html.dark .group:hover [class^="lucide-"] {
   color: #ffffff !important;
   stroke: #ffffff !important;
   fill: none !important;
@@ -286,93 +292,6 @@ html.light .group:hover .w-16 svg {
 /* ========================================
    🎯 CORRECTION 2: TIMELINE - DIMENSIONS UNIFORMES 32px
    ======================================== */
-
-/* DIMENSIONS UNIFORMES TIMELINE - 32px × 32px TOUTES LANGUES */
-#timeline .w-8.h-8, #parcours .w-8.h-8, section[id*="timeline"] .w-8.h-8, section[id*="parcours"] .w-8.h-8, .timeline .w-8.h-8,
-[dir="rtl"] #timeline .w-8.h-8, [dir="rtl"] #parcours .w-8.h-8, [dir="rtl"] section[id*="timeline"] .w-8.h-8, [dir="rtl"] section[id*="parcours"] .w-8.h-8, [dir="rtl"] .timeline .w-8.h-8 {
-  width: 2rem !important; /* 32px */
-  height: 2rem !important; /* 32px */
-  min-width: 2rem !important;
-  min-height: 2rem !important;
-  max-width: 2rem !important;
-  max-height: 2rem !important;
-  flex-shrink: 0 !important;
-}
-
-/* SVG TIMELINE - 20px PROPORTIONNELS */
-#timeline .w-8.h-8 svg, #parcours .w-8.h-8 svg, section[id*="timeline"] .w-8.h-8 svg, section[id*="parcours"] .w-8.h-8 svg, .timeline .w-8.h-8 svg,
-[dir="rtl"] #timeline .w-8.h-8 svg, [dir="rtl"] #parcours .w-8.h-8 svg, [dir="rtl"] section[id*="timeline"] .w-8.h-8 svg, [dir="rtl"] section[id*="parcours"] .w-8.h-8 svg, [dir="rtl"] .timeline .w-8.h-8 svg {
-  width: 1.25rem !important; /* 20px */
-  height: 1.25rem !important; /* 20px */
-  margin: auto !important;
-}
-
-/* ========================================
-   🎯 CORRECTION 3: LANGUES ET DIPLÔMES RTL
-   ======================================== */
-
-/* ALIGNEMENT RTL : ICÔNE À GAUCHE, TEXTE À DROITE */
-[dir="rtl"] #about .flex.items-center, [dir="rtl"] #about .flex.items-center.gap-3, [dir="rtl"] #about .flex.items-start.gap-3,
-[dir="rtl"] .language-item, [dir="rtl"] .diploma-item, [dir="rtl"] .certification-item {
-  display: flex !important;
-  align-items: center !important;
-  text-align: right !important;
-  direction: rtl !important;
-  gap: 0.75rem !important;
-}
-
-/* ORDRE RTL : ICÔNE EN PREMIER (GAUCHE VISUELLE) */
-[dir="rtl"] #about .flex.items-center > svg, [dir="rtl"] #about .flex.items-center > .w-10, [dir="rtl"] #about .flex.items-center > .w-8, [dir="rtl"] #about .flex.items-center > .bg-orange-500,
-[dir="rtl"] .language-item > svg, [dir="rtl"] .diploma-item > svg, [dir="rtl"] .certification-item > svg,
-[dir="rtl"] .language-item > .w-10, [dir="rtl"] .diploma-item > .w-10, [dir="rtl"] .certification-item > .w-10 {
-  order: 1 !important;
-  margin-left: 0 !important;
-  margin-right: 0.75rem !important;
-  flex-shrink: 0 !important;
-}
-
-/* ORDRE RTL : TEXTE EN SECOND (DROITE VISUELLE) */
-[dir="rtl"] #about .flex.items-center > div, [dir="rtl"] #about .flex.items-center > span, [dir="rtl"] #about .flex.items-center > p,
-[dir="rtl"] .language-item > div, [dir="rtl"] .diploma-item > div, [dir="rtl"] .certification-item > div,
-[dir="rtl"] .language-item > span, [dir="rtl"] .diploma-item > span, [dir="rtl"] .certification-item > span {
-  order: 2 !important;
-  text-align: right !important;
-  flex: 1 !important;
-}
-
-/* ICÔNES 40px ABOUT RTL */
-[dir="rtl"] #about .w-10.h-10, [dir="rtl"] #about .w-8.h-8,
-[dir="rtl"] .language-item .w-10.h-10, [dir="rtl"] .diploma-item .w-10.h-10, [dir="rtl"] .certification-item .w-10.h-10 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 2.5rem !important; /* 40px */
-  height: 2.5rem !important; /* 40px */
-  min-width: 2.5rem !important;
-  min-height: 2.5rem !important;
-  flex-shrink: 0 !important;
-}
-
-/* SVG 24px ABOUT RTL */
-[dir="rtl"] #about .w-10.h-10 svg, [dir="rtl"] #about .w-8.h-8 svg,
-[dir="rtl"] .language-item .w-10.h-10 svg, [dir="rtl"] .diploma-item .w-10.h-10 svg, [dir="rtl"] .certification-item .w-10.h-10 svg {
-  width: 1.5rem !important; /* 24px */
-  height: 1.5rem !important; /* 24px */
-  margin: auto !important;
-}
-
-/* BORDURES FORMATIONS RTL */
-[dir="rtl"] #about .border-r-2 {
-  border-right-width: 0 !important;
-  border-left-width: 2px !important;
-  padding-right: 0 !important;
-  padding-left: 1rem !important;
-}
-
-[dir="rtl"] #about .pr-4 {
-  padding-right: 0 !important;
-  padding-left: 1rem !important;
-}
 
 /* ========================================
    BOUTONS HOVER EFFECTS
@@ -537,7 +456,7 @@ html.light .bg-white.border-orange-500 svg {
   margin-bottom: 1rem !important; /* Espacement entre icône et texte */
 }
 
-/* Cards skills - espacement correct entre icône et texte */
+/* Cards skills - MÊME FORMAT POUR TOUTES LES LANGUES */
 [dir="rtl"] .skills-card,
 [dir="rtl"] .skill-card,
 [dir="rtl"] .group {
@@ -546,6 +465,22 @@ html.light .bg-white.border-orange-500 svg {
   align-items: center !important;
   text-align: center !important;
   gap: 1rem !important; /* Espacement uniforme */
+  width: auto !important;
+  min-width: 150px !important;
+  max-width: 200px !important;
+}
+
+
+
+/* CARDS INDIVIDUELLES - MÊME TAILLE RTL ET LTR */
+[dir="rtl"] .group,
+[dir="rtl"] .skill-item,
+[dir="rtl"] .card {
+  padding: 1.5rem !important;
+  border-radius: 0.75rem !important;
+  min-height: 120px !important;
+  max-height: 140px !important;
+  width: 100% !important;
 }
 
 /* Texte dans les cards skills - centrage et espacement */
@@ -621,80 +556,9 @@ html.light .bg-white.border-orange-500 svg {
    CORRECTION RTL - ORDRE ET ALIGNEMENT DES SECTIONS
    ======================================== */
 
-/* CORRECTION PRINCIPALE : Structure des sections en RTL */
-[dir="rtl"] section {
-  text-align: center !important;
-}
 
-/* TITRE PRINCIPAL en premier pour toutes les sections */
-[dir="rtl"] section h2 {
-  order: 1 !important;
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
-  margin-bottom: 1rem !important;
-  margin-top: 0 !important;
-}
 
-/* SOUS-TITRE en deuxième position */
-[dir="rtl"] section .text-gray-600,
-[dir="rtl"] section .text-gray-400,
-[dir="rtl"] section .subtitle,
-[dir="rtl"] section p:first-of-type {
-  order: 2 !important;
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 2rem !important;
-}
-
-/* BADGES/LOGOS en troisième position (pour Timeline/Parcours) */
-[dir="rtl"] section .flex.justify-center.gap-4,
-[dir="rtl"] section .timeline-badges,
-[dir="rtl"] section .badges-container {
-  order: 3 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 1rem !important;
-  margin-top: 1rem !important;
-  margin-bottom: 2rem !important;
-  width: 100% !important;
-}
-
-/* CONTENU PRINCIPAL en dernière position */
-[dir="rtl"] section .grid,
-[dir="rtl"] section .space-y-8,
-[dir="rtl"] section .timeline-content,
-[dir="rtl"] section .skills-content,
-[dir="rtl"] section .projects-content,
-[dir="rtl"] section .about-content,
-[dir="rtl"] section .contact-content {
-  order: 4 !important;
-  margin-top: 2rem !important;
-}
-
-/* ========================================
-   CORRECTION SPÉCIFIQUE SECTION TIMELINE/PARCOURS
-   ======================================== */
-
-/* Section Timeline - Ordre correct des éléments */
-[dir="rtl"] #timeline,
-[dir="rtl"] #parcours,
-[dir="rtl"] section[id*="timeline"],
-[dir="rtl"] section[id*="parcours"] {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-/* Titre "Mon Parcours" en premier */
-[dir="rtl"] #timeline h2,
-[dir="rtl"] #parcours h2,
-[dir="rtl"] section[id*="timeline"] h2,
-[dir="rtl"] section[id*="parcours"] h2 {
+[id*="parcours"] h2 {
   order: 1 !important;
   font-size: 2.25rem !important; /* text-4xl */
   font-weight: 700 !important; /* font-bold */
@@ -893,145 +757,7 @@ html.light .bg-white.border-orange-500 svg {
   text-align: justify !important;
 }
 
-/* ========================================
-   SUPPORT RTL POUR HEADER/NAVBAR
-   ======================================== */
 
-/* Espacement correct pour les contrôles de header en RTL */
-[dir="rtl"] .gap-4 {
-  gap: 1rem !important;
-}
-
-[dir="rtl"] .gap-2 {
-  gap: 0.5rem !important;
-}
-
-[dir="rtl"] .gap-8 {
-  gap: 2rem !important;
-}
-
-/* Forcer l'ordre des éléments header en RTL */
-[dir="rtl"] .order-1 {
-  order: 1 !important;
-}
-
-[dir="rtl"] .order-2 {
-  order: 2 !important;
-}
-
-[dir="rtl"] .order-3 {
-  order: 3 !important;
-}
-
-/* Flex direction pour les contrôles header */
-[dir="rtl"] .flex-row-reverse {
-  flex-direction: row-reverse !important;
-}
-
-/* Espacement spécifique pour les boutons de contrôle header */
-[dir="rtl"] header .hidden.md\\:flex.items-center {
-  gap: 1rem !important;
-}
-
-/* Correction pour le logo en RTL */
-[dir="rtl"] .flex.items-center.gap-2 {
-  gap: 0.5rem !important;
-}
-
-/* Animation du menu mobile selon la direction */
-[dir="rtl"] .absolute.left-0 {
-  left: 0 !important;
-  right: auto !important;
-}
-
-[dir="rtl"] .absolute.right-0 {
-  right: auto !important;
-  left: 0 !important;
-}
-
-/* ========================================
-   SUPPORT RTL POUR LES BOUTONS ET RÉSEAUX SOCIAUX
-   ======================================== */
-
-/* Espacement RTL pour les boutons */
-[dir="rtl"] .flex.items-center.gap-2 {
-  gap: 0.5rem !important;
-}
-
-/* Ordre inversé pour les icônes en RTL */
-[dir="rtl"] .flex-row-reverse {
-  flex-direction: row-reverse !important;
-}
-
-/* Alignement des boutons en RTL */
-[dir="rtl"] .sm\:flex-row-reverse {
-  flex-direction: row-reverse !important;
-}
-
-/* Espacement spécifique pour RTL */
-[dir="rtl"] .gap-3 {
-  gap: 0.75rem !important;
-}
-
-[dir="rtl"] .sm\:gap-4 {
-  gap: 1rem !important;
-}
-
-/* Marges pour les boutons en RTL */
-[dir="rtl"] a[href="/cv-raphael-theuillon.pdf"],
-[dir="rtl"] a[href="https://krglobalsolutionsltd.com/"] {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Largeur fixe pour éviter les problèmes d'alignement en RTL */
-[dir="rtl"] .sm\:flex-row .flex.items-center {
-  min-width: fit-content !important;
-}
-
-/* Correction de l'espacement des icônes en RTL */
-[dir="rtl"] .flex.items-center svg {
-  margin-left: 0.5rem !important;
-  margin-right: 0 !important;
-}
-
-[dir="rtl"] .flex.items-center span {
-  margin-right: 0.5rem !important;
-  margin-left: 0 !important;
-}
-
-/* NOUVEAU : Alignement parfait des réseaux sociaux */
-.items-end {
-  align-items: flex-end !important;
-}
-
-.items-start {
-  align-items: flex-start !important;
-}
-
-.self-end {
-  align-self: flex-end !important;
-}
-
-.self-start {
-  align-self: flex-start !important;
-}
-
-/* Forcer l'alignement du conteneur principal en RTL */
-[dir="rtl"] .items-end {
-  align-items: flex-end !important;
-}
-
-[dir="rtl"] .self-end {
-  align-self: flex-end !important;
-  margin-right: 0 !important;
-}
-
-/* Assurer que les réseaux sociaux s'alignent parfaitement */
-[dir="rtl"] .flex.gap-4.self-end {
-  justify-content: flex-end !important;
-  align-items: center !important;
-}
 
 /* ========================================
    HOVER - Mode clair (remplissage orange)

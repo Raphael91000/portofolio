@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import { useTheme } from './hooks/useTheme';
@@ -14,9 +14,8 @@ function App() {
   const { i18n } = useTranslation();
   const { theme } = useTheme();
 
-  useEffect(() => {
-    document.documentElement.setAttribute('dir', i18n.language === 'ar' ? 'rtl' : 'ltr');
-  }, [i18n.language]);
+  // Plus besoin de logique RTL puisqu'on a supprimé l'arabe
+  // useEffect supprimé car plus nécessaire
 
   return (
     <div className="min-h-screen">
