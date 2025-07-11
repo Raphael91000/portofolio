@@ -298,6 +298,525 @@ html.light .bg-white.border-orange-500 svg {
 }
 
 /* ========================================
+   CENTRAGE PARFAIT DES ICÔNES EN MODE RTL
+   ======================================== */
+
+/* Forcer le centrage de TOUTES les icônes en RTL */
+[dir="rtl"] .flex.items-center.justify-center,
+[dir="rtl"] .flex.justify-center,
+[dir="rtl"] .text-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Centrage spécifique pour les icônes dans les cards */
+[dir="rtl"] .bg-gradient-to-br,
+[dir="rtl"] .bg-orange-500,
+[dir="rtl"] .rounded-lg svg,
+[dir="rtl"] .rounded-full svg {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Conteneurs d'icônes - forcer centrage */
+[dir="rtl"] .w-10.h-10,
+[dir="rtl"] .w-12.h-12,
+[dir="rtl"] .w-16.h-16,
+[dir="rtl"] .w-8.h-8 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Cards de compétences - centrage des icônes ET espacement correct */
+[dir="rtl"] .group .bg-gradient-to-br,
+[dir="rtl"] .group .bg-orange-500 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1rem !important; /* Espacement entre icône et texte */
+}
+
+/* Cards skills - espacement correct entre icône et texte */
+[dir="rtl"] .skills-card,
+[dir="rtl"] .skill-card,
+[dir="rtl"] .group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 1rem !important; /* Espacement uniforme */
+}
+
+/* Texte dans les cards skills - centrage et espacement */
+[dir="rtl"] .group h4,
+[dir="rtl"] .group p,
+[dir="rtl"] .skill-name,
+[dir="rtl"] .skill-text {
+  text-align: center !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+}
+
+/* Icônes SVG dans les cards - centrage parfait SANS espacement supplémentaire */
+[dir="rtl"] .group svg,
+[dir="rtl"] .skill-card svg,
+[dir="rtl"] .card svg {
+  position: static !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Timeline icons - centrage */
+[dir="rtl"] .timeline-icon,
+[dir="rtl"] .timeline .w-8.h-8 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+/* Skills section - centrage des icônes */
+[dir="rtl"] #skills .bg-gradient-to-br,
+[dir="rtl"] #skills .bg-orange-500,
+[dir="rtl"] #skills .rounded-lg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+[dir="rtl"] #skills svg {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* About section - centrage des icônes */
+[dir="rtl"] #about .w-10.h-10 svg,
+[dir="rtl"] #about .bg-orange-500 svg {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Contact section - centrage des icônes sociales */
+[dir="rtl"] #contact .p-3 svg,
+[dir="rtl"] #contact .social-icon svg {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Cards génériques - centrage des icônes */
+[dir="rtl"] .card .icon,
+[dir="rtl"] .card svg,
+[dir="rtl"] .bg-gray-100 svg,
+[dir="rtl"] .bg-gray-800 svg {
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Forcer centrage pour toutes les icônes Lucide */
+[dir="rtl"] [data-lucide],
+[dir="rtl"] .lucide,
+[dir="rtl"] [class*="lucide-"],
+[dir="rtl"] [class^="lucide-"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* Conteneurs flex avec icônes - centrage */
+[dir="rtl"] .flex.items-center.justify-center svg,
+[dir="rtl"] .flex.justify-center svg {
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* Solution brutale pour toutes les icônes */
+[dir="rtl"] svg {
+  text-align: center !important;
+}
+
+[dir="rtl"] .icon-container,
+[dir="rtl"] .skill-icon,
+[dir="rtl"] .tech-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Centrage spécifique pour les logos de compétences */
+[dir="rtl"] .skills-grid svg,
+[dir="rtl"] .tech-grid svg,
+[dir="rtl"] .tools-grid svg {
+  margin: 0 auto !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* ========================================
+   ORDRE DES TITRES ET SECTIONS EN RTL
+   ======================================== */
+
+/* Section Skills - Ordre des titres */
+[dir="rtl"] #skills .text-center {
+  order: 1 !important;
+}
+
+[dir="rtl"] #skills .skills-content {
+  order: 2 !important;
+}
+
+/* Titre principal en premier, sous-titre en dessous */
+[dir="rtl"] #skills h2 {
+  order: 1 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+[dir="rtl"] #skills .subtitle {
+  order: 2 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Section Timeline/Parcours - Ordre correct */
+[dir="rtl"] #timeline .text-center,
+[dir="rtl"] #parcours .text-center {
+  order: 1 !important;
+  margin-bottom: 2rem !important;
+}
+
+[dir="rtl"] #timeline .timeline-content,
+[dir="rtl"] #parcours .timeline-content {
+  order: 2 !important;
+}
+
+/* Timeline - Titre en premier, badges ensuite */
+[dir="rtl"] #timeline h2,
+[dir="rtl"] #parcours h2 {
+  order: 1 !important;
+  margin-bottom: 1rem !important;
+}
+
+[dir="rtl"] #timeline .timeline-badges,
+[dir="rtl"] #parcours .timeline-badges {
+  order: 2 !important;
+  margin-top: 1rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+/* Badges Expérience et Projet - espacement correct */
+[dir="rtl"] .timeline-badge,
+[dir="rtl"] .experience-badge,
+[dir="rtl"] .project-badge {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR SECTION CONTACT
+   ======================================== */
+
+/* Espacement correct pour les icônes sociales en RTL */
+[dir="rtl"] #contact .flex.gap-4 {
+  gap: 1rem !important;
+}
+
+[dir="rtl"] #contact .justify-end {
+  justify-content: flex-end !important;
+}
+
+[dir="rtl"] #contact .justify-start {
+  justify-content: flex-start !important;
+}
+
+[dir="rtl"] #contact .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Alignement du texte en RTL */
+[dir="rtl"] #contact .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] #contact .text-left {
+  text-align: left !important;
+}
+
+/* Formulaire en RTL */
+[dir="rtl"] #contact input,
+[dir="rtl"] #contact textarea {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] #contact label {
+  text-align: right !important;
+}
+
+/* Bouton du formulaire en RTL */
+[dir="rtl"] #contact button .gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Ordre des colonnes en RTL */
+[dir="rtl"] #contact .lg\:order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] #contact .lg\:order-2 {
+  order: 2 !important;
+}
+
+/* Grid flow pour RTL */
+[dir="rtl"] #contact .lg\:grid-flow-col-dense {
+  grid-auto-flow: column dense !important;
+}
+
+/* Corrections spécifiques pour les icônes sociales */
+[dir="rtl"] #contact .social-links {
+  gap: 1rem !important;
+}
+
+/* Forcer l'espacement des icônes sociales */
+[dir="rtl"] #contact a + a {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR SECTION ABOUT
+   ======================================== */
+
+/* Espacement des icônes dans la section About */
+[dir="rtl"] #about .flex.items-center.gap-3 {
+  gap: 0.75rem !important;
+}
+
+[dir="rtl"] #about .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Bordures des formations en RTL */
+[dir="rtl"] #about .border-r-2 {
+  border-right-width: 2px !important;
+  border-left-width: 0 !important;
+}
+
+[dir="rtl"] #about .pr-4 {
+  padding-right: 1rem !important;
+  padding-left: 0 !important;
+}
+
+/* Alignement du texte en RTL */
+[dir="rtl"] #about .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] #about .text-left {
+  text-align: left !important;
+}
+
+/* Justification du contenu en RTL */
+[dir="rtl"] #about .justify-end {
+  justify-content: flex-end !important;
+}
+
+[dir="rtl"] #about .justify-start {
+  justify-content: flex-start !important;
+}
+
+/* Ordre des colonnes en RTL */
+[dir="rtl"] #about .lg\:order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] #about .lg\:order-2 {
+  order: 2 !important;
+}
+
+/* Grid flow pour RTL */
+[dir="rtl"] #about .lg\:grid-flow-col-dense {
+  grid-auto-flow: column dense !important;
+}
+
+/* Corrections spécifiques pour les éléments About */
+[dir="rtl"] #about .space-y-3 > * + *,
+[dir="rtl"] #about .space-y-4 > * + * {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Forcer l'espacement des icônes en RTL */
+[dir="rtl"] #about .w-10.h-10 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR HEADER/NAVBAR
+   ======================================== */
+
+/* Espacement correct pour les contrôles de header en RTL */
+[dir="rtl"] .gap-4 {
+  gap: 1rem !important;
+}
+
+[dir="rtl"] .gap-2 {
+  gap: 0.5rem !important;
+}
+
+[dir="rtl"] .gap-8 {
+  gap: 2rem !important;
+}
+
+/* Forcer l'ordre des éléments header en RTL */
+[dir="rtl"] .order-1 {
+  order: 1 !important;
+}
+
+[dir="rtl"] .order-2 {
+  order: 2 !important;
+}
+
+[dir="rtl"] .order-3 {
+  order: 3 !important;
+}
+
+/* Flex direction pour les contrôles header */
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Menu mobile RTL */
+[dir="rtl"] .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-left {
+  text-align: left !important;
+}
+
+/* Espacement spécifique pour les boutons de contrôle header */
+[dir="rtl"] header .hidden.md\\:flex.items-center {
+  gap: 1rem !important;
+}
+
+/* Correction pour le logo en RTL */
+[dir="rtl"] .flex.items-center.gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Animation du menu mobile selon la direction */
+[dir="rtl"] .absolute.left-0 {
+  left: 0 !important;
+  right: auto !important;
+}
+
+[dir="rtl"] .absolute.right-0 {
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* ========================================
+   SUPPORT RTL POUR LES BOUTONS ET RÉSEAUX SOCIAUX
+   ======================================== */
+
+/* Espacement RTL pour les boutons */
+[dir="rtl"] .flex.items-center.gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Ordre inversé pour les icônes en RTL */
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Alignement des boutons en RTL */
+[dir="rtl"] .sm\:flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* Espacement spécifique pour RTL */
+[dir="rtl"] .gap-3 {
+  gap: 0.75rem !important;
+}
+
+[dir="rtl"] .sm\:gap-4 {
+  gap: 1rem !important;
+}
+
+/* Marges pour les boutons en RTL */
+[dir="rtl"] a[href="/cv-raphael-theuillon.pdf"],
+[dir="rtl"] a[href="https://krglobalsolutionsltd.com/"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Largeur fixe pour éviter les problèmes d'alignement en RTL */
+[dir="rtl"] .sm\:flex-row .flex.items-center {
+  min-width: fit-content !important;
+}
+
+/* Correction de l'espacement des icônes en RTL */
+[dir="rtl"] .flex.items-center svg {
+  margin-left: 0.5rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .flex.items-center span {
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
+}
+
+/* NOUVEAU : Alignement parfait des réseaux sociaux */
+.items-end {
+  align-items: flex-end !important;
+}
+
+.items-start {
+  align-items: flex-start !important;
+}
+
+.self-end {
+  align-self: flex-end !important;
+}
+
+.self-start {
+  align-self: flex-start !important;
+}
+
+/* Forcer l'alignement du conteneur principal en RTL */
+[dir="rtl"] .items-end {
+  align-items: flex-end !important;
+}
+
+[dir="rtl"] .self-end {
+  align-self: flex-end !important;
+  margin-right: 0 !important;
+}
+
+/* Assurer que les réseaux sociaux s'alignent parfaitement */
+[dir="rtl"] .flex.gap-4.self-end {
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+/* ========================================
    SUPPORT RTL POUR SECTION CONTACT
    ======================================== */
 
