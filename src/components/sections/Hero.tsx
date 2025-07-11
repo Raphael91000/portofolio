@@ -55,6 +55,17 @@ const Hero: React.FC = () => {
   const isRTL = i18n.dir() === 'rtl';
   const typewriterWords = t('hero.typewriter', { returnObjects: true }) as string[];
   const displayText = useTypewriter(typewriterWords, 100);
+  const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseEnter = (linkName: string, event: React.MouseEvent) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setTooltipPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.bottom + 10
+    });
+    setHoveredSocial(linkName);
+  };
 
   const socialLinks = [
     {
@@ -170,7 +181,7 @@ const Hero: React.FC = () => {
                 </a>
               </div>
 
-              {/* Social Links - ALIGNEMENT PARFAIT AVEC BOUTONS */}
+              {/* Social Links avec tooltips positionnés absolument */}
               <div className={`flex gap-4 ${isRTL ? 'self-end' : 'self-start'}`}>
                 {socialLinks.map((link) => (
                   <motion.a
@@ -178,14 +189,41 @@ const Hero: React.FC = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 sm:p-3 rounded-full bg-gray-700 hover:bg-gray-600 transition-all duration-300 text-orange-400"
+                    className="p-2 sm:p-3 rounded-full bg-gray-700 hover:bg-gray-600 transition-all duration-300 text-orange-400 block"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+                    onMouseEnter={(e) => handleMouseEnter(link.name, e)}
+                    onMouseLeave={() => setHoveredSocial(null)}
                   >
                     <link.icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                   </motion.a>
                 ))}
               </div>
+
+              {/* Tooltip positionné de manière absolue */}
+              {hoveredSocial && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="fixed bg-orange-500 text-white px-3 py-1 rounded-md text-sm font-medium shadow-lg z-50 whitespace-nowrap pointer-events-none"
+                  style={{
+                    left: tooltipPosition.x,
+                    top: tooltipPosition.y,
+                    transform: 'translateX(-50%)'
+                  }}
+                >
+                  {hoveredSocial}
+                  {/* Petite flèche orange qui pointe vers le haut */}
+                  <div 
+                    className="absolute bottom-full w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-orange-500"
+                    style={{
+                      left: '50%',
+                      transform: 'translateX(-50%)'
+                    }}
+                  ></div>
+                </motion.div>
+              )}
             </motion.div>
           </div>
 
