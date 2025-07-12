@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Code2, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,6 +10,43 @@ const Header: React.FC = () => {
   const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isRTL = i18n.dir() === 'rtl';
+  
+  // Refs pour détecter les clics en dehors
+  const menuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+
+  // Fermer le menu quand on clique en dehors
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as Node;
+      
+      // Si le menu n'est pas ouvert, ne rien faire
+      if (!isMobileMenuOpen) return;
+      
+      // Si on clique sur le bouton hamburger, laisser le bouton gérer l'événement
+      if (hamburgerRef.current && hamburgerRef.current.contains(target)) {
+        return;
+      }
+      
+      // Si on clique dans le menu, ne pas fermer
+      if (menuRef.current && menuRef.current.contains(target)) {
+        return;
+      }
+      
+      // Sinon, fermer le menu
+      setIsMobileMenuOpen(false);
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { key: 'home', href: '#home' },
@@ -61,6 +98,10 @@ const Header: React.FC = () => {
 
   const getCurrentLanguage = () => {
     return languages.find(lang => lang.code === i18n.language) || languages[0];
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -160,7 +201,8 @@ const Header: React.FC = () => {
 
             {/* Hamburger Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              ref={hamburgerRef}
+              onClick={toggleMobileMenu}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
               aria-label={isMobileMenuOpen ? t('menu.close') : t('menu.open')}
               aria-expanded={isMobileMenuOpen}
@@ -180,47 +222,35 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-                {/* Mobile Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/30 z-30 md:hidden"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            {/* Menu Content */}
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg relative z-50"
-            >
-              <div className="px-4 py-6 space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.key}
-                    initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2, delay: index * 0.1 }}
+          <motion.div
+            ref={menuRef}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg relative z-50"
+          >
+            <div className="px-4 py-6 space-y-2">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.key}
+                  initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: index * 0.1 }}
+                >
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-left py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-200 font-medium text-lg border-l-4 border-transparent hover:border-orange-500"
                   >
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className="block w-full text-left py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-200 font-medium text-lg border-l-4 border-transparent hover:border-orange-500"
-                    >
-                      {t(`nav.${item.key}`)}
-                    </button>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </>
+                    {t(`nav.${item.key}`)}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
 
