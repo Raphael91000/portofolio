@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Code2, Globe } from 'lucide-react';
+import { Globe, Code2, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSelector from '../common/LanguageSelector';
 import ThemeToggle from '../common/ThemeToggle';
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isRTL = i18n.dir() === 'rtl';
 
   const navItems = [
@@ -32,17 +32,26 @@ const Header: React.FC = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
-
-  const handleOutsideClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setIsMenuOpen(false);
-    }
+    // Fermer le menu mobile d'abord
+    setIsMobileMenuOpen(false);
+    
+    // Attendre que l'animation de fermeture soit terminée
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        // Calculer l'offset pour compenser la hauteur du header fixe
+        const headerHeight = 64; // h-16 = 64px
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        console.warn(`Section ${href} not found`);
+      }
+    }, 300); // Délai correspondant à l'animation de fermeture du menu
   };
 
   const changeLanguage = (langCode: string) => {
@@ -102,6 +111,7 @@ const Header: React.FC = () => {
               <button
                 onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1"
+                aria-label={t('language')}
               >
                 <Globe className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                 <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
@@ -148,84 +158,83 @@ const Header: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Hamburger Menu Button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+              aria-label={isMobileMenuOpen ? t('menu.close') : t('menu.open')}
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
-              ) : (
-                <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
-              )}
+              <motion.div
+                animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                ) : (
+                  <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                )}
+              </motion.div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Overlay pour fermer le dropdown de langue mobile */}
-      {isMobileLangOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-40"
-          onClick={() => setIsMobileLangOpen(false)}
-        />
-      )}
-
-      {/* Menu Mobile - SIMPLIFIÉ ET FONCTIONNEL */}
+                {/* Mobile Menu */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {isMobileMenuOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/30 z-30 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Menu Content */}
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg relative z-50"
+            >
+              <div className="px-4 py-6 space-y-2">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.key}
+                    initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.1 }}
+                  >
+                    <button
+                      onClick={() => scrollToSection(item.href)}
+                      className="block w-full text-left py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-200 font-medium text-lg border-l-4 border-transparent hover:border-orange-500"
+                    >
+                      {t(`nav.${item.key}`)}
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Overlay pour fermer le dropdown de langue mobile */}
+      <AnimatePresence>
+        {isMobileLangOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 z-40 bg-black/50"
-            onClick={handleOutsideClick}
-          >
-            <motion.div
-              initial={{ x: isRTL ? '-100%' : '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: isRTL ? '-100%' : '100%' }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className={`absolute ${
-                isRTL ? 'left-0' : 'right-0'
-              } top-0 h-screen w-80 overflow-y-auto bg-white dark:bg-gray-800 border-2 border-orange-500 rounded-lg`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header du menu */}
-              <div className={`flex items-center justify-between p-6 border-b-2 border-orange-500 ${
-                isRTL ? 'flex-row-reverse' : ''
-              }`}>
-                <div className={`flex items-center gap-2 ${
-                  isRTL ? 'flex-row-reverse' : ''
-                }`}>
-                  <Code2 className="h-6 w-6 text-orange-500" />
-                  <span className="text-lg font-bold text-gray-900 dark:text-white">
-                    RT
-                  </span>
-                </div>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-xl hover:bg-orange-500 hover:text-white transition-all duration-200 text-gray-900 dark:text-white"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-
-              {/* Navigation du menu */}
-              <nav className="flex flex-col p-6 space-y-2 flex-1">
-                {navItems.map((item) => (
-                  <button
-                    key={item.key}
-                    onClick={() => scrollToSection(item.href)}
-                    className="px-4 py-4 rounded-lg w-full text-left font-medium transition-all duration-200 text-gray-900 dark:text-white hover:text-orange-500 hover:transform hover:scale-[1.02]"
-                  >
-                    {t(`nav.${item.key}`)}
-                  </button>
-                ))}
-              </nav>
-            </motion.div>
-          </motion.div>
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 z-30"
+            onClick={() => setIsMobileLangOpen(false)}
+          />
         )}
       </AnimatePresence>
     </header>

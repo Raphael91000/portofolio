@@ -734,4 +734,14 @@ html.dark .shadow-xl {
 a[href="/cv-raphael-theuillon.pdf"],
 a[href="https://krglobalsolutionsltd.com/"] {
   transition: all 0.3s ease !important;
+}/* Correction pour les overlays */
+.fixed.inset-0.z-30 {
+  pointer-events: auto !important;
+  z-index: 30 !important;
+}
+
+/* Menu mobile au-dessus */
+header .z-50 {
+  z-index: 50 !important;
+  position: relative !important;
 }
