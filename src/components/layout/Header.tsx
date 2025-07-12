@@ -169,63 +169,68 @@ const Header: React.FC = () => {
         />
       )}
 
-      {/* Mobile menu */}
+      {/* Mobile menu AMÉLIORÉ */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 z-40 bg-black/50"
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 z-40 bg-black/70"
             onClick={handleOutsideClick}
           >
             <motion.div
               initial={{ x: isRTL ? '-100%' : '100%' }}
               animate={{ x: 0 }}
               exit={{ x: isRTL ? '-100%' : '100%' }}
-              transition={{ type: 'spring', damping: 25 }}
+              transition={{ duration: 0.4 }}
               className={`absolute ${
                 isRTL ? 'left-0' : 'right-0'
-              } top-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl`}
-              dir={isRTL ? 'rtl' : 'ltr'}
+              } top-0 h-screen w-80 flex flex-col ${isRTL ? 'border-l-2' : 'border-r-2'} border-t-2 border-b-2 border-orange-500 bg-transparent dark:bg-gray-900 text-black dark:text-white rounded-lg overflow-y-auto`}
+              style={{
+                borderRadius: '8px',
+                transition: 'all 0.3s ease-in-out',
+              }}
             >
-              <div className="p-6 space-y-6">
-                <div className={`flex items-center justify-between ${
+              <div className="p-6 space-y-6 h-full flex flex-col bg-white dark:bg-gray-900">
+                {/* Header */}
+                <div className={`flex items-center justify-between pb-4 border-b border-orange-500 ${
                   isRTL ? 'flex-row-reverse' : ''
                 }`}>
                   <div className={`flex items-center gap-2 ${
                     isRTL ? 'flex-row-reverse' : ''
                   }`}>
                     <Code2 className="h-6 w-6 text-orange-500" />
-                    <span className="text-lg font-bold text-gray-900 dark:text-white">RT</span>
+                    <span className="text-lg font-bold text-black dark:text-white">RT</span>
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="p-2 rounded-xl hover:bg-orange-500 hover:text-white transition-all duration-200 text-black dark:text-white"
                   >
-                    <X className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                    <X className="h-5 w-5" />
                   </button>
                 </div>
 
-                <nav className="space-y-4">
+                {/* Navigation */}
+                <nav className="space-y-2 flex-1">
                   {navItems.map((item) => (
                     <button
                       key={item.key}
                       onClick={() => scrollToSection(item.href)}
-                      className={`w-full px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium ${
-                        isRTL ? 'text-right' : 'text-left'
-                      }`}
+                      className="w-full px-4 py-4 rounded-lg text-black dark:text-white hover:bg-orange-500 hover:text-white transition-all duration-300 font-medium"
                     >
                       {t(`nav.${item.key}`)}
                     </button>
                   ))}
                 </nav>
 
-                <div className="space-y-4">
-                  <div className={`flex items-center justify-between ${
+                {/* Controls */}
+                <div className="space-y-4 pt-4 border-t border-orange-500">
+                  <div className={`flex items-center justify-between p-3 rounded-xl bg-gray-200 dark:bg-gray-800 ${
                     isRTL ? 'flex-row-reverse' : ''
                   }`}>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                       {t('theme')}
                     </span>
                     <ThemeToggle />
