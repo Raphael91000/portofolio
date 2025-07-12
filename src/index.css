@@ -1,26 +1,4 @@
-/* DIMENSIONS UNIFORMES TIMELINE - 32px × 32px */
-#timeline .w-8.h-8, #parcours .w-8.h-8, section[id*="timeline"] .w-8.h-8, section[id*="parcours"] .w-8.h-8, .timeline .w-8.h-8 {
-  width: 2rem !important; /* 32px */
-  height: 2rem !important; /* 32px */
-  min-width: 2rem !important;
-  min-height: 2rem !important;
-  max-width: 2rem !important;
-  max-height: 2rem !important;
-  flex-shrink: 0 !important;
-}
-
-/* SVG TIMELINE - 20px PROPORTIONNELS */
-#timeline .w-8.h-8 svg, #parcours .w-8.h-8 svg, section[id*="timeline"] .w-8.h-8 svg, section[id*="parcours"] .w-8.h-8 svg, .timeline .w-8.h-8 svg {
-  width: 1.25rem !important; /* 20px */
-  height: 1.25rem !important; /* 20px */
-  margin: auto !important;
-}/* CARDS ÉTAT NORMAL - MODE LIGHT : Contour orange */
-html.light .group .bg-white,
-html.light .group .bg-gray-50,
-html.light .group .bg-gray-100 {
-  border: 2px solid #f97316 !important;
-  background-color: #ffffff !important;
-}@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -201,8 +179,16 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
-   🎯 CORRECTION 1: CARDS SKILLS - HOVER UNIFORME #ff6a00
+   CARDS SKILLS - HOVER UNIFORME #ff6a00
    ======================================== */
+
+/* CARDS ÉTAT NORMAL - MODE LIGHT : Contour orange */
+html.light .group .bg-white,
+html.light .group .bg-gray-50,
+html.light .group .bg-gray-100 {
+  border: 2px solid #f97316 !important;
+  background-color: #ffffff !important;
+}
 
 /* HOVER ORANGE UNIFORME */
 .group:hover,
@@ -232,14 +218,9 @@ html.light .group:hover .p-6 {
   border-color: #ff6a00 !important;
 }
 
-/* TEXTE AU HOVER - MODE CLAIR : NOIR, MODE SOMBRE : BLANC */
+/* TEXTE AU HOVER - MODE CLAIR ET SOMBRE : BLANC */
 html.light .group:hover h1, html.light .group:hover h2, html.light .group:hover h3, html.light .group:hover h4, html.light .group:hover h5, html.light .group:hover h6,
-html.light .group:hover p, html.light .group:hover span, html.light .group:hover div {
-  color: #000000 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
+html.light .group:hover p, html.light .group:hover span, html.light .group:hover div,
 html.dark .group:hover h1, html.dark .group:hover h2, html.dark .group:hover h3, html.dark .group:hover h4, html.dark .group:hover h5, html.dark .group:hover h6,
 html.dark .group:hover p, html.dark .group:hover span, html.dark .group:hover div {
   color: #ffffff !important;
@@ -247,15 +228,8 @@ html.dark .group:hover p, html.dark .group:hover span, html.dark .group:hover di
   visibility: visible !important;
 }
 
-/* ICÔNES AU HOVER - MODE CLAIR : NOIR, MODE SOMBRE : BLANC */
-html.light .group:hover svg, html.light .group:hover i, html.light .group:hover [data-lucide], html.light .group:hover .lucide, html.light .group:hover [class*="lucide"], html.light .group:hover [class^="lucide-"] {
-  color: #000000 !important;
-  stroke: #000000 !important;
-  fill: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
+/* ICÔNES AU HOVER - MODE CLAIR ET SOMBRE : BLANC */
+html.light .group:hover svg, html.light .group:hover i, html.light .group:hover [data-lucide], html.light .group:hover .lucide, html.light .group:hover [class*="lucide"], html.light .group:hover [class^="lucide-"],
 html.dark .group:hover svg, html.dark .group:hover i, html.dark .group:hover [data-lucide], html.dark .group:hover .lucide, html.dark .group:hover [class*="lucide"], html.dark .group:hover [class^="lucide-"] {
   color: #ffffff !important;
   stroke: #ffffff !important;
@@ -290,10 +264,6 @@ html.light .group:hover .w-16 svg {
 }
 
 /* ========================================
-   🎯 CORRECTION 2: TIMELINE - DIMENSIONS UNIFORMES 32px
-   ======================================== */
-
-/* ========================================
    BOUTONS HOVER EFFECTS
    ======================================== */
 
@@ -317,21 +287,21 @@ html.light .bg-gray-700 {
   border: 2px solid #f97316 !important;
 }
 
-/* NOUVEAU : Support pour le bouton CV - MODE LIGHT SEULEMENT blanc avec contour orange */
+/* Support pour le bouton CV - MODE LIGHT SEULEMENT blanc avec contour orange */
 html.light .bg-white.border-orange-500 {
   background-color: #ffffff !important;
   color: #f97316 !important;
   border: 2px solid #f97316 !important;
 }
 
-/* NOUVEAU : Support pour le bouton CV - MODE DARK orange classique */
+/* Support pour le bouton CV - MODE DARK orange classique */
 html.dark .dark\:bg-orange-500 {
   background-color: #f97316 !important;
   color: #ffffff !important;
   border: 2px solid #f97316 !important;
 }
 
-/* NOUVEAU : Bouton CV MODE LIGHT - texte et icônes orange */
+/* Bouton CV MODE LIGHT - texte et icônes orange */
 html.light .bg-white.border-orange-500 span {
   color: #f97316 !important;
 }
@@ -341,7 +311,7 @@ html.light .bg-white.border-orange-500 svg {
   stroke: #f97316 !important;
 }
 
-/* NOUVEAU : Bouton CV MODE DARK - texte et icônes blancs */
+/* Bouton CV MODE DARK - texte et icônes blancs */
 html.dark .dark\:bg-orange-500 span {
   color: #ffffff !important;
 }
@@ -351,7 +321,7 @@ html.dark .dark\:bg-orange-500 svg {
   stroke: #ffffff !important;
 }
 
-/* NOUVEAU : Hover pour bouton CV MODE LIGHT - blanc vers orange */
+/* Hover pour bouton CV MODE LIGHT - blanc vers orange */
 html.light .bg-white.border-orange-500:hover {
   background-color: #f97316 !important;
   color: #ffffff !important;
@@ -360,7 +330,7 @@ html.light .bg-white.border-orange-500:hover {
   border-color: #f97316 !important;
 }
 
-/* NOUVEAU : Hover pour bouton CV MODE DARK - orange vers orange foncé */
+/* Hover pour bouton CV MODE DARK - orange vers orange foncé */
 html.dark .dark\:bg-orange-500:hover,
 html.dark .dark\:hover\:bg-orange-600:hover {
   background-color: #ea580c !important;
@@ -370,7 +340,7 @@ html.dark .dark\:hover\:bg-orange-600:hover {
   border-color: #ea580c !important;
 }
 
-/* NOUVEAU : Bouton CV hover MODE LIGHT - texte et icônes blancs */
+/* Bouton CV hover MODE LIGHT - texte et icônes blancs */
 html.light .bg-white.border-orange-500:hover span {
   color: #ffffff !important;
 }
@@ -380,9 +350,7 @@ html.light .bg-white.border-orange-500:hover svg {
   stroke: #ffffff !important;
 }
 
-
-
-/* NOUVEAU : Bouton CV hover MODE DARK - texte et icônes restent blancs */
+/* Bouton CV hover MODE DARK - texte et icônes restent blancs */
 html.dark .dark\:bg-orange-500:hover span,
 html.dark .dark\:hover\:bg-orange-600:hover span {
   color: #ffffff !important;
@@ -404,367 +372,7 @@ html.dark .bg-gray-700:hover {
   border-color: #f97316 !important;
 }
 
-/* MODE CLAIR - Texte et icônes orange par défaut pour les boutons avec contour orange */
-html.light .bg-white.border-orange-500 span {
-  color: #f97316 !important;
-}
-
-html.light .bg-white.border-orange-500 svg {
-  color: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* ========================================
-   CORRECTION RTL - CENTRAGE PARFAIT DES ICÔNES
-   ======================================== */
-
-/* Forcer le centrage de TOUTES les icônes en RTL */
-[dir="rtl"] .flex.items-center.justify-center,
-[dir="rtl"] .flex.justify-center,
-[dir="rtl"] .text-center {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-/* Centrage spécifique pour les icônes dans les cards */
-[dir="rtl"] .bg-gradient-to-br,
-[dir="rtl"] .bg-orange-500,
-[dir="rtl"] .rounded-lg svg,
-[dir="rtl"] .rounded-full svg {
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-/* Conteneurs d'icônes - forcer centrage */
-[dir="rtl"] .w-10.h-10,
-[dir="rtl"] .w-12.h-12,
-[dir="rtl"] .w-16.h-16,
-[dir="rtl"] .w-8.h-8 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Cards de compétences - centrage des icônes ET espacement correct */
-[dir="rtl"] .group .bg-gradient-to-br,
-[dir="rtl"] .group .bg-orange-500 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-bottom: 1rem !important; /* Espacement entre icône et texte */
-}
-
-/* Cards skills - MÊME FORMAT POUR TOUTES LES LANGUES */
-[dir="rtl"] .skills-card,
-[dir="rtl"] .skill-card,
-[dir="rtl"] .group {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  gap: 1rem !important; /* Espacement uniforme */
-  width: auto !important;
-  min-width: 150px !important;
-  max-width: 200px !important;
-}
-
-
-
-/* CARDS INDIVIDUELLES - MÊME TAILLE RTL ET LTR */
-[dir="rtl"] .group,
-[dir="rtl"] .skill-item,
-[dir="rtl"] .card {
-  padding: 1.5rem !important;
-  border-radius: 0.75rem !important;
-  min-height: 120px !important;
-  max-height: 140px !important;
-  width: 100% !important;
-}
-
-/* Texte dans les cards skills - centrage et espacement */
-[dir="rtl"] .group h4,
-[dir="rtl"] .group p,
-[dir="rtl"] .skill-name,
-[dir="rtl"] .skill-text {
-  text-align: center !important;
-  margin-top: 1rem !important;
-  width: 100% !important;
-}
-
-/* Icônes SVG dans les cards - centrage parfait SANS espacement supplémentaire */
-[dir="rtl"] .group svg,
-[dir="rtl"] .skill-card svg,
-[dir="rtl"] .card svg {
-  position: static !important;
-  left: auto !important;
-  transform: none !important;
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-/* Timeline icons - centrage */
-[dir="rtl"] .timeline-icon,
-[dir="rtl"] .timeline .w-8.h-8 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 auto !important;
-}
-
-/* Skills section - centrage des icônes */
-[dir="rtl"] #skills .bg-gradient-to-br,
-[dir="rtl"] #skills .bg-orange-500,
-[dir="rtl"] #skills .rounded-lg {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-[dir="rtl"] #skills svg {
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-/* About section - centrage des icônes */
-[dir="rtl"] #about .w-10.h-10 svg,
-[dir="rtl"] #about .bg-orange-500 svg {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Contact section - centrage des icônes sociales */
-[dir="rtl"] #contact .p-3 svg,
-[dir="rtl"] #contact .social-icon svg {
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-/* Cards génériques - centrage des icônes */
-[dir="rtl"] .card .icon,
-[dir="rtl"] .card svg,
-[dir="rtl"] .bg-gray-100 svg,
-[dir="rtl"] .bg-gray-800 svg {
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-}
-
-/* ========================================
-   CORRECTION RTL - ORDRE ET ALIGNEMENT DES SECTIONS
-   ======================================== */
-
-
-
-[id*="parcours"] h2 {
-  order: 1 !important;
-  font-size: 2.25rem !important; /* text-4xl */
-  font-weight: 700 !important; /* font-bold */
-  text-align: center !important;
-  margin-bottom: 0.5rem !important;
-  width: 100% !important;
-}
-
-/* Sous-titre en deuxième */
-[dir="rtl"] #timeline .text-gray-600,
-[dir="rtl"] #timeline .text-gray-400,
-[dir="rtl"] #parcours .text-gray-600,
-[dir="rtl"] #parcours .text-gray-400,
-[dir="rtl"] section[id*="timeline"] .text-gray-600,
-[dir="rtl"] section[id*="timeline"] .text-gray-400,
-[dir="rtl"] section[id*="parcours"] .text-gray-600,
-[dir="rtl"] section[id*="parcours"] .text-gray-400 {
-  order: 2 !important;
-  text-align: center !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 1.5rem !important;
-  width: 100% !important;
-}
-
-/* Badges Projet/Expérience en troisième */
-[dir="rtl"] #timeline .flex.justify-center,
-[dir="rtl"] #parcours .flex.justify-center,
-[dir="rtl"] section[id*="timeline"] .flex.justify-center,
-[dir="rtl"] section[id*="parcours"] .flex.justify-center {
-  order: 3 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 1rem !important;
-  margin: 1rem 0 2rem 0 !important;
-  width: 100% !important;
-}
-
-/* Timeline content en dernier */
-[dir="rtl"] #timeline .space-y-8,
-[dir="rtl"] #parcours .space-y-8,
-[dir="rtl"] section[id*="timeline"] .space-y-8,
-[dir="rtl"] section[id*="parcours"] .space-y-8 {
-  order: 4 !important;
-  margin-top: 2rem !important;
-  width: 100% !important;
-}
-
-/* Badges individuels - espacement et centrage */
-[dir="rtl"] .timeline-badge,
-[dir="rtl"] .experience-badge,
-[dir="rtl"] .project-badge {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  padding: 0.5rem 1rem !important;
-  margin: 0 !important;
-  text-align: center !important;
-}
-
-/* ========================================
-   CORRECTION SECTION SKILLS
-   ======================================== */
-
-/* Section Skills - Ordre correct */
-[dir="rtl"] #skills {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-/* Titre Skills en premier */
-[dir="rtl"] #skills h2 {
-  order: 1 !important;
-  font-size: 2.25rem !important;
-  font-weight: 700 !important;
-  text-align: center !important;
-  margin-bottom: 0.5rem !important;
-  width: 100% !important;
-}
-
-/* Sous-titre Skills en deuxième */
-[dir="rtl"] #skills .text-gray-600,
-[dir="rtl"] #skills .text-gray-400 {
-  order: 2 !important;
-  text-align: center !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 2rem !important;
-  width: 100% !important;
-}
-
-/* Grille des compétences en dernier */
-[dir="rtl"] #skills .grid {
-  order: 3 !important;
-  margin-top: 2rem !important;
-  width: 100% !important;
-}
-
-/* ========================================
-   CORRECTION SECTION ABOUT
-   ======================================== */
-
-[dir="rtl"] #about {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-[dir="rtl"] #about h2 {
-  order: 1 !important;
-  text-align: center !important;
-  margin-bottom: 1rem !important;
-  width: 100% !important;
-}
-
-[dir="rtl"] #about .text-gray-600,
-[dir="rtl"] #about .text-gray-400 {
-  order: 2 !important;
-  text-align: center !important;
-  margin-bottom: 2rem !important;
-  width: 100% !important;
-}
-
-[dir="rtl"] #about .grid,
-[dir="rtl"] #about .lg\:grid-cols-2 {
-  order: 3 !important;
-  margin-top: 2rem !important;
-  width: 100% !important;
-}
-
-/* ========================================
-   CORRECTION SECTION CONTACT
-   ======================================== */
-
-[dir="rtl"] #contact {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-[dir="rtl"] #contact h2 {
-  order: 1 !important;
-  text-align: center !important;
-  margin-bottom: 1rem !important;
-  width: 100% !important;
-}
-
-[dir="rtl"] #contact .text-gray-600,
-[dir="rtl"] #contact .text-gray-400 {
-  order: 2 !important;
-  text-align: center !important;
-  margin-bottom: 2rem !important;
-  width: 100% !important;
-}
-
-[dir="rtl"] #contact .grid,
-[dir="rtl"] #contact .contact-content {
-  order: 3 !important;
-  margin-top: 2rem !important;
-  width: 100% !important;
-}
-
-/* ========================================
-   CORRECTION GÉNÉRALE POUR TOUS LES CONTENEURS PRINCIPAUX
-   ======================================== */
-
-/* Forcer l'ordre pour tous les conteneurs de section */
-[dir="rtl"] .container,
-[dir="rtl"] .mx-auto,
-[dir="rtl"] .max-w-6xl {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-/* Centrage global pour RTL */
-[dir="rtl"] * {
-  text-align: center !important;
-}
-
-/* Exceptions pour le texte aligné à droite/gauche spécifiquement */
-[dir="rtl"] .text-right {
-  text-align: right !important;
-}
-
-[dir="rtl"] .text-left {
-  text-align: left !important;
-}
-
-/* Garder l'alignement justifié pour les paragraphes longs */
-[dir="rtl"] .text-justify {
-  text-align: justify !important;
-}
-
-
-
-/* ========================================
-   HOVER - Mode clair (remplissage orange)
-   ======================================== */
-
+/* HOVER - Mode clair (remplissage orange) */
 html.light .bg-orange-500:hover,
 html.light .bg-gray-700:hover {
   background-color: #f97316 !important;
@@ -787,17 +395,27 @@ html.light .bg-gray-700:hover svg {
   stroke: #ffffff !important;
 }
 
-/* Transitions pour les boutons */
-a[href="/cv-raphael-theuillon.pdf"],
-a[href="https://krglobalsolutionsltd.com/"] {
-  transition: all 0.3s ease !important;
+/* ========================================
+   TIMELINE - DIMENSIONS UNIFORMES 32px × 32px
+   ======================================== */
+#timeline .w-8.h-8, #parcours .w-8.h-8, section[id*="timeline"] .w-8.h-8, section[id*="parcours"] .w-8.h-8, .timeline .w-8.h-8 {
+  width: 2rem !important; /* 32px */
+  height: 2rem !important; /* 32px */
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  max-width: 2rem !important;
+  max-height: 2rem !important;
+  flex-shrink: 0 !important;
 }
 
-/* ========================================
-   TIMELINE - ICÔNES TOUJOURS VISIBLES ET ORANGE (Section "Mon Parcours" uniquement)
-   ======================================== */
+/* SVG TIMELINE - 20px PROPORTIONNELS */
+#timeline .w-8.h-8 svg, #parcours .w-8.h-8 svg, section[id*="timeline"] .w-8.h-8 svg, section[id*="parcours"] .w-8.h-8 svg, .timeline .w-8.h-8 svg {
+  width: 1.25rem !important; /* 20px */
+  height: 1.25rem !important; /* 20px */
+  margin: auto !important;
+}
 
-/* NOUVEAU : Icônes de timeline toujours visibles - UNIQUEMENT pour la section timeline/parcours */
+/* Icônes de timeline toujours visibles */
 #timeline .opacity-0,
 #parcours .opacity-0,
 section[id*="timeline"] .opacity-0,
@@ -869,22 +487,6 @@ section[id*="parcours"] svg {
   fill: none !important;
 }
 
-/* Supprimer les effets hover uniquement pour les icônes timeline */
-#timeline .group-hover\:opacity-100,
-#parcours .group-hover\:opacity-100,
-section[id*="timeline"] .group-hover\:opacity-100,
-section[id*="parcours"] .group-hover\:opacity-100 {
-  opacity: 1 !important;
-}
-
-/* Timeline spécifique - cercles d'icônes toujours visibles et colorés */
-.timeline-circle,
-.timeline-icon-container,
-[data-timeline-icon] {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 /* FORCER spécifiquement pour tous les cercles dans la timeline */
 section[id*="timeline"] .w-8.h-8.rounded-full,
 section[id*="parcours"] .w-8.h-8.rounded-full,
@@ -901,186 +503,6 @@ section[id*="parcours"] .w-8.h-8.rounded-full[data-type="experience"],
 #timeline .w-8.h-8.rounded-full[data-type="experience"],
 #parcours .w-8.h-8.rounded-full[data-type="experience"] {
   background-color: #10b981 !important; /* VERT pour expériences */
-}
-
-/* ========================================
-   AUTRES EFFETS HOVER
-   ======================================== */
-
-/* Hover pour les cards de compétences - MODES CLAIR ET SOMBRE */
-.group:hover .bg-white,
-.group:hover .bg-gray-700,
-html.light .group:hover .bg-white,
-html.light .group:hover .bg-gray-700,
-html.dark .group:hover .bg-white,
-html.dark .group:hover .bg-gray-700 {
-  background-color: #ff6a00 !important;
-}
-
-/* TEXTE VISIBLE AU HOVER - FORCÉ BLANC */
-.group:hover h4,
-.group:hover p,
-.group:hover span,
-.group:hover div,
-.group:hover .skill-name,
-.group:hover .skill-text,
-html.light .group:hover h4,
-html.light .group:hover p,
-html.light .group:hover span,
-html.light .group:hover div {
-  color: #ffffff !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 10 !important;
-  position: relative !important;
-  text-shadow: none !important;
-  font-weight: 500 !important;
-}
-
-/* ICÔNES VISIBLES AU HOVER - FORCÉ BLANC */
-.group:hover svg,
-.group:hover i,
-.group:hover [data-lucide],
-.group:hover .lucide,
-.group:hover [class*="lucide"],
-.group:hover [class^="lucide-"],
-html.light .group:hover svg,
-html.light .group:hover i,
-html.light .group:hover [data-lucide],
-html.light .group:hover .lucide,
-html.light .group:hover [class*="lucide"],
-html.light .group:hover [class^="lucide-"] {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-  fill: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 10 !important;
-  position: relative !important;
-}
-
-/* Conteneur d'icônes au hover - ORANGE DANS LES DEUX MODES */
-html.light .group:hover .bg-gradient-to-br,
-html.light .group:hover .bg-orange-500,
-html.dark .group:hover .bg-gradient-to-br,
-html.dark .group:hover .bg-orange-500 {
-  background: #f97316 !important;
-  border: 1px solid rgba(249, 115, 22, 0.3) !important;
-}
-
-/* ÉTAT NORMAL - MODE LIGHT UNIQUEMENT : Contour orange + logo orange */
-html.light .bg-gradient-to-br,
-html.light .bg-orange-500 {
-  background: transparent !important;
-  border: 2px solid #f97316 !important;
-}
-
-html.light .bg-gradient-to-br svg,
-html.light .bg-gradient-to-br i,
-html.light .bg-orange-500 svg,
-html.light .bg-orange-500 i {
-  color: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* ÉTAT NORMAL - MODE DARK : Logos orange par défaut (inchangé) */
-html.dark .bg-gradient-to-br,
-html.dark .bg-orange-500 {
-  background: linear-gradient(135deg, #f97316, #ea580c) !important;
-}
-
-html.dark .bg-gradient-to-br svg,
-html.dark .bg-gradient-to-br i,
-html.dark .bg-orange-500 svg,
-html.dark .bg-orange-500 i {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* FORCER LES ICÔNES À L'INTÉRIEUR DES CONTENEURS AU HOVER */
-/* MODE CLAIR : Icônes BLANCHES sur fond orange */
-html.light .group:hover .bg-gradient-to-br svg,
-html.light .group:hover .bg-gradient-to-br i,
-html.light .group:hover .bg-orange-500 svg,
-html.light .group:hover .bg-orange-500 i {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* MODE SOMBRE : Icônes blanches sur fond orange */
-html.dark .group:hover .bg-gradient-to-br svg,
-html.dark .group:hover .bg-gradient-to-br i,
-html.dark .group:hover .bg-orange-500 svg,
-html.dark .group:hover .bg-orange-500 i {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-} .group:hover .bg-orange-500 svg,
-html.light .group:hover .bg-orange-500 i {
-  color: #000000 !important;
-  stroke: #000000 !important;
-}
-
-/* MODE SOMBRE : Icônes blanches sur fond orange */
-html.dark .group:hover .bg-gradient-to-br svg,
-html.dark .group:hover .bg-gradient-to-br i,
-html.dark .group:hover .bg-orange-500 svg,
-html.dark .group:hover .bg-orange-500 i {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* Effet de surélévation au hover */
-.group:hover,
-html.light .group:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3) !important;
-  border-color: #f97316 !important;
-  transition: all 0.3s ease !important;
-}
-
-/* NOUVEAU : Contour orange pour les grandes cards de section au hover */
-.bg-gray-50:hover,
-html.light .bg-gray-50:hover,
-.bg-gray-800:hover,
-html.light .bg-gray-800:hover {
-  border: 2px solid #f97316 !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2) !important;
-  transform: translateY(-2px) !important;
-}
-
-/* Exclure les petites cards individuelles du contour */
-.group .bg-white:hover,
-.group .bg-gray-700:hover,
-html.light .group .bg-white:hover,
-html.light .group .bg-gray-700:hover {
-  border: 1px solid #e5e7eb !important;
-}
-
-/* Assurer que tous les enfants sont visibles */
-.group:hover > *,
-html.light .group:hover > * {
-  z-index: 5 !important;
-  position: relative !important;
-}
-
-/* SOLUTION BRUTALE SPÉCIFIQUE POUR MODE CLAIR - TEXTE NOIR, ICÔNES BLANCHES */
-html.light .group:hover * {
-  color: #000000 !important;
-}
-
-html.light .group:hover svg {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
-}
-
-/* SOLUTION BRUTALE SPÉCIFIQUE POUR MODE SOMBRE - TEXTE ET ICÔNES BLANCS */
-html.dark .group:hover * {
-  color: #ffffff !important;
-}
-
-html.dark .group:hover svg {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
 }
 
 /* ========================================
@@ -1122,6 +544,45 @@ html.dark .border-red-500:hover {
   color: #ffffff !important;
 }
 
+/* MODE LIGHT - ÉTAT NORMAL : Texte noir, seule la date reste orange */
+html.light .border-orange-500 h1,
+html.light .border-orange-500 h2,
+html.light .border-orange-500 h3,
+html.light .border-orange-500 h4,
+html.light .border-orange-500 h5,
+html.light .border-orange-500 h6,
+html.light .border-orange-500 p,
+html.light .border-orange-500 span:not(.text-orange-500):not(.text-orange-400):not(.text-orange-600),
+html.light .border-orange-500 div {
+  color: #000000 !important;
+}
+
+/* MODE LIGHT - GARDER LA DATE EN ORANGE */
+html.light .border-orange-500 .text-orange-500,
+html.light .border-orange-500 .text-orange-400,
+html.light .border-orange-500 .text-orange-600 {
+  color: #f97316 !important;
+}
+
+/* MODE LIGHT - AU HOVER : Fond orange, cadre blanc, texte blanc */
+html.light .border-orange-500:hover {
+  background-color: #f97316 !important;
+  border-color: #ffffff !important;
+}
+
+html.light .border-orange-500:hover *,
+html.light .border-orange-500:hover h1,
+html.light .border-orange-500:hover h2,
+html.light .border-orange-500:hover h3,
+html.light .border-orange-500:hover h4,
+html.light .border-orange-500:hover h5,
+html.light .border-orange-500:hover h6,
+html.light .border-orange-500:hover p,
+html.light .border-orange-500:hover span,
+html.light .border-orange-500:hover div {
+  color: #ffffff !important;
+}
+
 /* Hover effects spécifiques selon le type */
 html.light .hover\:bg-blue-50:hover {
   background-color: #3b82f6 !important;
@@ -1136,6 +597,93 @@ html.light .hover\:bg-green-50:hover {
 html.light .hover\:bg-orange-50:hover {
   background-color: #f97316 !important;
   color: #ffffff !important;
+}
+
+/* ========================================
+   ÉTAT NORMAL - ICÔNES SKILLS
+   ======================================== */
+
+/* ÉTAT NORMAL - MODE LIGHT UNIQUEMENT : Contour orange + logo orange */
+html.light .bg-gradient-to-br,
+html.light .bg-orange-500 {
+  background: transparent !important;
+  border: 2px solid #f97316 !important;
+}
+
+html.light .bg-gradient-to-br svg,
+html.light .bg-gradient-to-br i,
+html.light .bg-orange-500 svg,
+html.light .bg-orange-500 i {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* ÉTAT NORMAL - MODE DARK : Logos orange par défaut */
+html.dark .bg-gradient-to-br,
+html.dark .bg-orange-500 {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+}
+
+html.dark .bg-gradient-to-br svg,
+html.dark .bg-gradient-to-br i,
+html.dark .bg-orange-500 svg,
+html.dark .bg-orange-500 i {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ========================================
+   CORRECTIONS RTL - CENTRAGE DES ICÔNES
+   ======================================== */
+
+/* Forcer le centrage de TOUTES les icônes en RTL */
+[dir="rtl"] .flex.items-center.justify-center,
+[dir="rtl"] .flex.justify-center,
+[dir="rtl"] .text-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Centrage spécifique pour les icônes dans les cards */
+[dir="rtl"] .bg-gradient-to-br,
+[dir="rtl"] .bg-orange-500,
+[dir="rtl"] .rounded-lg svg,
+[dir="rtl"] .rounded-full svg {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Conteneurs d'icônes - forcer centrage */
+[dir="rtl"] .w-10.h-10,
+[dir="rtl"] .w-12.h-12,
+[dir="rtl"] .w-16.h-16,
+[dir="rtl"] .w-8.h-8 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Centrage global pour RTL */
+[dir="rtl"] * {
+  text-align: center !important;
+}
+
+/* Exceptions pour le texte aligné à droite/gauche spécifiquement */
+[dir="rtl"] .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-left {
+  text-align: left !important;
+}
+
+/* Garder l'alignement justifié pour les paragraphes longs */
+[dir="rtl"] .text-justify {
+  text-align: justify !important;
 }
 
 /* ========================================
@@ -1182,140 +730,8 @@ html.dark .shadow-xl {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ========================================
-   SOLUTIONS DE SECOURS
-   ======================================== */
-
-/* Si les styles ne s'appliquent pas, forcer brutalement */
-.skills-card:hover,
-.skill-card:hover {
-  background-color: #ff6a00 !important;
-}
-
-.skills-card:hover *,
-.skill-card:hover * {
-  color: #ffffff !important;
-}
-
-.skills-card:hover svg,
-.skill-card:hover svg {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
-}
-
-/* Forcer pour tous les composants de skills */
-[class*="skill"]:hover {
-  background-color: #ff6a00 !important;
-}
-
-[class*="skill"]:hover * {
-  color: #ffffff !important;
-}
-
-[class*="skill"]:hover svg {
-  stroke: #ffffff !important;
-}
-
-/* ========================================
-   🎯 CARDS TIMELINE - ÉTAT NORMAL ET HOVER CORRECT
-   ======================================== */
-
-/* MODE LIGHT - ÉTAT NORMAL : Texte noir, seule la date reste orange */
-html.light .border-orange-500 h1,
-html.light .border-orange-500 h2,
-html.light .border-orange-500 h3,
-html.light .border-orange-500 h4,
-html.light .border-orange-500 h5,
-html.light .border-orange-500 h6,
-html.light .border-orange-500 p,
-html.light .border-orange-500 span:not(.text-orange-500):not(.text-orange-400):not(.text-orange-600),
-html.light .border-orange-500 div {
-  color: #000000 !important;
-}
-
-/* MODE LIGHT - GARDER LA DATE EN ORANGE */
-html.light .border-orange-500 .text-orange-500,
-html.light .border-orange-500 .text-orange-400,
-html.light .border-orange-500 .text-orange-600 {
-  color: #f97316 !important;
-}
-
-/* MODE LIGHT - AU HOVER : Fond orange, cadre blanc, texte blanc SAUF dates orange */
-html.light .border-orange-500:hover {
-  background-color: #f97316 !important;
-  border-color: #ffffff !important; /* Cadre blanc au lieu d'orange */
-}
-
-html.light .border-orange-500:hover *,
-html.light .border-orange-500:hover h1,
-html.light .border-orange-500:hover h2,
-html.light .border-orange-500:hover h3,
-html.light .border-orange-500:hover h4,
-html.light .border-orange-500:hover h5,
-html.light .border-orange-500:hover h6,
-html.light .border-orange-500:hover p,
-html.light .border-orange-500:hover span,
-html.light .border-orange-500:hover div {
-  color: #ffffff !important;
-}
-
-/* FORCER LES DATES À RESTER ORANGE AVEC LEUR STYLE ORIGINAL */
-html.light .border-orange-500:hover .text-orange-500,
-html.light .border-orange-500:hover .text-orange-400,
-html.light .border-orange-500:hover .text-orange-600,
-html.light .border-orange-500:hover .bg-orange-100,
-html.light .border-orange-500:hover .bg-orange-50 {
-  color: #f97316 !important; /* Orange normal */
-  background-color: rgba(249, 115, 22, 0.1) !important; /* Fond orange clair normal */
-}
-
-/* PAREIL POUR HOVER BG ORANGE */
-html.light .hover\:bg-orange-50:hover {
-  background-color: #f97316 !important;
-}
-
-html.light .hover\:bg-orange-50:hover * {
-  color: #ffffff !important;
-}
-
-/* ANNULER LES RÈGLES GÉNÉRALES POUR LE RESTE DU SITE */
-html.light .text-orange-500,
-html.light .text-orange-400,
-html.light .text-orange-600 {
-  color: #f97316 !important;
-}
-
-/* PRÉSERVER LES BOUTONS ET LIENS NORMAUX */
-html.light a .text-orange-500,
-html.light button .text-orange-500,
-html.light .btn .text-orange-500,
-html.light a,
-html.light button {
-  color: #f97316 !important;
-}
-
-/* PRÉSERVER LES TITRES ET TEXTES NORMAUX DE LA PAGE */
-html.light h1,
-html.light h2,
-html.light h3,
-html.light h4,
-html.light p:not(.border-orange-500 *),
-html.light span:not(.border-orange-500 *) {
-  color: inherit !important;
-}
-
-/* GARDER LES COULEURS NORMALES POUR LA SECTION HERO ET AUTRES */
-html.light #hero *,
-html.light .hero *,
-html.light header *,
-html.light nav * {
-  color: inherit !important;
-}/* FORCER LE MENU HAMBURGER ORANGE */
-.mobile-menu-orange,
-.mobile-menu-orange *,
-.mobile-menu-content,
-.mobile-menu-content * {
-  background-color: #f97316 !important;
-  background-image: none !important;
-  background: #f97316 !important;
+/* Transitions pour les boutons */
+a[href="/cv-raphael-theuillon.pdf"],
+a[href="https://krglobalsolutionsltd.com/"] {
+  transition: all 0.3s ease !important;
 }
