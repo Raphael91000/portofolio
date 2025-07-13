@@ -179,88 +179,163 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
-   CARDS SKILLS - HOVER UNIFORME #ff6a00
+   CARDS SKILLS - STYLES FIXES
    ======================================== */
 
-/* CARDS ÉTAT NORMAL - MODE LIGHT : Contour orange */
-html.light .group .bg-white,
-html.light .group .bg-gray-50,
-html.light .group .bg-gray-100 {
-  border: 2px solid #f97316 !important;
-  background-color: #ffffff !important;
-}
-
-/* HOVER ORANGE UNIFORME */
-.group:hover,
-html.light .group:hover,
-html.dark .group:hover {
-  background-color: #ff6a00 !important;
-  background-image: none !important;
-  background: #ff6a00 !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 25px rgba(255, 106, 0, 0.3) !important;
+/* RESET pour toutes les cards skills */
+.skill-card {
   transition: all 0.3s ease !important;
-  border-color: #ff6a00 !important;
+  transform: translateY(0) !important;
 }
 
-/* FORCER SPÉCIFIQUEMENT POUR MODE CLAIR - CARDS ENTIÈRES */
-html.light .group:hover,
-html.light .group:hover .bg-white,
-html.light .group:hover .bg-gray-50,
-html.light .group:hover .bg-gray-100,
-html.light .group:hover .bg-gray-200,
-html.light .group:hover .rounded-lg,
-html.light .group:hover .p-4,
-html.light .group:hover .p-6 {
-  background-color: #ff6a00 !important;
-  background-image: none !important;
-  background: #ff6a00 !important;
-  border-color: #ff6a00 !important;
+.skill-card .skill-card__icon-wrapper {
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
-/* TEXTE AU HOVER - MODE CLAIR ET SOMBRE : BLANC */
-html.light .group:hover h1, html.light .group:hover h2, html.light .group:hover h3, html.light .group:hover h4, html.light .group:hover h5, html.light .group:hover h6,
-html.light .group:hover p, html.light .group:hover span, html.light .group:hover div,
-html.dark .group:hover h1, html.dark .group:hover h2, html.dark .group:hover h3, html.dark .group:hover h4, html.dark .group:hover h5, html.dark .group:hover h6,
-html.dark .group:hover p, html.dark .group:hover span, html.dark .group:hover div {
-  color: #ffffff !important;
+.skill-card .skill-card__icon-wrapper svg {
+  width: 24px !important;
+  height: 24px !important;
+  transition: all 0.3s ease !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* ICÔNES AU HOVER - MODE CLAIR ET SOMBRE : BLANC */
-html.light .group:hover svg, html.light .group:hover i, html.light .group:hover [data-lucide], html.light .group:hover .lucide, html.light .group:hover [class*="lucide"], html.light .group:hover [class^="lucide-"],
-html.dark .group:hover svg, html.dark .group:hover i, html.dark .group:hover [data-lucide], html.dark .group:hover .lucide, html.dark .group:hover [class*="lucide"], html.dark .group:hover [class^="lucide-"] {
+.skill-card .skill-card__title,
+.skill-card .skill-card__description {
+  transition: all 0.3s ease !important;
+}
+
+/* MODE LIGHT - ÉTAT NORMAL */
+html.light .skill-card,
+.light-mode .skill-card {
+  background-color: #ffffff !important;
+  border: 2px solid #f97316 !important;
+  color: #1f2937 !important;
+}
+
+html.light .skill-card .skill-card__title,
+html.light .skill-card .skill-card__description,
+.light-mode .skill-card .skill-card__title,
+.light-mode .skill-card .skill-card__description {
+  color: #f97316 !important;
+}
+
+html.light .skill-card .skill-card__icon-wrapper,
+.light-mode .skill-card .skill-card__icon-wrapper {
+  background-color: transparent !important;
+  border: 2px solid #f97316 !important;
+}
+
+html.light .skill-card .skill-card__icon-wrapper svg,
+.light-mode .skill-card .skill-card__icon-wrapper svg {
+  color: #f97316 !important;
+  fill: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* MODE LIGHT - HOVER */
+html.light .skill-card:hover,
+.light-mode .skill-card:hover {
+  background-color: rgba(249, 115, 22, 0.1) !important;
+  border-color: #f97316 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2) !important;
+}
+
+html.light .skill-card:hover .skill-card__title,
+html.light .skill-card:hover .skill-card__description,
+.light-mode .skill-card:hover .skill-card__title,
+.light-mode .skill-card:hover .skill-card__description {
+  color: #f97316 !important;
+}
+
+html.light .skill-card:hover .skill-card__icon-wrapper,
+.light-mode .skill-card:hover .skill-card__icon-wrapper {
+  background-color: #f97316 !important;
+  border-color: #f97316 !important;
+}
+
+html.light .skill-card:hover .skill-card__icon-wrapper svg,
+.light-mode .skill-card:hover .skill-card__icon-wrapper svg {
   color: #ffffff !important;
+  fill: #ffffff !important;
   stroke: #ffffff !important;
-  fill: none !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* FORCER SPÉCIFIQUEMENT POUR MODE CLAIR - CONTENEURS D'ICÔNES AU HOVER */
-html.light .group:hover .bg-gradient-to-br,
-html.light .group:hover .bg-orange-500,
-html.light .group:hover .w-10,
-html.light .group:hover .w-12,
-html.light .group:hover .w-16,
-html.light .group:hover .rounded-lg,
-html.light .group:hover .rounded-full {
-  background-color: #ff6a00 !important;
-  background-image: none !important;
-  background: #ff6a00 !important;
-  border-color: #ff6a00 !important;
+/* MODE DARK - ÉTAT NORMAL */
+html.dark .skill-card,
+.dark-mode .skill-card {
+  background-color: #374151 !important;
+  border: 2px solid #f97316 !important;
 }
 
-/* FORCER SPÉCIFIQUEMENT POUR MODE CLAIR - ICÔNES DANS CONTENEURS */
-html.light .group:hover .bg-gradient-to-br svg,
-html.light .group:hover .bg-orange-500 svg,
-html.light .group:hover .w-10 svg,
-html.light .group:hover .w-12 svg,
-html.light .group:hover .w-16 svg {
+html.dark .skill-card .skill-card__title,
+html.dark .skill-card .skill-card__description,
+.dark-mode .skill-card .skill-card__title,
+.dark-mode .skill-card .skill-card__description {
+  color: #f97316 !important;
+}
+
+html.dark .skill-card .skill-card__icon-wrapper,
+.dark-mode .skill-card .skill-card__icon-wrapper {
+  background-color: transparent !important;
+  border: 2px solid #f97316 !important;
+}
+
+html.dark .skill-card .skill-card__icon-wrapper svg,
+.dark-mode .skill-card .skill-card__icon-wrapper svg {
+  color: #f97316 !important;
+  fill: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+/* MODE DARK - HOVER */
+html.dark .skill-card:hover,
+.dark-mode .skill-card:hover {
+  background-color: #f97316 !important;
+  border-color: #f97316 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3) !important;
+}
+
+html.dark .skill-card:hover .skill-card__title,
+html.dark .skill-card:hover .skill-card__description,
+.dark-mode .skill-card:hover .skill-card__title,
+.dark-mode .skill-card:hover .skill-card__description {
   color: #ffffff !important;
+}
+
+html.dark .skill-card:hover .skill-card__icon-wrapper,
+.dark-mode .skill-card:hover .skill-card__icon-wrapper {
+  background-color: #f97316 !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.dark .skill-card:hover .skill-card__icon-wrapper svg,
+.dark-mode .skill-card:hover .skill-card__icon-wrapper svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
   stroke: #ffffff !important;
-  fill: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* FORCE VISIBILITY des icônes */
+.skill-card__icon,
+.skill-card__icon-wrapper svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 /* ========================================
@@ -600,39 +675,6 @@ html.light .hover\:bg-orange-50:hover {
 }
 
 /* ========================================
-   ÉTAT NORMAL - ICÔNES SKILLS
-   ======================================== */
-
-/* ÉTAT NORMAL - MODE LIGHT UNIQUEMENT : Contour orange + logo orange */
-html.light .bg-gradient-to-br,
-html.light .bg-orange-500 {
-  background: transparent !important;
-  border: 2px solid #f97316 !important;
-}
-
-html.light .bg-gradient-to-br svg,
-html.light .bg-gradient-to-br i,
-html.light .bg-orange-500 svg,
-html.light .bg-orange-500 i {
-  color: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* ÉTAT NORMAL - MODE DARK : Logos orange par défaut */
-html.dark .bg-gradient-to-br,
-html.dark .bg-orange-500 {
-  background: linear-gradient(135deg, #f97316, #ea580c) !important;
-}
-
-html.dark .bg-gradient-to-br svg,
-html.dark .bg-gradient-to-br i,
-html.dark .bg-orange-500 svg,
-html.dark .bg-orange-500 i {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* ========================================
    CORRECTIONS RTL - CENTRAGE DES ICÔNES
    ======================================== */
 
@@ -734,7 +776,9 @@ html.dark .shadow-xl {
 a[href="/cv-raphael-theuillon.pdf"],
 a[href="https://krglobalsolutionsltd.com/"] {
   transition: all 0.3s ease !important;
-}/* Correction pour les overlays */
+}
+
+/* Correction pour les overlays */
 .fixed.inset-0.z-30 {
   pointer-events: auto !important;
   z-index: 30 !important;

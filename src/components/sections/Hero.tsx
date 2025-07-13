@@ -9,7 +9,7 @@ const TypewriterText: React.FC = () => {
   const { t } = useTranslation();
   const [displayText, setDisplayText] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0); // Correction ici
   const [isDeleting, setIsDeleting] = useState(false);
 
   const words = t('hero.typewriter', { returnObjects: true }) as string[];
@@ -88,9 +88,20 @@ const Hero: React.FC = () => {
     },
   ];
 
+  // Options de CV par langue
+  const cvOptions = [
+    { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/cv-raphael-theuillon.pdf' },
+    { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/cv-raphael-theuillon-en.pdf' },
+    { lang: 'ar', flag: '🇸🇦', text: 'مشاهدة سيرتي الذاتية', file: '/cv-raphael-theuillon-ar.pdf' },
+    { lang: 'ru', flag: '🇷🇺', text: 'Просмотреть резюме', file: '/cv-raphael-theuillon-ru.pdf' },
+    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/cv-raphael-theuillon-zh.pdf' },
+    { lang: 'ja', flag: '🇯🇵', text: '履歴書を表示', file: '/cv-raphael-theuillon-ja.pdf' },
+    { lang: 'th', flag: '🇹🇭', text: 'ดูประวัติของฉัน', file: '/cv-raphael-theuillon-th.pdf' },
+    { lang: 'es', flag: '🇪🇸', text: 'Ver mi CV', file: '/cv-raphael-theuillon-es.pdf' },
+  ];
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
@@ -133,7 +144,6 @@ const Hero: React.FC = () => {
               className="mb-6 sm:mb-12"
             >
               <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-2">
-      
               </div>
               <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 h-12 flex items-center">
                 <TypewriterText />
@@ -154,18 +164,24 @@ const Hero: React.FC = () => {
                   isRTL ? 'sm:flex-row-reverse' : ''
                 }`}
               >
-                {/* CV Button - BLANC/ORANGE en LIGHT, GRIS en DARK */}
-                <a
-                  href="/cv-raphael-theuillon.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105 ${
+                {/* CV Dropdown - BLANC/ORANGE en LIGHT, GRIS en DARK */}
+                <select
+                  className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105 appearance-none text-center ${
                     isRTL ? 'flex-row-reverse' : ''
                   }`}
+                  onChange={(e) => {
+                    const selectedFile = e.target.value;
+                    if (selectedFile) window.open(selectedFile, '_blank');
+                  }}
+                  defaultValue=""
                 >
-                  <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span>{t('hero.cv')}</span>
-                </a>
+                  <option value="" disabled>Choisissez un CV</option>
+                  {cvOptions.map((option) => (
+                    <option key={option.lang} value={option.file}>
+                      {`${option.flag} ${option.text}`}
+                    </option>
+                  ))}
+                </select>
 
                 {/* KR Global Solutions Button - MÊME STYLE QUE CV */}
                 <a
@@ -403,15 +419,12 @@ const Hero: React.FC = () => {
                 {/* Impulsions électriques qui parcourent les circuits */}
                 {[...Array(12)].map((_, i) => {
                   const paths = [
-                    // Horizontales
                     [[50, 150], [350, 150]],
                     [[50, 200], [350, 200]],
                     [[50, 250], [350, 250]],
-                    // Verticales
                     [[150, 50], [150, 350]],
                     [[200, 50], [200, 350]],
                     [[250, 50], [250, 350]],
-                    // Diagonales
                     [[100, 100], [300, 300]],
                     [[300, 100], [100, 300]],
                   ];
