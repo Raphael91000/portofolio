@@ -14,37 +14,78 @@ const Header: React.FC = () => {
   // Refs pour détecter les clics en dehors
   const menuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
+  const langButtonRef = useRef<HTMLButtonElement>(null);
 
   // Fermer le menu quand on clique en dehors
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
       const target = event.target as Node;
       
-      // Si le menu n'est pas ouvert, ne rien faire
-      if (!isMobileMenuOpen) return;
-      
-      // Si on clique sur le bouton hamburger, laisser le bouton gérer l'événement
-      if (hamburgerRef.current && hamburgerRef.current.contains(target)) {
-        return;
+      // Gestion du menu hamburger
+      if (isMobileMenuOpen) {
+        // Si on clique sur le bouton hamburger, laisser le bouton gérer l'événement
+        if (hamburgerRef.current && hamburgerRef.current.contains(target)) {
+          return;
+        }
+        
+        // Si on clique dans le menu, ne pas fermer
+        if (menuRef.current && menuRef.current.contains(target)) {
+          return;
+        }
+        
+        // Sinon, fermer le menu
+        setIsMobileMenuOpen(false);
       }
       
-      // Si on clique dans le menu, ne pas fermer
-      if (menuRef.current && menuRef.current.contains(target)) {
-        return;
+      // Gestion du dropdown de langue
+      if (isMobileLangOpen) {
+        // Si on clique sur le bouton de langue, laisser le bouton gérer l'événement
+        if (langButtonRef.current && langButtonRef.current.contains(target)) {
+          return;
+        }
+        
+        // Si on clique dans le dropdown, ne pas fermer (sauf si c'est un bouton de langue)
+        if (langDropdownRef.current && langDropdownRef.current.contains(target)) {
+          // Vérifier si c'est un bouton de langue spécifique
+          const langButton = (target as Element).closest('button[data-lang]');
+          if (langButton) {
+            return; // Laisser le bouton gérer la fermeture
+          }
+          return; // Ne pas fermer si c'est autre chose dans le dropdown
+        }
+        
+        // Sinon, fermer le dropdown
+        setIsMobileLangOpen(false);
       }
-      
-      // Sinon, fermer le menu
-      setIsMobileMenuOpen(false);
     };
 
-    if (isMobileMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('touchstart', handleClickOutside);
+    // Utiliser plusieurs types d'événements pour une meilleure compatibilité
+    const events = ['mousedown', 'touchstart'];
+    
+    if (isMobileMenuOpen || isMobileLangOpen) {
+      events.forEach(eventType => {
+        document.addEventListener(eventType, handleClickOutside, { passive: true });
+      });
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      events.forEach(eventType => {
+        document.removeEventListener(eventType, handleClickOutside);
+      });
+    };
+  }, [isMobileMenuOpen, isMobileLangOpen]);
+
+  // Empêcher le scroll du body quand le menu est ouvert
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
 
@@ -102,6 +143,18 @@ const Header: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Fermer le dropdown de langue si ouvert
+    if (isMobileLangOpen) {
+      setIsMobileLangOpen(false);
+    }
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsMobileLangOpen(!isMobileLangOpen);
+    // Fermer le menu hamburger si ouvert
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
   };
 
   return (
@@ -150,8 +203,9 @@ const Header: React.FC = () => {
             {/* Mobile Language Selector */}
             <div className="relative">
               <button
-                onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1"
+                ref={langButtonRef}
+                onClick={toggleLanguageDropdown}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1 touch-manipulation"
                 aria-label={t('language')}
               >
                 <Globe className="h-5 w-5 text-gray-700 dark:text-gray-300" />
@@ -164,6 +218,7 @@ const Header: React.FC = () => {
               <AnimatePresence>
                 {isMobileLangOpen && (
                   <motion.div
+                    ref={langDropdownRef}
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -182,8 +237,9 @@ const Header: React.FC = () => {
                       {languages.map((language) => (
                         <button
                           key={language.code}
+                          data-lang={language.code}
                           onClick={() => changeLanguage(language.code)}
-                          className={`w-full p-2 rounded-lg transition-all duration-200 flex items-center gap-2 text-left ${
+                          className={`w-full p-2 rounded-lg transition-all duration-200 flex items-center gap-2 text-left touch-manipulation ${
                             i18n.language === language.code
                               ? 'bg-orange-500 text-white shadow-md transform scale-105'
                               : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
@@ -203,7 +259,7 @@ const Header: React.FC = () => {
             <button
               ref={hamburgerRef}
               onClick={toggleMobileMenu}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 touch-manipulation"
               aria-label={isMobileMenuOpen ? t('menu.close') : t('menu.open')}
               aria-expanded={isMobileMenuOpen}
             >
@@ -243,7 +299,7 @@ const Header: React.FC = () => {
                 >
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-200 font-medium text-lg border-l-4 border-transparent hover:border-orange-500"
+                    className="block w-full text-left py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-200 font-medium text-lg border-l-4 border-transparent hover:border-orange-500 touch-manipulation"
                   >
                     {t(`nav.${item.key}`)}
                   </button>
@@ -254,16 +310,20 @@ const Header: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Overlay pour fermer le dropdown de langue mobile */}
+      {/* Overlay pour fermer les dropdowns mobiles */}
       <AnimatePresence>
-        {isMobileLangOpen && (
+        {(isMobileMenuOpen || isMobileLangOpen) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 z-30"
-            onClick={() => setIsMobileLangOpen(false)}
+            className="md:hidden fixed inset-0 bg-black/20 z-40"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsMobileLangOpen(false);
+            }}
+            style={{ touchAction: 'none' }}
           />
         )}
       </AnimatePresence>
