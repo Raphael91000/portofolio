@@ -9,7 +9,7 @@ const TypewriterText: React.FC = () => {
   const { t } = useTranslation();
   const [displayText, setDisplayText] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentCharIndex, setCurrentCharIndex] = useState(0); // Correction ici
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const words = t('hero.typewriter', { returnObjects: true }) as string[];
@@ -90,14 +90,14 @@ const Hero: React.FC = () => {
 
   // Options de CV par langue
   const cvOptions = [
-    { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/cv-raphael-theuillon.pdf' },
-    { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/cv-raphael-theuillon-en.pdf' },
-    { lang: 'ar', flag: '🇸🇦', text: 'مشاهدة سيرتي الذاتية', file: '/cv-raphael-theuillon-ar.pdf' },
-    { lang: 'ru', flag: '🇷🇺', text: 'Просмотреть резюме', file: '/cv-raphael-theuillon-ru.pdf' },
-    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/cv-raphael-theuillon-zh.pdf' },
-    { lang: 'ja', flag: '🇯🇵', text: '履歴書を表示', file: '/cv-raphael-theuillon-ja.pdf' },
-    { lang: 'th', flag: '🇹🇭', text: 'ดูประวัติของฉัน', file: '/cv-raphael-theuillon-th.pdf' },
-    { lang: 'es', flag: '🇪🇸', text: 'Ver mi CV', file: '/cv-raphael-theuillon-es.pdf' },
+    { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/CV-RAPHAEL-FR.pdf' },
+    { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/CV-RAPHAEL-EN.pdf' },
+    { lang: 'ar', flag: '🇸🇦', text: 'مشاهدة سيرتي الذاتية', file: '/CV-RAPHAEL-AR.pdf' },
+    { lang: 'ru', flag: '🇷🇺', text: 'Просмотреть резюме', file: '/CV-RAPHAEL-RU.pdf' },
+    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/CV-RAPHAEL-CH.pdf' }, // CV chinois
+    { lang: 'ja', flag: '🇯🇵', text: '履歴書を表示', file: '/CV-RAPHAEL-JA.pdf' },
+    { lang: 'th', flag: '🇹🇭', text: 'ดูประวัติของฉัน', file: '/CV-RAPHAEL-TH.pdf' },
+    { lang: 'es', flag: '🇪🇸', text: 'Ver mi CV', file: '/CV-RAPHAEL-ES.pdf' },
   ];
 
   return (
