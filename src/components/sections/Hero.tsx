@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 md:pt-0"> {/* Ajout de pt-16 md:pt-0 */}
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-left">
