@@ -57,7 +57,7 @@ const Header: React.FC = () => {
   const navItems = [
     { key: 'home', href: '#home' },
     { key: 'about', href: '#about' },
-    { key: 'timeline', href: '#timeline' },
+    { key: 'my journey', href: '#timeline' },
     { key: 'skills', href: '#skills' },
     { key: 'blog', href: '#blog' },
     { key: 'contact', href: '#contact' },
@@ -128,10 +128,10 @@ const Header: React.FC = () => {
                 <button
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`p-2 rounded-lg transition-all duration-200 flex items-center gap-2 ${
+                  className={`p-2 rounded-lg flex items-center gap-2 ${
                     i18n.language === language.code
-                      ? 'bg-orange-500 text-white shadow-md'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      ? 'text-white'
+                      : 'text-gray-700 dark:text-gray-300'
                   }`}
                   aria-label={language.name}
                 >
