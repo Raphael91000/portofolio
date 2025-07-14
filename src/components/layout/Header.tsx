@@ -24,45 +24,32 @@ const Header: React.FC = () => {
       
       // Gestion du menu hamburger
       if (isMobileMenuOpen) {
-        // Si on clique sur le bouton hamburger, laisser le bouton gérer l'événement
         if (hamburgerRef.current && hamburgerRef.current.contains(target)) {
           return;
         }
-        
-        // Si on clique dans le menu, ne pas fermer
         if (menuRef.current && menuRef.current.contains(target)) {
           return;
         }
-        
-        // Sinon, fermer le menu
         setIsMobileMenuOpen(false);
       }
       
       // Gestion du dropdown de langue
       if (isMobileLangOpen) {
-        // Si on clique sur le bouton de langue, laisser le bouton gérer l'événement
         if (langButtonRef.current && langButtonRef.current.contains(target)) {
           return;
         }
-        
-        // Si on clique dans le dropdown, ne pas fermer (sauf si c'est un bouton de langue)
         if (langDropdownRef.current && langDropdownRef.current.contains(target)) {
-          // Vérifier si c'est un bouton de langue spécifique
           const langButton = (target as Element).closest('button[data-lang]');
           if (langButton) {
-            return; // Laisser le bouton gérer la fermeture
+            return;
           }
-          return; // Ne pas fermer si c'est autre chose dans le dropdown
+          return;
         }
-        
-        // Sinon, fermer le dropdown
         setIsMobileLangOpen(false);
       }
     };
 
-    // Utiliser plusieurs types d'événements pour une meilleure compatibilité
     const events = ['mousedown', 'touchstart'];
-    
     if (isMobileMenuOpen || isMobileLangOpen) {
       events.forEach(eventType => {
         document.addEventListener(eventType, handleClickOutside, { passive: true });
@@ -83,7 +70,6 @@ const Header: React.FC = () => {
     } else {
       document.body.style.overflow = 'unset';
     }
-    
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -101,27 +87,16 @@ const Header: React.FC = () => {
   const languages = [
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵' },
-    { code: 'th', name: 'ไทย', flag: '🇹🇭' },
-    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
   ];
 
   const scrollToSection = (href: string) => {
-    // Fermer le menu mobile d'abord
     setIsMobileMenuOpen(false);
-    
-    // Attendre que l'animation de fermeture soit terminée
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        // Calculer l'offset pour compenser la hauteur du header fixe
-        const headerHeight = 64; // h-16 = 64px
+        const headerHeight = 64;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
-        
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -129,7 +104,7 @@ const Header: React.FC = () => {
       } else {
         console.warn(`Section ${href} not found`);
       }
-    }, 300); // Délai correspondant à l'animation de fermeture du menu
+    }, 300);
   };
 
   const changeLanguage = (langCode: string) => {
@@ -143,7 +118,6 @@ const Header: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // Fermer le dropdown de langue si ouvert
     if (isMobileLangOpen) {
       setIsMobileLangOpen(false);
     }
@@ -151,7 +125,6 @@ const Header: React.FC = () => {
 
   const toggleLanguageDropdown = () => {
     setIsMobileLangOpen(!isMobileLangOpen);
-    // Fermer le menu hamburger si ouvert
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
@@ -161,7 +134,6 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className={`flex items-center gap-2 ${isRTL ? 'order-3' : 'order-1'}`}>
             <Code2 className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
@@ -169,7 +141,6 @@ const Header: React.FC = () => {
             </span>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className={`hidden md:flex gap-8 ${isRTL ? 'order-2' : 'order-2'}`}>
             {navItems.map((item) => (
               <button
@@ -182,7 +153,6 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop Controls */}
           <div 
             className={`hidden md:flex items-center gap-4 ${
               isRTL ? 'order-1 flex-row-reverse' : 'order-3'
@@ -190,17 +160,13 @@ const Header: React.FC = () => {
             dir={isRTL ? 'rtl' : 'ltr'}
           >
             <ThemeToggle />
-            <LanguageSelector />
+            <LanguageSelector languages={languages} />
           </div>
 
-          {/* Mobile Controls */}
           <div className={`md:hidden flex items-center gap-2 ${
             isRTL ? 'order-1' : 'order-4'
           }`}>
-            {/* Mobile Theme Toggle */}
             <ThemeToggle />
-            
-            {/* Mobile Language Selector */}
             <div className="relative">
               <button
                 ref={langButtonRef}
@@ -214,7 +180,6 @@ const Header: React.FC = () => {
                 </span>
               </button>
 
-              {/* Language Dropdown */}
               <AnimatePresence>
                 {isMobileLangOpen && (
                   <motion.div
@@ -232,7 +197,6 @@ const Header: React.FC = () => {
                         {t('language')}
                       </span>
                     </div>
-                    
                     <div className="grid grid-cols-2 gap-1 px-2">
                       {languages.map((language) => (
                         <button
@@ -255,7 +219,6 @@ const Header: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            {/* Hamburger Menu Button */}
             <button
               ref={hamburgerRef}
               onClick={toggleMobileMenu}
@@ -278,7 +241,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -310,7 +272,6 @@ const Header: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Overlay pour fermer les dropdowns mobiles */}
       <AnimatePresence>
         {(isMobileMenuOpen || isMobileLangOpen) && (
           <motion.div

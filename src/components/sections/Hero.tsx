@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
     { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/CV-RAPHAEL-EN.pdf' },
     { lang: 'ar', flag: '🇸🇦', text: 'مشاهدة سيرتي الذاتية', file: '/CV-RAPHAEL-AR.pdf' },
     { lang: 'ru', flag: '🇷🇺', text: 'Просмотреть резюме', file: '/CV-RAPHAEL-RU.pdf' },
-    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/CV-RAPHAEL-CH.pdf' }, // CV chinois
+    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/CV-RAPHAEL-CH.pdf' },
     { lang: 'ja', flag: '🇯🇵', text: '履歴書を表示', file: '/CV-RAPHAEL-JA.pdf' },
     { lang: 'th', flag: '🇹🇭', text: 'ดูประวัติของฉัน', file: '/CV-RAPHAEL-TH.pdf' },
     { lang: 'es', flag: '🇪🇸', text: 'Ver mi CV', file: '/CV-RAPHAEL-ES.pdf' },
@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-left">
             {/* Name */}
@@ -260,12 +260,9 @@ const Hero: React.FC = () => {
               >
                 {/* Tracés de circuit - lignes principales */}
                 <g stroke="rgb(59 130 246)" strokeWidth="2" fill="none" opacity="0.6">
-                  {/* Lignes horizontales principales */}
                   <line x1="50" y1="150" x2="350" y2="150" />
                   <line x1="50" y1="200" x2="350" y2="200" />
                   <line x1="50" y1="250" x2="350" y2="250" />
-                  
-                  {/* Lignes verticales principales */}
                   <line x1="150" y1="50" x2="150" y2="350" />
                   <line x1="200" y1="50" x2="200" y2="350" />
                   <line x1="250" y1="50" x2="250" y2="350" />
@@ -273,11 +270,8 @@ const Hero: React.FC = () => {
 
                 {/* Tracés secondaires */}
                 <g stroke="rgb(59 130 246)" strokeWidth="1" fill="none" opacity="0.4">
-                  {/* Diagonales */}
                   <line x1="100" y1="100" x2="300" y2="300" />
                   <line x1="300" y1="100" x2="100" y2="300" />
-                  
-                  {/* Circuits en L */}
                   <path d="M50,100 L120,100 L120,170" />
                   <path d="M280,100 L350,100 L350,170" />
                   <path d="M50,300 L120,300 L120,230" />
@@ -319,7 +313,6 @@ const Hero: React.FC = () => {
                 </motion.g>
 
                 {/* Composants électroniques autour */}
-                {/* Résistances */}
                 {[
                   { x: 80, y: 120, delay: 0 },
                   { x: 320, y: 120, delay: 0.5 },
