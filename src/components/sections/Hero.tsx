@@ -44,7 +44,7 @@ const TypewriterText: React.FC = () => {
 
   return (
     <span className="min-w-[300px]">
-      {displayText}
+      <span className="text-orange-500">{displayText}</span> {/* Forcer la couleur orange */}
       <span className="animate-pulse text-orange-500">|</span>
     </span>
   );
@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 md:pt-0"> {/* Ajout de pt-16 md:pt-0 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 md:pt-0"> 
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-left">
@@ -145,7 +145,7 @@ const Hero: React.FC = () => {
             >
               <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-2">
               </div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 h-12 flex items-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-500 h-12 flex items-center">
                 <TypewriterText />
               </div>
             </motion.div>
