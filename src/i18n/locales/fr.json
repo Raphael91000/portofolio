@@ -4,7 +4,6 @@
     "about": "À propos",
     "timeline": "Mon Parcours",
     "skills": "Compétences",
-    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -49,21 +48,6 @@
   "skills": {
     "title": "Compétences",
     "subtitle": "Expertise technique et commerciale"
-  },
-  "blog": {
-    "title": "Blog Personnel",
-    "subtitle": "Mes réflexions et expériences",
-    "categories": {
-      "learning": "Mes années d'apprentissage",
-      "professional": "Mes débuts professionnels",
-      "entrepreneurial": "Mes projets entrepreneuriaux",
-      "reading": "Lecture d'article classique"
-    },
-    "readTime": "min de lecture",
-    "listenMode": "Mode écoute",
-    "stopListening": "Arrêter l'écoute",
-    "readMore": "Lire plus",
-    "readLess": "Réduire"
   },
   "contact": {
     "title": "Contact",

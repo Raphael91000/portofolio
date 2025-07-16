@@ -4,7 +4,6 @@
     "about": "About",
     "timeline": "My Journey",
     "skills": "Skills",
-    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
@@ -49,21 +48,6 @@
   "skills": {
     "title": "Skills",
     "subtitle": "Technical and commercial expertise"
-  },
-  "blog": {
-    "title": "Personal Blog",
-    "subtitle": "My thoughts and experiences",
-    "categories": {
-      "learning": "My learning years",
-      "professional": "My professional beginnings",
-      "entrepreneurial": "My entrepreneurial projects",
-      "reading": "Classic article reading"
-    },
-    "readTime": "min read",
-    "listenMode": "Listen mode",
-    "stopListening": "Stop listening",
-    "readMore": "Read more",
-    "readLess": "Read less"
   },
   "contact": {
     "title": "Contact",

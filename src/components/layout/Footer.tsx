@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2">
-              {['home', 'about', 'timeline', 'skills', 'blog', 'contact'].map((item) => (
+              {['home', 'about', 'timeline', 'skills', 'contact'].map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => {

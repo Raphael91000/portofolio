@@ -59,7 +59,6 @@ const Header: React.FC = () => {
     { key: 'about', href: '#about' },
     { key: 'timeline', href: '#timeline' },
     { key: 'skills', href: '#skills' },
-    { key: 'blog', href: '#blog' },
     { key: 'contact', href: '#contact' },
   ];
 
@@ -100,7 +99,6 @@ const Header: React.FC = () => {
     about: t('nav.about'),
     timeline: t('nav.timeline'),
     skills: t('nav.skills'),
-    blog: t('nav.blog'),
     contact: t('nav.contact'),
   });
 

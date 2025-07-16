@@ -1,13 +1,3 @@
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  date: string;
-  readTime: string;
-}
-
 export interface TimelineItem {
   year: string;
   title: string;
