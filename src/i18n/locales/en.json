@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "timeline": "Timeline",
+    "timeline": "My Journey",
     "skills": "Skills",
     "blog": "Blog",
     "contact": "Contact"
@@ -37,7 +37,7 @@
     "formations": "Education",
     "languages": "Languages",
     "certifications": "Certifications",
-    "description_long": "After 7 years in construction, I decided to change direction. I started with sales, in permanent employment, where I honed my commercial skills in the field. In parallel, I launched my first entrepreneurial projects.\n\nThis dual experience — employee and entrepreneur — taught me to sell, manage, structure... and above all to adapt.\n\nToday, I combine this rigor with my passion for digital and AI to create concrete and innovative solutions. My ambition: transform ideas into growth drivers and build the companies of tomorrow."
+    "description_long": "After 7 years in construction, I decided to change direction. I started with sales, in permanent employment, where I honed my commercial skills in the field. In parallel, I launched my first entrepreneurial projects.\n\nThis dual experience — employee and entrepreneur — taught me to sell, manage, structurer... and above all to adapt.\n\nToday, I combine this rigor with my passion for digital and AI to create concrete and innovative solutions. My ambition: transform ideas into growth drivers and build the companies of tomorrow."
   },
   "timeline": {
     "title": "My Journey",

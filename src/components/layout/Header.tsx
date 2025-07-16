@@ -57,7 +57,7 @@ const Header: React.FC = () => {
   const navItems = [
     { key: 'home', href: '#home' },
     { key: 'about', href: '#about' },
-    { key: 'my journey', href: '#timeline' },
+    { key: 'timeline', href: '#timeline' },
     { key: 'skills', href: '#skills' },
     { key: 'blog', href: '#blog' },
     { key: 'contact', href: '#contact' },
@@ -94,6 +94,16 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Vérification des traductions pour débogage (facultatif, à retirer après test)
+  console.log('Translations for nav:', {
+    home: t('nav.home'),
+    about: t('nav.about'),
+    timeline: t('nav.timeline'),
+    skills: t('nav.skills'),
+    blog: t('nav.blog'),
+    contact: t('nav.contact'),
+  });
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -122,7 +132,6 @@ const Header: React.FC = () => {
             dir={isRTL ? 'rtl' : 'ltr'}
           >
             <ThemeToggle />
-            {/* Drapeaux pour le mode desktop et mobile */}
             <div className="flex gap-2">
               {languages.map((language) => (
                 <button
