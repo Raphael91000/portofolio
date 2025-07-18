@@ -70,11 +70,7 @@ const Hero: React.FC = () => {
   const cvOptions = [
     { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/CV-RAPHAEL-FR.pdf' },
     { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/CV-RAPHAEL-EN.pdf' },
-    { lang: 'ru', flag: '🇷🇺', text: 'Просмотреть резюме', file: '/CV-RAPHAEL-RU.pdf' },
-    { lang: 'zh', flag: '🇨🇳', text: '查看我的简历', file: '/CV-RAPHAEL-CH.pdf' },
-    { lang: 'ja', flag: '🇯🇵', text: '履歴書を表示', file: '/CV-RAPHAEL-JA.pdf' },
-    { lang: 'th', flag: '🇹🇭', text: 'ดูประวัติของฉัน', file: '/CV-RAPHAEL-TH.pdf' },
-    { lang: 'es', flag: '🇪🇸', text: 'Ver mi CV', file: '/CV-RAPHAEL-ES.pdf' },
+    { lang: 'ar', flag: '🇸🇦', text: 'عرض السيرة الذاتية', file: '/CV-RAPHAEL-AR.pdf' }, // Ajout de l'arabe
   ];
 
   return (
