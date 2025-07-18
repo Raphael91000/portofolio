@@ -108,5 +108,8 @@
   },
   "companies": {
     "krGlobal": "KR GLOBAL SOLUTIONS LTD"
+  },
+  "select": {
+    "chooseCV": "Choose a CV"
   }
 }

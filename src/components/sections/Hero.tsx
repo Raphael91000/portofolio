@@ -47,9 +47,10 @@ const TypewriterText: React.FC = () => {
 };
 
 const Hero: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [selectedCV, setSelectedCV] = useState(''); // État pour contrôler la valeur du <select>
 
   const handleMouseEnter = (linkName: string, event: React.MouseEvent) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -70,8 +71,17 @@ const Hero: React.FC = () => {
   const cvOptions = [
     { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/CV-RAPHAEL-FR.pdf' },
     { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/CV-RAPHAEL-EN.pdf' },
-    { lang: 'ar', flag: '🇸🇦', text: 'عرض السيرة الذاتية', file: '/CV-RAPHAEL-AR.pdf' }, // Ajout de l'arabe
+    { lang: 'ar', flag: '🇸🇦', text: 'عرض السيرة الذاتية', file: '/CV-RAPHAEL-AR.pdf' },
   ];
+
+  // Réinitialiser la valeur du <select> après avoir ouvert un CV
+  const handleCVSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedFile = e.target.value;
+    if (selectedFile) {
+      window.open(selectedFile, '_blank');
+      setSelectedCV(''); // Réinitialiser à la valeur par défaut
+    }
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
@@ -87,9 +97,15 @@ const Hero: React.FC = () => {
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex flex-col space-y-4 items-start">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <select className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105 appearance-none text-center" onChange={(e) => { const selectedFile = e.target.value; if (selectedFile) window.open(selectedFile, '_blank'); }} defaultValue="">
-                  <option value="" disabled>Choisissez un CV</option>
-                  {cvOptions.map((option) => <option key={option.lang} value={option.file}>{`${option.flag} ${option.text}`}</option>)}
+                <select
+                  className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105 appearance-none text-center"
+                  value={selectedCV}
+                  onChange={handleCVSelect}
+                >
+                  <option value="" disabled>{t('select.chooseCV')}</option>
+                  {cvOptions.map((option) => (
+                    <option key={option.lang} value={option.file}>{`${option.flag} ${option.text}`}</option>
+                  ))}
                 </select>
                 <a href="https://krglobalsolutionsltd.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border-2 border-orange-500 dark:border-gray-600 text-orange-500 dark:text-white hover:bg-orange-500 dark:hover:bg-gray-600 hover:text-white dark:hover:border-orange-500 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:transform hover:scale-105">
                   <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" /><span>{t('companies.krGlobal')}</span>
