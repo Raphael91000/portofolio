@@ -369,6 +369,34 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
+   SKILLS SECTIONS - BORDURES ORANGE
+   ======================================== */
+
+/* Bordures orange pour tous les conteneurs de sections skills */
+#skills .bg-gray-50,
+#skills .dark\:bg-gray-800,
+html.light #skills .bg-gray-50,
+html.dark #skills .bg-gray-800,
+html.light #skills .dark\:bg-gray-800,
+html.dark #skills .dark\:bg-gray-800 {
+  border: 2px solid #f97316 !important;
+  border-radius: 1rem !important;
+}
+
+/* Mode light - forcer les bordures orange */
+html.light #skills .border-gray-200,
+html.light #skills .border-gray-700 {
+  border: 2px solid #f97316 !important;
+}
+
+/* Mode dark - forcer les bordures orange */
+html.dark #skills .border-gray-200,
+html.dark #skills .border-gray-700,
+html.dark #skills .dark\:border-gray-700 {
+  border: 2px solid #f97316 !important;
+}
+
+/* ========================================
    SKILLS CARDS - SUPPRESSION TOTALE DES EFFETS HOVER
    ======================================== */
 
