@@ -2,7 +2,197 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hover pour bouton CV MODE LIGHT - blanc vers orange */
+html.light .bg-white.border-orange-500:hover {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  border-color: #f97316 !important;
+}
+
+/* Hover pour bouton CV MODE DARK - orange vers orange foncé */
+html.dark .dark\:bg-orange-500:hover,
+html.dark .dark\:hover\:bg-orange-600:hover {
+  background-color: #ea580c !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  border-color: #ea580c !important;
+}
+
+/* Bouton CV hover MODE LIGHT - texte et icônes blancs */
+html.light .bg-white.border-orange-500:hover span {
+  color: #ffffff !important;
+}
+
+html.light .bg-white.border-orange-500:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Bouton CV hover MODE DARK - texte et icônes restent blancs */
+html.dark .dark\:bg-orange-500:hover span,
+html.dark .dark\:hover\:bg-orange-600:hover span {
+  color: #ffffff !important;
+}
+
+html.dark .dark\:bg-orange-500:hover svg,
+html.dark .dark\:hover\:bg-orange-600:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* HOVER - Mode sombre */
+html.dark .bg-orange-500:hover,
+html.dark .bg-gray-700:hover {
+  background-color: #f97316 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  opacity: 1 !important;
+  border-color: #f97316 !important;
+}
+
+/* HOVER - Mode clair (remplissage orange) */
+html.light .bg-orange-500:hover,
+html.light .bg-gray-700:hover {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
+  opacity: 1 !important;
+  border-color: #f97316 !important;
+}
+
+/* MODE CLAIR - Texte et icônes blancs au hover */
+html.light .bg-orange-500:hover span,
+html.light .bg-gray-700:hover span {
+  color: #ffffff !important;
+}
+
+html.light .bg-orange-500:hover svg,
+html.light .bg-gray-700:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 /* ========================================
+   CORRECTIONS RTL - CENTRAGE DES ICÔNES
+   ======================================== */
+
+/* Forcer le centrage de TOUTES les icônes en RTL */
+[dir="rtl"] .flex.items-center.justify-center,
+[dir="rtl"] .flex.justify-center,
+[dir="rtl"] .text-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Centrage spécifique pour les icônes dans les cards */
+[dir="rtl"] .bg-gradient-to-br,
+[dir="rtl"] .bg-orange-500,
+[dir="rtl"] .rounded-lg svg,
+[dir="rtl"] .rounded-full svg {
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Conteneurs d'icônes - forcer centrage */
+[dir="rtl"] .w-10.h-10,
+[dir="rtl"] .w-12.h-12,
+[dir="rtl"] .w-16.h-16,
+[dir="rtl"] .w-8.h-8 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Centrage global pour RTL */
+[dir="rtl"] * {
+  text-align: center !important;
+}
+
+/* Exceptions pour le texte aligné à droite/gauche spécifiquement */
+[dir="rtl"] .text-right {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-left {
+  text-align: left !important;
+}
+
+/* Garder l'alignement justifié pour les paragraphes longs */
+[dir="rtl"] .text-justify {
+  text-align: justify !important;
+}
+
+/* ========================================
+   OMBRES ET EFFETS
+   ======================================== */
+
+/* Ombres adaptées selon le thème */
+html.light .shadow-lg,
+html.light .shadow-xl {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+              0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Animation pour le changement de thème */
+@keyframes theme-transition {
+  0% { opacity: 0.9; }
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+
+.theme-transition {
+  animation: theme-transition 0.3s ease-in-out;
+}
+
+/* ========================================
+   CLASSES UTILITAIRES
+   ======================================== */
+
+/* Classes pour les hovers élégants */
+.hover-elegant {
+  transition: all 0.3s ease;
+}
+
+.hover-elegant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Transitions pour les boutons */
+a[href="/cv-raphael-theuillon.pdf"],
+a[href="https://krglobalsolutionsltd.com/"] {
+  transition: all 0.3s ease !important;
+}
+
+/* Correction pour les overlays */
+.fixed.inset-0.z-30 {
+  pointer-events: auto !important;
+  z-index: 30 !important;
+}
+
+/* Menu mobile au-dessus */
+header .z-50 {
+  z-index: 50 !important;
+  position: relative !important;
+} ========================================
    CSS POUR THEME DARK/LIGHT MODE
    ======================================== */
 
@@ -15,21 +205,6 @@
               border-color 0.3s ease,
               box-shadow 0.3s ease,
               transform 0.3s ease;
-}
-
-/* Exclure .skill-card des transitions globales avec spécificité maximale */
-#skills .skill-card,
-#skills .skill-card *,
-#skills .skill-card::before,
-#skills .skill-card::after,
-#skills [data-category] .skill-card,
-#skills [data-category] .skill-card *,
-#skills [data-category] .skill-card::before,
-#skills [data-category] .skill-card::after {
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
 }
 
 /* Variables CSS pour les couleurs de thème */
@@ -194,81 +369,22 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
-   CARDS SKILLS - STYLES COMPLETS
+   SKILLS CARDS - SUPPRESSION TOTALE DES EFFETS HOVER
    ======================================== */
 
-/* Conteneur principal */
-#skills .skill-card {
-  position: relative;
-  background-color: var(--bg-card) !important;
-  border: 2px solid #f97316 !important;
-  border-radius: 1rem !important;
-  overflow: hidden !important;
-}
-
-/* Wrapper de l'icône */
-#skills .skill-card__icon-wrapper {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 3rem !important;
-  height: 3rem !important;
-  border-radius: 0.75rem !important;
-  background-color: #f97316 !important;
-  border: 2px solid #f97316 !important;
-}
-
-/* Forcer la couleur des icônes en blanc dans les deux modes */
-#skills .skill-card__icon-wrapper svg {
-  width: 1.5rem !important;
-  height: 1.5rem !important;
-  color: #ffffff !important;
-}
-
-/* Titres et textes */
-#skills .skill-card h4 {
-  margin-top: 0.5rem;
-  font-weight: 500;
-  color: #f97316;
-}
-
-/* Mode sombre - texte des compétences en blanc */
-html.dark #skills .skill-card h4 {
-  color: #ffffff !important;
-}
-
-/* Styles par catégorie */
-#skills [data-category="Tech/Web"] .skill-card__icon-wrapper {
-  background: linear-gradient(45deg, #f97316, #fdba74);
-}
-#skills [data-category="IA"] .skill-card__icon-wrapper {
-  background-color: #f97316;
-  border-style: dashed;
-}
-#skills [data-category="Design"] .skill-card__icon-wrapper {
-  background-color: #f59e0b !important;
-  border-color: #f59e0b !important;
-}
-#skills [data-category*="Marketing" i] .skill-card__icon-wrapper,
-#skills [data-category*="Communication" i] .skill-card__icon-wrapper {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* ========================================
-   DÉSACTIVATION COMPLÈTE DU HOVER POUR SKILLS
-   ======================================== */
-
-/* 1. Désactiver TOUTES les transitions pour les skill cards */
+/* 1. DÉSACTIVATION COMPLÈTE DES TRANSITIONS POUR LES SKILL CARDS */
 #skills .skill-card-wrapper,
 #skills .skill-card-wrapper *,
 #skills .skill-card,
 #skills .skill-card *,
 #skills .skill-card__icon-wrapper,
 #skills .skill-card__icon-wrapper *,
-#skills .no-hover-effect,
-#skills .no-hover-effect *,
-#skills .no-hover,
-#skills .no-hover * {
+#skills .skill-card-no-hover,
+#skills .skill-card-no-hover *,
+#skills .skill-icon-no-hover,
+#skills .skill-icon-no-hover *,
+#skills .skill-icon,
+#skills .skill-card-title {
   transition: none !important;
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -280,278 +396,135 @@ html.dark #skills .skill-card h4 {
   -moz-transform: none !important;
 }
 
-/* 2. Forcer l'état statique au hover */
+/* 2. FORCER L'ÉTAT STATIQUE AU HOVER - TOUS LES MODES */
 #skills .skill-card-wrapper:hover,
 #skills .skill-card:hover,
 #skills .skill-card__icon-wrapper:hover,
-#skills .no-hover-effect:hover,
-#skills .no-hover:hover {
+#skills .skill-card-no-hover:hover,
+#skills .skill-icon-no-hover:hover,
+#skills .skill-card:hover *,
+#skills .skill-card-wrapper:hover *,
+#skills .skill-card__icon-wrapper:hover * {
   transform: none !important;
   scale: 1 !important;
   box-shadow: none !important;
   filter: none !important;
   opacity: 1 !important;
-}
-
-/* 3. Maintenir les couleurs originales au hover */
-#skills .skill-card:hover {
-  background-color: var(--bg-card) !important;
-  border-color: #f97316 !important;
-}
-
-#skills .skill-card__icon-wrapper:hover {
-  background-color: #f97316 !important;
-}
-
-#skills .skill-card:hover h4 {
-  color: #f97316 !important;
-}
-
-/* Mode sombre - maintenir le texte blanc même au hover */
-html.dark #skills .skill-card:hover h4 {
-  color: #ffffff !important;
-}
-
-/* 4. Désactiver les animations Framer Motion */
-#skills [style*="transform"],
-#skills [style*="scale"] {
-  transform: none !important;
-  scale: 1 !important;
-}
-
-/* 5. Override des styles inline */
-#skills .skill-card-wrapper[style] {
-  transform: none !important;
-}
-
-/* 6. Forcer la priorité maximale avec !important sur tous les états */
-#skills .skill-card,
-#skills .skill-card:hover,
-#skills .skill-card:active,
-#skills .skill-card:focus {
-  transform: translateX(0) translateY(0) translateZ(0) !important;
-  scale: 1 !important;
   transition: none !important;
+  animation: none !important;
 }
 
-/* 7. Désactiver spécifiquement le scale de Framer Motion */
-#skills [data-category] > div {
-  transform: none !important;
-  scale: 1 !important;
-}
-
-/* 8. État des cartes - toujours identique */
-#skills .bg-white.skill-card,
-#skills .bg-white.skill-card:hover {
+/* 3. STYLES FIXES POUR LES SKILL CARDS - MODE LIGHT */
+html.light #skills .skill-card,
+html.light #skills .skill-card:hover,
+html.light #skills .skill-card-no-hover,
+html.light #skills .skill-card-no-hover:hover {
   background-color: #ffffff !important;
-  border: 1px solid #f97316 !important;
-}
-
-html.dark #skills .dark\:bg-gray-700.skill-card,
-html.dark #skills .dark\:bg-gray-700.skill-card:hover {
-  background-color: #374151 !important;
-  border: 1px solid #f97316 !important;
-}
-
-/* 9. Icônes - état fixe */
-#skills .skill-card__icon-wrapper,
-#skills .skill-card__icon-wrapper:hover {
-  width: 3rem !important;
-  height: 3rem !important;
-  background-color: #f97316 !important;
-  transform: none !important;
-}
-
-#skills .skill-card__icon-wrapper svg {
-  color: #ffffff !important;
-  transform: none !important;
-}
-
-/* 10. Curseur par défaut (optionnel) */
-#skills .skill-card {
+  border: 2px solid #f97316 !important;
+  color: #1f2937 !important;
   cursor: default !important;
 }
 
-/* 11. Désactiver les pseudo-éléments animés */
+/* 4. STYLES FIXES POUR LES SKILL CARDS - MODE DARK */
+html.dark #skills .skill-card,
+html.dark #skills .skill-card:hover,
+html.dark #skills .skill-card-no-hover,
+html.dark #skills .skill-card-no-hover:hover {
+  background-color: #374151 !important;
+  border: 2px solid #f97316 !important;
+  color: #f9fafb !important;
+  cursor: default !important;
+}
+
+/* 5. ICÔNES - STYLES IDENTIQUES DANS LES DEUX MODES */
+#skills .skill-card__icon-wrapper,
+#skills .skill-card__icon-wrapper:hover,
+#skills .skill-icon-no-hover,
+#skills .skill-icon-no-hover:hover,
+html.light #skills .skill-card__icon-wrapper,
+html.light #skills .skill-card__icon-wrapper:hover,
+html.light #skills .skill-icon-no-hover,
+html.light #skills .skill-icon-no-hover:hover,
+html.dark #skills .skill-card__icon-wrapper,
+html.dark #skills .skill-card__icon-wrapper:hover,
+html.dark #skills .skill-icon-no-hover,
+html.dark #skills .skill-icon-no-hover:hover {
+  background-color: #f97316 !important;
+  border: none !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: default !important;
+}
+
+/* 6. ICÔNES SVG - COULEUR BLANCHE DANS LES DEUX MODES */
+#skills .skill-card__icon-wrapper svg,
+#skills .skill-card__icon-wrapper:hover svg,
+#skills .skill-icon,
+#skills .skill-icon:hover,
+html.light #skills .skill-card__icon-wrapper svg,
+html.light #skills .skill-card__icon-wrapper:hover svg,
+html.light #skills .skill-icon,
+html.light #skills .skill-icon:hover,
+html.dark #skills .skill-card__icon-wrapper svg,
+html.dark #skills .skill-card__icon-wrapper:hover svg,
+html.dark #skills .skill-icon,
+html.dark #skills .skill-icon:hover {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+/* 7. TITRES DES COMPÉTENCES - MODE LIGHT */
+html.light #skills .skill-card h4,
+html.light #skills .skill-card:hover h4,
+html.light #skills .skill-card-title,
+html.light #skills .skill-card-title:hover {
+  color: #f97316 !important;
+}
+
+/* 8. TITRES DES COMPÉTENCES - MODE DARK */
+html.dark #skills .skill-card h4,
+html.dark #skills .skill-card:hover h4,
+html.dark #skills .skill-card-title,
+html.dark #skills .skill-card-title:hover {
+  color: #ffffff !important;
+}
+
+/* 9. DÉSACTIVATION DES PSEUDO-ÉLÉMENTS */
 #skills .skill-card::before,
 #skills .skill-card::after,
 #skills .skill-card:hover::before,
-#skills .skill-card:hover::after {
+#skills .skill-card:hover::after,
+#skills .skill-card-no-hover::before,
+#skills .skill-card-no-hover::after,
+#skills .skill-card-no-hover:hover::before,
+#skills .skill-card-no-hover:hover::after {
   display: none !important;
+  content: none !important;
 }
 
-/* 12. Override final avec sélecteur très spécifique */
-body #skills .skill-card-wrapper > div.skill-card,
-body #skills .skill-card-wrapper:hover > div.skill-card {
+/* 10. OVERRIDE FRAMER MOTION */
+#skills [data-category] > div,
+#skills [data-category] > div:hover {
   transform: none !important;
-  transition: none !important;
   scale: 1 !important;
 }
 
-/* Surcharge pour désactiver les hover Tailwind et CSS avec haute spécificité */
-#skills .skill-card:hover,
-#skills .skill-card:hover *,
-#skills .skill-card__icon-wrapper:hover,
-#skills .skill-card h4:hover,
-#skills [data-category] .skill-card:hover,
-#skills [data-category] .skill-card:hover *,
-#skills [data-category] .skill-card__icon-wrapper:hover,
-#skills [data-category] .skill-card h4:hover {
-  background-color: var(--bg-card) !important;
-  border-color: #f97316 !important;
-  color: #f97316 !important;
+/* 11. FORCER LA SUPPRESSION DES EFFETS TAILWIND */
+#skills .bg-white:hover,
+#skills .bg-gray-700:hover,
+#skills .dark\:bg-gray-700:hover,
+#skills .border-orange-500:hover,
+#skills .dark\:border-orange-500:hover {
+  background-color: inherit !important;
+  border-color: inherit !important;
   box-shadow: none !important;
   transform: none !important;
-  opacity: 1 !important;
-}
-
-/* Désactiver les hover Tailwind spécifiques avec haute spécificité */
-#skills .bg-orange-500.skill-card__icon-wrapper:hover,
-#skills [data-category] .bg-orange-500.skill-card__icon-wrapper:hover {
-  background-color: #f97316 !important;
-}
-#skills .border-orange-500.skill-card:hover,
-#skills [data-category] .border-orange-500.skill-card:hover {
-  border-color: #f97316 !important;
-}
-
-/* Désactiver les transitions Framer Motion sur hover avec haute spécificité */
-#skills [data-category] .skill-card:hover {
-  animation: none !important;
-  -webkit-animation: none !important;
-  transition: none !important;
-}
-
-/* ========================================
-   BOUTONS HOVER EFFECTS
-   ======================================== */
-
-/* MODE SOMBRE - Boutons semi-transparents */
-html.dark .bg-orange-500,
-html.dark .bg-gray-700 {
-  background-color: rgba(107, 114, 128, 0.8) !important;
-  color: #ffffff !important;
-  opacity: 1 !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* MODE CLAIR - Boutons transparents avec contour orange */
-html.light .bg-orange-500,
-html.light .bg-gray-700 {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  color: #f97316 !important;
-  opacity: 1 !important;
-  backdrop-filter: blur(10px);
-  border: 2px solid #f97316 !important;
-}
-
-/* Support pour le bouton CV - MODE LIGHT SEULEMENT blanc avec contour orange */
-html.light .bg-white.border-orange-500 {
-  background-color: #ffffff !important;
-  color: #f97316 !important;
-  border: 2px solid #f97316 !important;
-}
-
-/* Support pour le bouton CV - MODE DARK orange classique */
-html.dark .dark\:bg-orange-500 {
-  background-color: #f97316 !important;
-  color: #ffffff !important;
-  border: 2px solid #f97316 !important;
-}
-
-/* Bouton CV MODE LIGHT - texte et icônes orange */
-html.light .bg-white.border-orange-500 span {
-  color: #f97316 !important;
-}
-
-html.light .bg-white.border-orange-500 svg {
-  color: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* Bouton CV MODE DARK - texte et icônes blancs */
-html.dark .dark\:bg-orange-500 span {
-  color: #ffffff !important;
-}
-
-html.dark .dark\:bg-orange-500 svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* Hover pour bouton CV MODE LIGHT - blanc vers orange */
-html.light .bg-white.border-orange-500:hover {
-  background-color: #f97316 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
-  border-color: #f97316 !important;
-}
-
-/* Hover pour bouton CV MODE DARK - orange vers orange foncé */
-html.dark .dark\:bg-orange-500:hover,
-html.dark .dark\:hover\:bg-orange-600:hover {
-  background-color: #ea580c !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
-  border-color: #ea580c !important;
-}
-
-/* Bouton CV hover MODE LIGHT - texte et icônes blancs */
-html.light .bg-white.border-orange-500:hover span {
-  color: #ffffff !important;
-}
-
-html.light .bg-white.border-orange-500:hover svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* Bouton CV hover MODE DARK - texte et icônes restent blancs */
-html.dark .dark\:bg-orange-500:hover span,
-html.dark .dark\:hover\:bg-orange-600:hover span {
-  color: #ffffff !important;
-}
-
-html.dark .dark\:bg-orange-500:hover svg,
-html.dark .dark\:hover\:bg-orange-600:hover svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* HOVER - Mode sombre */
-html.dark .bg-orange-500:hover,
-html.dark .bg-gray-700:hover {
-  background-color: #f97316 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
-  opacity: 1 !important;
-  border-color: #f97316 !important;
-}
-
-/* HOVER - Mode clair (remplissage orange) */
-html.light .bg-orange-500:hover,
-html.light .bg-gray-700:hover {
-  background-color: #f97316 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4) !important;
-  opacity: 1 !important;
-  border-color: #f97316 !important;
-}
-
-/* MODE CLAIR - Texte et icônes blancs au hover */
-html.light .bg-orange-500:hover span,
-html.light .bg-gray-700:hover span {
-  color: #ffffff !important;
-}
-
-html.light .bg-orange-500:hover svg,
-html.light .bg-gray-700:hover svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
 }
 
 /* ========================================
@@ -633,6 +606,25 @@ section[id*="parcours"] [data-type="experience"] {
 #timeline .bg-gray-600 svg,
 #timeline .bg-gray-700 svg,
 #parcours .bg-green-500 svg,
+#parcours .bg-orange-500 svg,
+#parcours .bg-gray-500 svg,
+#parcours .bg-gray-600 svg,
+#parcours .bg-gray-700 svg,
+section[id*="timeline"] .bg-green-500 svg,
+section[id*="timeline"] .bg-orange-500 svg,
+section[id*="timeline"] .bg-gray-500 svg,
+section[id*="timeline"] .bg-gray-600 svg,
+section[id*="timeline"] .bg-gray-700 svg,
+section[id*="parcours"] .bg-green-500 svg,
+section[id*="parcours"] .bg-orange-500 svg,
+section[id*="parcours"] .bg-gray-500 svg,
+section[id*="parcours"] .bg-gray-600 svg,
+section[id*="parcours"] .bg-gray-700 svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
 
 /* FORCER spécifiquement pour tous les cercles dans la timeline */
 section[id*="timeline"] .w-8.h-8.rounded-full,
@@ -673,119 +665,59 @@ html.dark .border-orange-500:hover {
 }
 
 /* ========================================
-   CORRECTIONS RTL - CENTRAGE DES ICÔNES
+   BOUTONS HOVER EFFECTS
    ======================================== */
 
-/* Forcer le centrage de TOUTES les icônes en RTL */
-[dir="rtl"] .flex.items-center.justify-center,
-[dir="rtl"] .flex.justify-center,
-[dir="rtl"] .text-center {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
+/* MODE SOMBRE - Boutons semi-transparents */
+html.dark .bg-orange-500,
+html.dark .bg-gray-700 {
+  background-color: rgba(107, 114, 128, 0.8) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Centrage spécifique pour les icônes dans les cards */
-[dir="rtl"] .bg-gradient-to-br,
-[dir="rtl"] .bg-orange-500,
-[dir="rtl"] .rounded-lg svg,
-[dir="rtl"] .rounded-full svg {
-  margin: 0 auto !important;
-  display: block !important;
+/* MODE CLAIR - Boutons transparents avec contour orange */
+html.light .bg-orange-500,
+html.light .bg-gray-700 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f97316 !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(10px);
+  border: 2px solid #f97316 !important;
 }
 
-/* Conteneurs d'icônes - forcer centrage */
-[dir="rtl"] .w-10.h-10,
-[dir="rtl"] .w-12.h-12,
-[dir="rtl"] .w-16.h-16,
-[dir="rtl"] .w-8.h-8 {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Support pour le bouton CV - MODE LIGHT SEULEMENT blanc avec contour orange */
+html.light .bg-white.border-orange-500 {
+  background-color: #ffffff !important;
+  color: #f97316 !important;
+  border: 2px solid #f97316 !important;
 }
 
-/* Centrage global pour RTL */
-[dir="rtl"] * {
-  text-align: center !important;
+/* Support pour le bouton CV - MODE DARK orange classique */
+html.dark .dark\:bg-orange-500 {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  border: 2px solid #f97316 !important;
 }
 
-/* Exceptions pour le texte aligné à droite/gauche spécifiquement */
-[dir="rtl"] .text-right {
-  text-align: right !important;
+/* Bouton CV MODE LIGHT - texte et icônes orange */
+html.light .bg-white.border-orange-500 span {
+  color: #f97316 !important;
 }
 
-[dir="rtl"] .text-left {
-  text-align: left !important;
+html.light .bg-white.border-orange-500 svg {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
 }
 
-/* Garder l'alignement justifié pour les paragraphes longs */
-[dir="rtl"] .text-justify {
-  text-align: justify !important;
+/* Bouton CV MODE DARK - texte et icônes blancs */
+html.dark .dark\:bg-orange-500 span {
+  color: #ffffff !important;
 }
 
-/* ========================================
-   OMBRES ET EFFETS
-   ======================================== */
-
-/* Ombres adaptées selon le thème */
-html.light .shadow-lg,
-html.light .shadow-xl {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-              0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-}
-
-html.dark .shadow-lg,
-html.dark .shadow-xl {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
-              0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-
-/* Animation pour le changement de thème */
-@keyframes theme-transition {
-  0% { opacity: 0.9; }
-  50% { opacity: 0.95; }
-  100% { opacity: 1; }
-}
-
-.theme-transition {
-  animation: theme-transition 0.3s ease-in-out;
-}
-
-/* ========================================
-   CLASSES UTILITAIRES
-   ======================================== */
-
-/* Classes pour les hovers élégants */
-.hover-elegant {
-  transition: all 0.3s ease;
-}
-
-.hover-elegant:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Transitions pour les boutons */
-a[href="/cv-raphael-theuillon.pdf"],
-a[href="https://krglobalsolutionsltd.com/"] {
-  transition: all 0.3s ease !important;
-}
-
-/* Correction pour les overlays */
-.fixed.inset-0.z-30 {
-  pointer-events: auto !important;
-  z-index: 30 !important;
-}
-
-/* Menu mobile au-dessus */
-header .z-50 {
-  z-index: 50 !important;
-  position: relative !important;
+html.dark .dark\:bg-orange-500 svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }

@@ -44,12 +44,12 @@ const Skills: React.FC = () => {
           type: "spring",
           stiffness: 100
         }}
-        whileHover="rest"
-        variants={{
-          rest: { scale: 1 }
-        }}
         className="relative skill-card-wrapper"
         data-category={categoryTitle}
+        style={{ 
+          transform: 'none',
+          transition: 'none'
+        }}
       >
         <div
           className={`
@@ -58,11 +58,11 @@ const Skills: React.FC = () => {
             ${isCompact ? 'p-3' : 'p-4'} 
             text-center border-2 border-orange-500 dark:border-orange-500 
             h-full flex flex-col justify-center min-h-[120px] 
-            skill-card no-hover-effect
+            skill-card skill-card-no-hover
           `}
           style={{ 
-            transition: 'none !important',
-            transform: 'none !important'
+            transition: 'none',
+            transform: 'none'
           }}
         >
           <div
@@ -72,19 +72,20 @@ const Skills: React.FC = () => {
               bg-orange-500 rounded-lg 
               ${isCompact ? 'mb-2' : 'mb-3'} 
               mx-auto 
-              skill-card__icon-wrapper no-hover-effect
+              skill-card__icon-wrapper skill-icon-no-hover
             `}
             style={{ 
-              transition: 'none !important',
-              transform: 'none !important',
-              backgroundColor: categoryTitle === 'IA' ? '#f97316' : 
-                               categoryTitle === 'Commercial' ? '#f59e0b' : 
-                               categoryTitle === 'Soft Skills' ? '#fb923c' : '#f97316'
+              transition: 'none',
+              transform: 'none',
+              backgroundColor: '#f97316'
             }}
           >
-            <IconComponent className={`${isCompact ? 'h-5 w-5' : 'h-6 w-6'} text-white`} />
+            <IconComponent 
+              className={`${isCompact ? 'h-5 w-5' : 'h-6 w-6'} text-white skill-icon`} 
+              style={{ color: '#ffffff' }}
+            />
           </div>
-          <h4 className={`text-orange-600 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} leading-tight line-clamp-2 no-hover-effect`}>
+          <h4 className={`text-orange-600 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} leading-tight line-clamp-2 skill-card-title`}>
             {skill.name}
           </h4>
         </div>
