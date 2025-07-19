@@ -55,9 +55,9 @@ const About: React.FC = () => {
               dir={isRTL ? 'rtl' : 'ltr'}
             >
               {/* Formations */}
-              <div>
+              <div className="education-section">
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center education-icon-no-hover">
                     <GraduationCap className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -68,25 +68,30 @@ const About: React.FC = () => {
                   {formations.map((formation, index) => (
                     <div 
                       key={index} 
-                      className={`${
+                      className={`education-card formation-no-hover ${
                         isRTL 
                           ? 'border-r-2 border-orange-500 pr-4' 
                           : 'border-l-2 border-orange-500 pl-4'
                       }`}
+                      style={{
+                        transition: 'none',
+                        transform: 'none',
+                        cursor: 'default'
+                      }}
                     >
                       <div className={`flex items-center justify-between mb-1 ${
                         isRTL ? 'flex-row-reverse' : ''
                       }`}>
-                        <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
+                        <span className="text-sm font-medium text-orange-600 dark:text-orange-400 formation-period-no-hover">
                           {formation.period}
                         </span>
                       </div>
-                      <h4 className={`font-semibold text-gray-900 dark:text-white text-sm ${
+                      <h4 className={`font-semibold text-gray-900 dark:text-white text-sm formation-title-no-hover ${
                         isRTL ? 'text-right' : 'text-left'
                       }`}>
                         {formation.title}
                       </h4>
-                      <p className={`text-gray-600 dark:text-gray-400 text-xs ${
+                      <p className={`text-gray-600 dark:text-gray-400 text-xs formation-institution-no-hover ${
                         isRTL ? 'text-right' : 'text-left'
                       }`}>
                         {formation.institution}
@@ -97,9 +102,9 @@ const About: React.FC = () => {
               </div>
 
               {/* Langues */}
-              <div>
+              <div className="languages-section">
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center languages-icon-no-hover">
                     <Languages className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -110,14 +115,19 @@ const About: React.FC = () => {
                   {languages.map((language, index) => (
                     <div 
                       key={index} 
-                      className={`flex justify-between items-center ${
+                      className={`language-item-no-hover flex justify-between items-center ${
                         isRTL ? 'flex-row-reverse' : ''
                       }`}
+                      style={{
+                        transition: 'none',
+                        transform: 'none',
+                        cursor: 'default'
+                      }}
                     >
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
+                      <span className="text-gray-700 dark:text-gray-300 font-medium language-name-no-hover">
                         {language.name}
                       </span>
-                      <span className="text-sm text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full">
+                      <span className="text-sm text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/20 px-3 py-1 rounded-full language-level-no-hover">
                         {language.level}
                       </span>
                     </div>
@@ -126,9 +136,9 @@ const About: React.FC = () => {
               </div>
 
               {/* Certifications */}
-              <div>
+              <div className="certifications-section">
                 <div className={`flex items-center mb-4 gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center certifications-icon-no-hover">
                     <Award className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -137,8 +147,16 @@ const About: React.FC = () => {
                 </div>
                 <div className="space-y-3">
                   {certifications.map((certification, index) => (
-                    <div key={index} className={`flex items-center ${isRTL ? 'justify-end' : 'justify-start'}`}>
-                      <span className={`text-gray-700 dark:text-gray-300 font-medium ${
+                    <div 
+                      key={index} 
+                      className={`certification-item-no-hover flex items-center ${isRTL ? 'justify-end' : 'justify-start'}`}
+                      style={{
+                        transition: 'none',
+                        transform: 'none',
+                        cursor: 'default'
+                      }}
+                    >
+                      <span className={`text-gray-700 dark:text-gray-300 font-medium certification-text-no-hover ${
                         isRTL ? 'text-right' : 'text-left'
                       }`}>
                         {certification}

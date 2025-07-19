@@ -369,6 +369,191 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
+   ABOUT SECTION - SUPPRESSION DES EFFETS HOVER
+   ======================================== */
+
+/* Désactivation complète des transitions pour la section About */
+#about .education-section,
+#about .education-section *,
+#about .languages-section,
+#about .languages-section *,
+#about .certifications-section,
+#about .certifications-section *,
+#about .education-card,
+#about .education-card *,
+#about .language-item-no-hover,
+#about .language-item-no-hover *,
+#about .certification-item-no-hover,
+#about .certification-item-no-hover *,
+#about .formation-no-hover,
+#about .formation-no-hover *,
+#about .education-icon-no-hover,
+#about .languages-icon-no-hover,
+#about .certifications-icon-no-hover {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+}
+
+/* Forcer l'état statique au hover pour toutes les formations */
+#about .education-card:hover,
+#about .formation-no-hover:hover,
+#about .formation-title-no-hover:hover,
+#about .formation-period-no-hover:hover,
+#about .formation-institution-no-hover:hover,
+#about .language-item-no-hover:hover,
+#about .language-name-no-hover:hover,
+#about .language-level-no-hover:hover,
+#about .certification-item-no-hover:hover,
+#about .certification-text-no-hover:hover,
+#about .education-icon-no-hover:hover,
+#about .languages-icon-no-hover:hover,
+#about .certifications-icon-no-hover:hover {
+  transform: none !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+  animation: none !important;
+  background-color: inherit !important;
+  color: inherit !important;
+  border-color: inherit !important;
+}
+
+/* Curseur par défaut pour tous les éléments de formation */
+#about .education-card,
+#about .formation-no-hover,
+#about .language-item-no-hover,
+#about .certification-item-no-hover {
+  cursor: default !important;
+}
+
+/* Maintenir les couleurs originales au hover */
+#about .formation-period-no-hover,
+#about .formation-period-no-hover:hover {
+  color: #ea580c !important; /* orange-600 */
+}
+
+html.dark #about .formation-period-no-hover,
+html.dark #about .formation-period-no-hover:hover {
+  color: #fb923c !important; /* orange-400 */
+}
+
+#about .formation-title-no-hover,
+#about .formation-title-no-hover:hover {
+  color: #1f2937 !important; /* gray-900 */
+}
+
+html.dark #about .formation-title-no-hover,
+html.dark #about .formation-title-no-hover:hover {
+  color: #ffffff !important; /* white */
+}
+
+#about .formation-institution-no-hover,
+#about .formation-institution-no-hover:hover {
+  color: #4b5563 !important; /* gray-600 */
+}
+
+html.dark #about .formation-institution-no-hover,
+html.dark #about .formation-institution-no-hover:hover {
+  color: #9ca3af !important; /* gray-400 */
+}
+
+/* Langues - maintenir les couleurs */
+#about .language-name-no-hover,
+#about .language-name-no-hover:hover {
+  color: #374151 !important; /* gray-700 */
+}
+
+html.dark #about .language-name-no-hover,
+html.dark #about .language-name-no-hover:hover {
+  color: #d1d5db !important; /* gray-300 */
+}
+
+#about .language-level-no-hover,
+#about .language-level-no-hover:hover {
+  color: #ea580c !important; /* orange-600 */
+  background-color: #fed7aa !important; /* orange-100 */
+}
+
+html.dark #about .language-level-no-hover,
+html.dark #about .language-level-no-hover:hover {
+  color: #fb923c !important; /* orange-400 */
+  background-color: rgba(234, 88, 12, 0.2) !important; /* orange-900/20 */
+}
+
+/* Certifications - maintenir les couleurs */
+#about .certification-text-no-hover,
+#about .certification-text-no-hover:hover {
+  color: #374151 !important; /* gray-700 */
+}
+
+html.dark #about .certification-text-no-hover,
+html.dark #about .certification-text-no-hover:hover {
+  color: #d1d5db !important; /* gray-300 */
+}
+
+/* Icônes - maintenir le style orange */
+#about .education-icon-no-hover,
+#about .education-icon-no-hover:hover,
+#about .languages-icon-no-hover,
+#about .languages-icon-no-hover:hover,
+#about .certifications-icon-no-hover,
+#about .certifications-icon-no-hover:hover {
+  background-color: #f97316 !important; /* orange-500 */
+}
+
+#about .education-icon-no-hover svg,
+#about .education-icon-no-hover:hover svg,
+#about .languages-icon-no-hover svg,
+#about .languages-icon-no-hover:hover svg,
+#about .certifications-icon-no-hover svg,
+#about .certifications-icon-no-hover:hover svg {
+  color: #ffffff !important;
+}
+
+/* Désactiver les pseudo-éléments */
+#about .formation-no-hover::before,
+#about .formation-no-hover::after,
+#about .formation-no-hover:hover::before,
+#about .formation-no-hover:hover::after,
+#about .language-item-no-hover::before,
+#about .language-item-no-hover::after,
+#about .language-item-no-hover:hover::before,
+#about .language-item-no-hover:hover::after,
+#about .certification-item-no-hover::before,
+#about .certification-item-no-hover::after,
+#about .certification-item-no-hover:hover::before,
+#about .certification-item-no-hover:hover::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Override final avec sélecteur très spécifique */
+body #about .education-card,
+body #about .education-card:hover,
+body #about .formation-no-hover,
+body #about .formation-no-hover:hover,
+body #about .language-item-no-hover,
+body #about .language-item-no-hover:hover,
+body #about .certification-item-no-hover,
+body #about .certification-item-no-hover:hover {
+  transform: none !important;
+  transition: none !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  background-color: inherit !important;
+  border-color: inherit !important;
+}
+
+/* ========================================
    SKILLS SECTIONS - BORDURES ORANGE
    ======================================== */
 
