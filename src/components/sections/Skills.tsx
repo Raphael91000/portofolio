@@ -55,9 +55,10 @@ const Skills: React.FC = () => {
           className={`
             bg-white dark:bg-gray-700 
             rounded-xl overflow-hidden 
-            ${isCompact ? 'p-3' : 'p-4'} 
+            ${isCompact ? 'p-2 sm:p-3' : 'p-3 sm:p-4'} 
             text-center border-2 border-orange-500 dark:border-orange-500 
-            h-full flex flex-col justify-center min-h-[120px] 
+            h-full flex flex-col justify-center 
+            ${isCompact ? 'min-h-[100px] sm:min-h-[120px]' : 'min-h-[120px] sm:min-h-[140px]'} 
             skill-card skill-card-no-hover
           `}
           style={{ 
@@ -68,9 +69,9 @@ const Skills: React.FC = () => {
           <div
             className={`
               flex items-center justify-center 
-              ${isCompact ? 'w-10 h-10' : 'w-12 h-12'} 
+              ${isCompact ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-10 h-10 sm:w-12 sm:h-12'} 
               bg-orange-500 rounded-lg 
-              ${isCompact ? 'mb-2' : 'mb-3'} 
+              ${isCompact ? 'mb-1 sm:mb-2' : 'mb-2 sm:mb-3'} 
               mx-auto 
               skill-card__icon-wrapper skill-icon-no-hover
             `}
@@ -81,11 +82,15 @@ const Skills: React.FC = () => {
             }}
           >
             <IconComponent 
-              className={`${isCompact ? 'h-5 w-5' : 'h-6 w-6'} text-white skill-icon`} 
+              className={`${isCompact ? 'h-4 w-4 sm:h-5 sm:w-5' : 'h-5 w-5 sm:h-6 sm:w-6'} text-white skill-icon`} 
               style={{ color: '#ffffff' }}
             />
           </div>
-          <h4 className={`text-orange-600 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} leading-tight line-clamp-2 skill-card-title`}>
+          <h4 className={`text-orange-600 dark:text-white font-medium ${isCompact ? 'text-xs sm:text-xs' : 'text-xs sm:text-sm'} leading-tight px-1 skill-card-title`} style={{ 
+            lineHeight: '1.2',
+            wordBreak: 'break-word',
+            hyphens: 'auto'
+          }}>
             {skill.name}
           </h4>
         </div>
@@ -132,7 +137,7 @@ const Skills: React.FC = () => {
                     {techWebCategory.skills.length} compétence{techWebCategory.skills.length > 1 ? 's' : ''}
                   </p>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
                   {techWebCategory.skills.map((skill, skillIndex) => 
                     renderSkillCard(skill, skillIndex, 0, techWebCategory.title, false)
                   )}
@@ -157,7 +162,7 @@ const Skills: React.FC = () => {
                     {iaCategory.skills.length} compétence{iaCategory.skills.length > 1 ? 's' : ''}
                   </p>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
                   {iaCategory.skills.map((skill, skillIndex) => 
                     renderSkillCard(skill, skillIndex, 1, iaCategory.title, false)
                   )}
@@ -186,7 +191,7 @@ const Skills: React.FC = () => {
                   {category.skills.length} compétence{category.skills.length > 1 ? 's' : ''}
                 </p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 sm:gap-4">
                 {category.skills.map((skill, skillIndex) => 
                   renderSkillCard(skill, skillIndex, categoryIndex + 2, category.title, false)
                 )}
