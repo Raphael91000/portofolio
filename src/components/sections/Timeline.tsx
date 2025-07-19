@@ -146,7 +146,7 @@ const Timeline: React.FC = () => {
                         ${isEven ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}
                       `}>
                         <div 
-                          className="rounded-xl p-4 md:p-6 shadow-lg border-2 timeline-card-no-hover timeline-card-static bg-white dark:bg-gray-900"
+                          className="rounded-xl p-4 md:p-6 shadow-lg timeline-card-no-hover timeline-card-static bg-white dark:bg-gray-900"
                           data-content-type={config.dataType}
                           style={{
                             transition: 'none !important',

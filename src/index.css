@@ -1050,3 +1050,105 @@ html.dark .dark\:bg-orange-500 svg {
   color: #ffffff !important;
   stroke: #ffffff !important;
 }
+/* ========================================
+   TIMELINE LIGHT MODE - CONTOURS ET COULEURS
+   ======================================== */
+
+/* Cards Timeline - Contours colorés en mode light */
+html.light #timeline .timeline-card-no-hover,
+html.light #timeline [data-content-type="experience"],
+html.light #timeline [data-content-type="project"] {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+/* Contours verts pour les expériences en mode light */
+html.light #timeline [data-content-type="experience"] {
+  border: 2px solid #10b981 !important; /* Vert emerald-500 */
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1), 0 2px 4px -1px rgba(16, 185, 129, 0.06) !important;
+}
+
+/* Contours orange pour les projets en mode light */
+html.light #timeline [data-content-type="project"] {
+  border: 2px solid #f97316 !important; /* Orange-500 */
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1), 0 2px 4px -1px rgba(249, 115, 22, 0.06) !important;
+}
+
+/* Dates colorées en mode light */
+html.light #timeline [data-content-type="experience"] .timeline-badge-no-hover {
+  color: #10b981 !important; /* Vert pour expériences */
+  background-color: #d1fae5 !important; /* Vert très clair */
+  border: 1px solid #10b981 !important;
+}
+
+html.light #timeline [data-content-type="project"] .timeline-badge-no-hover {
+  color: #f97316 !important; /* Orange pour projets */
+  background-color: #fed7aa !important; /* Orange très clair */
+  border: 1px solid #f97316 !important;
+}
+
+/* Entreprises/Projets colorés en mode light */
+html.light #timeline [data-content-type="experience"] .timeline-company-no-hover {
+  color: #10b981 !important; /* Vert pour expériences */
+  font-weight: 600 !important;
+}
+
+html.light #timeline [data-content-type="project"] .timeline-company-no-hover {
+  color: #f97316 !important; /* Orange pour projets */
+  font-weight: 600 !important;
+}
+
+/* Titres en mode light - garder en noir */
+html.light #timeline .timeline-title-no-hover {
+  color: #1f2937 !important; /* Noir/gris foncé */
+  font-weight: 700 !important;
+}
+
+/* Descriptions en mode light - gris foncé */
+html.light #timeline .timeline-description-no-hover {
+  color: #4b5563 !important; /* Gris foncé */
+}
+
+/* Type (experience/projet) en mode light */
+html.light #timeline .timeline-type-no-hover {
+  color: #6b7280 !important; /* Gris moyen */
+}
+
+/* Hover effects désactivés mais couleurs maintenues */
+html.light #timeline [data-content-type="experience"]:hover {
+  border-color: #10b981 !important;
+  background-color: #ffffff !important;
+  transform: none !important;
+  scale: 1 !important;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1), 0 2px 4px -1px rgba(16, 185, 129, 0.06) !important;
+}
+
+html.light #timeline [data-content-type="project"]:hover {
+  border-color: #f97316 !important;
+  background-color: #ffffff !important;
+  transform: none !important;
+  scale: 1 !important;
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1), 0 2px 4px -1px rgba(249, 115, 22, 0.06) !important;
+}
+
+/* Badges hover - maintenir les couleurs */
+html.light #timeline [data-content-type="experience"]:hover .timeline-badge-no-hover {
+  color: #10b981 !important;
+  background-color: #d1fae5 !important;
+  border-color: #10b981 !important;
+}
+
+html.light #timeline [data-content-type="project"]:hover .timeline-badge-no-hover {
+  color: #f97316 !important;
+  background-color: #fed7aa !important;
+  border-color: #f97316 !important;
+}
+
+/* Entreprises hover - maintenir les couleurs */
+html.light #timeline [data-content-type="experience"]:hover .timeline-company-no-hover {
+  color: #10b981 !important;
+}
+
+html.light #timeline [data-content-type="project"]:hover .timeline-company-no-hover {
+  color: #f97316 !important;
+}
