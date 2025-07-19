@@ -144,16 +144,16 @@ const Skills: React.FC = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700"
+                className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700"
               >
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 flex items-center">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                     <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                       {iaCategory.title}
                     </span>
-                    <div className="ml-3 flex-1 h-px bg-gradient-to-r from-orange-500 to-transparent"></div>
+                    <div className="ml-4 flex-1 h-px bg-gradient-to-r from-orange-500 to-transparent"></div>
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     {iaCategory.skills.length} compétence{iaCategory.skills.length > 1 ? 's' : ''}
                   </p>
                 </div>
