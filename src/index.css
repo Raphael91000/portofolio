@@ -6,7 +6,7 @@
    CSS POUR THEME DARK/LIGHT MODE
    ======================================== */
 
-/* Transitions globales pour tous les éléments */
+/* Transitions globales pour tous les éléments (excluant .skill-card) */
 *,
 *::before,
 *::after {
@@ -15,6 +15,21 @@
               border-color 0.3s ease,
               box-shadow 0.3s ease,
               transform 0.3s ease;
+}
+
+/* Exclure .skill-card des transitions globales avec spécificité maximale */
+#skills .skill-card,
+#skills .skill-card *,
+#skills .skill-card::before,
+#skills .skill-card::after,
+#skills [data-category] .skill-card,
+#skills [data-category] .skill-card *,
+#skills [data-category] .skill-card::before,
+#skills [data-category] .skill-card::after {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
 }
 
 /* Variables CSS pour les couleurs de thème */
@@ -156,7 +171,7 @@ html.light .text-gray-600 {
 }
 
 html.light h1,
-html.light h2, 
+html.light h2,
 html.light h3,
 html.light h4 {
   color: #1f2937 !important;
@@ -179,163 +194,227 @@ html.light .bg-orange-500 {
 }
 
 /* ========================================
-   CARDS SKILLS - STYLES FIXES
+   CARDS SKILLS - STYLES COMPLETS
    ======================================== */
 
-/* RESET pour toutes les cards skills */
-.skill-card {
-  transition: all 0.3s ease !important;
-  transform: translateY(0) !important;
+/* Conteneur principal */
+#skills .skill-card {
+  position: relative;
+  background-color: var(--bg-card) !important;
+  border: 2px solid #f97316 !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
 }
 
-.skill-card .skill-card__icon-wrapper {
-  transition: all 0.3s ease !important;
+/* Wrapper de l'icône */
+#skills .skill-card__icon-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 48px !important;
-  height: 48px !important;
-  border-radius: 8px !important;
-  position: relative !important;
-  z-index: 1 !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 0.75rem !important;
+  background-color: #f97316 !important;
+  border: 2px solid #f97316 !important;
 }
 
-.skill-card .skill-card__icon-wrapper svg {
-  width: 24px !important;
-  height: 24px !important;
-  transition: all 0.3s ease !important;
+/* Forcer la couleur des icônes en blanc dans les deux modes */
+#skills .skill-card__icon-wrapper svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  color: #ffffff !important;
+}
+
+/* Titres et textes */
+#skills .skill-card h4 {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #f97316;
+}
+
+/* Styles par catégorie */
+#skills [data-category="Tech/Web"] .skill-card__icon-wrapper {
+  background: linear-gradient(45deg, #f97316, #fdba74);
+}
+#skills [data-category="IA"] .skill-card__icon-wrapper {
+  background-color: #f97316;
+  border-style: dashed;
+}
+#skills [data-category="Design"] .skill-card__icon-wrapper {
+  background-color: #f59e0b !important;
+  border-color: #f59e0b !important;
+}
+#skills [data-category*="Marketing" i] .skill-card__icon-wrapper,
+#skills [data-category*="Communication" i] .skill-card__icon-wrapper {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ========================================
+   DÉSACTIVATION COMPLÈTE DU HOVER POUR SKILLS
+   ======================================== */
+
+/* 1. Désactiver TOUTES les transitions pour les skill cards */
+#skills .skill-card-wrapper,
+#skills .skill-card-wrapper *,
+#skills .skill-card,
+#skills .skill-card *,
+#skills .skill-card__icon-wrapper,
+#skills .skill-card__icon-wrapper *,
+#skills .no-hover-effect,
+#skills .no-hover-effect *,
+#skills .no-hover,
+#skills .no-hover * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+}
+
+/* 2. Forcer l'état statique au hover */
+#skills .skill-card-wrapper:hover,
+#skills .skill-card:hover,
+#skills .skill-card__icon-wrapper:hover,
+#skills .no-hover-effect:hover,
+#skills .no-hover:hover {
+  transform: none !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  filter: none !important;
   opacity: 1 !important;
-  visibility: visible !important;
 }
 
-.skill-card .skill-card__title,
-.skill-card .skill-card__description {
-  transition: all 0.3s ease !important;
+/* 3. Maintenir les couleurs originales au hover */
+#skills .skill-card:hover {
+  background-color: var(--bg-card) !important;
+  border-color: #f97316 !important;
 }
 
-/* MODE LIGHT - ÉTAT NORMAL */
-html.light .skill-card,
-.light-mode .skill-card {
+#skills .skill-card__icon-wrapper:hover {
+  background-color: #f97316 !important;
+}
+
+#skills .skill-card:hover h4 {
+  color: #f97316 !important;
+}
+
+/* Mode sombre */
+html.dark #skills .skill-card:hover h4 {
+  color: #ffffff !important;
+}
+
+/* 4. Désactiver les animations Framer Motion */
+#skills [style*="transform"],
+#skills [style*="scale"] {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+/* 5. Override des styles inline */
+#skills .skill-card-wrapper[style] {
+  transform: none !important;
+}
+
+/* 6. Forcer la priorité maximale avec !important sur tous les états */
+#skills .skill-card,
+#skills .skill-card:hover,
+#skills .skill-card:active,
+#skills .skill-card:focus {
+  transform: translateX(0) translateY(0) translateZ(0) !important;
+  scale: 1 !important;
+  transition: none !important;
+}
+
+/* 7. Désactiver spécifiquement le scale de Framer Motion */
+#skills [data-category] > div {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+/* 8. État des cartes - toujours identique */
+#skills .bg-white.skill-card,
+#skills .bg-white.skill-card:hover {
   background-color: #ffffff !important;
-  border: 2px solid #f97316 !important;
-  color: #1f2937 !important;
+  border: 1px solid #f97316 !important;
 }
 
-html.light .skill-card .skill-card__title,
-html.light .skill-card .skill-card__description,
-.light-mode .skill-card .skill-card__title,
-.light-mode .skill-card .skill-card__description {
-  color: #f97316 !important;
-}
-
-html.light .skill-card .skill-card__icon-wrapper,
-.light-mode .skill-card .skill-card__icon-wrapper {
-  background-color: transparent !important;
-  border: 2px solid #f97316 !important;
-}
-
-html.light .skill-card .skill-card__icon-wrapper svg,
-.light-mode .skill-card .skill-card__icon-wrapper svg {
-  color: #f97316 !important;
-  fill: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* MODE LIGHT - HOVER */
-html.light .skill-card:hover,
-.light-mode .skill-card:hover {
-  background-color: rgba(249, 115, 22, 0.1) !important;
-  border-color: #f97316 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2) !important;
-}
-
-html.light .skill-card:hover .skill-card__title,
-html.light .skill-card:hover .skill-card__description,
-.light-mode .skill-card:hover .skill-card__title,
-.light-mode .skill-card:hover .skill-card__description {
-  color: #f97316 !important;
-}
-
-html.light .skill-card:hover .skill-card__icon-wrapper,
-.light-mode .skill-card:hover .skill-card__icon-wrapper {
-  background-color: #f97316 !important;
-  border-color: #f97316 !important;
-}
-
-html.light .skill-card:hover .skill-card__icon-wrapper svg,
-.light-mode .skill-card:hover .skill-card__icon-wrapper svg {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* MODE DARK - ÉTAT NORMAL */
-html.dark .skill-card,
-.dark-mode .skill-card {
+html.dark #skills .dark\:bg-gray-700.skill-card,
+html.dark #skills .dark\:bg-gray-700.skill-card:hover {
   background-color: #374151 !important;
-  border: 2px solid #f97316 !important;
+  border: 1px solid #f97316 !important;
 }
 
-html.dark .skill-card .skill-card__title,
-html.dark .skill-card .skill-card__description,
-.dark-mode .skill-card .skill-card__title,
-.dark-mode .skill-card .skill-card__description {
-  color: #f97316 !important;
-}
-
-html.dark .skill-card .skill-card__icon-wrapper,
-.dark-mode .skill-card .skill-card__icon-wrapper {
-  background-color: transparent !important;
-  border: 2px solid #f97316 !important;
-}
-
-html.dark .skill-card .skill-card__icon-wrapper svg,
-.dark-mode .skill-card .skill-card__icon-wrapper svg {
-  color: #f97316 !important;
-  fill: #f97316 !important;
-  stroke: #f97316 !important;
-}
-
-/* MODE DARK - HOVER */
-html.dark .skill-card:hover,
-.dark-mode .skill-card:hover {
+/* 9. Icônes - état fixe */
+#skills .skill-card__icon-wrapper,
+#skills .skill-card__icon-wrapper:hover {
+  width: 3rem !important;
+  height: 3rem !important;
   background-color: #f97316 !important;
+  transform: none !important;
+}
+
+#skills .skill-card__icon-wrapper svg {
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+/* 10. Curseur par défaut (optionnel) */
+#skills .skill-card {
+  cursor: default !important;
+}
+
+/* 11. Désactiver les pseudo-éléments animés */
+#skills .skill-card::before,
+#skills .skill-card::after,
+#skills .skill-card:hover::before,
+#skills .skill-card:hover::after {
+  display: none !important;
+}
+
+/* 12. Override final avec sélecteur très spécifique */
+body #skills .skill-card-wrapper > div.skill-card,
+body #skills .skill-card-wrapper:hover > div.skill-card {
+  transform: none !important;
+  transition: none !important;
+  scale: 1 !important;
+}
+
+/* Surcharge pour désactiver les hover Tailwind et CSS avec haute spécificité */
+#skills .skill-card:hover,
+#skills .skill-card:hover *,
+#skills .skill-card__icon-wrapper:hover,
+#skills .skill-card h4:hover,
+#skills [data-category] .skill-card:hover,
+#skills [data-category] .skill-card:hover *,
+#skills [data-category] .skill-card__icon-wrapper:hover,
+#skills [data-category] .skill-card h4:hover {
+  background-color: var(--bg-card) !important;
   border-color: #f97316 !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3) !important;
+  color: #f97316 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
 }
 
-html.dark .skill-card:hover .skill-card__title,
-html.dark .skill-card:hover .skill-card__description,
-.dark-mode .skill-card:hover .skill-card__title,
-.dark-mode .skill-card:hover .skill-card__description {
-  color: #ffffff !important;
-}
-
-html.dark .skill-card:hover .skill-card__icon-wrapper,
-.dark-mode .skill-card:hover .skill-card__icon-wrapper {
+/* Désactiver les hover Tailwind spécifiques avec haute spécificité */
+#skills .bg-orange-500.skill-card__icon-wrapper:hover,
+#skills [data-category] .bg-orange-500.skill-card__icon-wrapper:hover {
   background-color: #f97316 !important;
-  border: 2px solid #ffffff !important;
+}
+#skills .border-orange-500.skill-card:hover,
+#skills [data-category] .border-orange-500.skill-card:hover {
+  border-color: #f97316 !important;
 }
 
-html.dark .skill-card:hover .skill-card__icon-wrapper svg,
-.dark-mode .skill-card:hover .skill-card__icon-wrapper svg {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* FORCE VISIBILITY des icônes */
-.skill-card__icon,
-.skill-card__icon-wrapper svg {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
+/* Désactiver les transitions Framer Motion sur hover avec haute spécificité */
+#skills [data-category] .skill-card:hover {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
 }
 
 /* ========================================
@@ -437,7 +516,7 @@ html.dark .dark\:hover\:bg-orange-600:hover svg {
   stroke: #ffffff !important;
 }
 
-/* HOVER - Mode sombre (inchangé) */
+/* HOVER - Mode sombre */
 html.dark .bg-orange-500:hover,
 html.dark .bg-gray-700:hover {
   background-color: #f97316 !important;
@@ -549,18 +628,6 @@ section[id*="parcours"] [data-type="experience"] {
 #timeline .bg-gray-600 svg,
 #timeline .bg-gray-700 svg,
 #parcours .bg-green-500 svg,
-#parcours .bg-orange-500 svg,
-#parcours .bg-gray-500 svg,
-#parcours .bg-gray-600 svg,
-#parcours .bg-gray-700 svg,
-section[id*="timeline"] svg,
-section[id*="parcours"] svg {
-  opacity: 1 !important;
-  visibility: visible !important;
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-  fill: none !important;
-}
 
 /* FORCER spécifiquement pour tous les cercles dans la timeline */
 section[id*="timeline"] .w-8.h-8.rounded-full,
@@ -598,80 +665,6 @@ html.dark .border-green-500:hover {
 html.light .border-orange-500:hover,
 html.dark .border-orange-500:hover {
   background-color: #f97316 !important;
-}
-
-html.light .border-purple-500:hover,
-html.dark .border-purple-500:hover {
-  background-color: #8b5cf6 !important;
-}
-
-html.light .border-red-500:hover,
-html.dark .border-red-500:hover {
-  background-color: #ef4444 !important;
-}
-
-/* Textes dans les cards Timeline au hover */
-.border-blue-500:hover *,
-.border-green-500:hover *,
-.border-orange-500:hover *,
-.border-purple-500:hover *,
-.border-red-500:hover * {
-  color: #ffffff !important;
-}
-
-/* MODE LIGHT - ÉTAT NORMAL : Texte noir, seule la date reste orange */
-html.light .border-orange-500 h1,
-html.light .border-orange-500 h2,
-html.light .border-orange-500 h3,
-html.light .border-orange-500 h4,
-html.light .border-orange-500 h5,
-html.light .border-orange-500 h6,
-html.light .border-orange-500 p,
-html.light .border-orange-500 span:not(.text-orange-500):not(.text-orange-400):not(.text-orange-600),
-html.light .border-orange-500 div {
-  color: #000000 !important;
-}
-
-/* MODE LIGHT - GARDER LA DATE EN ORANGE */
-html.light .border-orange-500 .text-orange-500,
-html.light .border-orange-500 .text-orange-400,
-html.light .border-orange-500 .text-orange-600 {
-  color: #f97316 !important;
-}
-
-/* MODE LIGHT - AU HOVER : Fond orange, cadre blanc, texte blanc */
-html.light .border-orange-500:hover {
-  background-color: #f97316 !important;
-  border-color: #ffffff !important;
-}
-
-html.light .border-orange-500:hover *,
-html.light .border-orange-500:hover h1,
-html.light .border-orange-500:hover h2,
-html.light .border-orange-500:hover h3,
-html.light .border-orange-500:hover h4,
-html.light .border-orange-500:hover h5,
-html.light .border-orange-500:hover h6,
-html.light .border-orange-500:hover p,
-html.light .border-orange-500:hover span,
-html.light .border-orange-500:hover div {
-  color: #ffffff !important;
-}
-
-/* Hover effects spécifiques selon le type */
-html.light .hover\:bg-blue-50:hover {
-  background-color: #3b82f6 !important;
-  color: #ffffff !important;
-}
-
-html.light .hover\:bg-green-50:hover {
-  background-color: #10b981 !important;
-  color: #ffffff !important;
-}
-
-html.light .hover\:bg-orange-50:hover {
-  background-color: #f97316 !important;
-  color: #ffffff !important;
 }
 
 /* ========================================
@@ -735,12 +728,14 @@ html.light .hover\:bg-orange-50:hover {
 /* Ombres adaptées selon le thème */
 html.light .shadow-lg,
 html.light .shadow-xl {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 html.dark .shadow-lg,
 html.dark .shadow-xl {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+              0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* ========================================
