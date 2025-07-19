@@ -232,6 +232,11 @@ html.light .bg-orange-500 {
   color: #f97316;
 }
 
+/* Mode sombre - texte des compétences en blanc */
+html.dark #skills .skill-card h4 {
+  color: #ffffff !important;
+}
+
 /* Styles par catégorie */
 #skills [data-category="Tech/Web"] .skill-card__icon-wrapper {
   background: linear-gradient(45deg, #f97316, #fdba74);
@@ -302,7 +307,7 @@ html.light .bg-orange-500 {
   color: #f97316 !important;
 }
 
-/* Mode sombre */
+/* Mode sombre - maintenir le texte blanc même au hover */
 html.dark #skills .skill-card:hover h4 {
   color: #ffffff !important;
 }
