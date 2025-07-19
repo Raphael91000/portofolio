@@ -5,56 +5,105 @@ export const timelineData: TimelineItem[] = [
     year: 'Mar 2025-Present',
     title: 'Co-Fondateur',
     company: 'Felizbella Cosmetic',
-    description: 'Vente de produits cosmétiques en e-commerce, digital marketing, Meta ADS, automatisation, relation clients, site web, études de marché, tunnel de conversion, logistique/livraison, SEO.',
-    type: 'project'
+    description: `J’ai co-fondé Felizbella Cosmetic pour faciliter l’accès aux cosmétiques en ligne.
+- E-commerce optimisé pour l’expérience utilisateur
+- Campagnes Meta Ads & retargeting
+- Automatisation CRM & chatbot
+- Tunnel de conversion & A/B testing
+- Études de marché & veille concurrentielle
+- Gestion logistique & optimisation des coûts
+- Suivi des KPI & reporting`,
+    type: 'project',
   },
   {
     year: 'April 2025-Present',
     title: 'Co-Fondateur',
     company: 'KR GLOBAL SOLUTION',
-    description: 'Développement d\'assistants virtuels et solutions d\'automatisation, site web sur mesure, intégration IA/API, workflows automatisés.',
-    type: 'project'
+    description: `Entreprise spécialisée dans le numérique : e-commerce et solutions digitales.
+- Assistants virtuels IA & NLP
+- Intégration API & solutions sur mesure
+- Workflows automatisés & RPA
+- Développement front-end / back-end responsive
+- Sécurité des données & compliance
+- Scalabilité & maintenance continue
+- Développement de sites web & applications mobiles
+- Automatisation via IA`,
+    type: 'project',
   },
   {
     year: '2023-2024',
     title: 'Technico-commercial',
     company: 'Murprotec',
-    description: 'Prospection terrain et gestion de la relation client. Formation des nouveaux commerciaux et participation à la stratégie de développement,vente et négociation B2C.',
-    type: 'experience'
+    description: `Au sein de Murprotec, j'ai renforcé mes compétences en vente B2C.
+- Prospection terrain
+- Gestion end-to-end de la relation client
+- Formation des nouveaux commerciaux
+- Négociation de contrats
+- Suivi des performances & objectifs`,
+    type: 'experience',
   },
   {
     year: '2022-2023',
     title: 'Technico-commercial',
     company: 'CTBG',
-    description: 'Développement de portefeuille client et prospection physique. Mise en place de stratégies commerciales et supervision des plannings,vente et négociation B2C.',
-    type: 'experience'
+    description: `Chez CTBG, j’ai bâti un réseau client solide grâce à une prospection multi-canal.
+- Développement de portefeuille clients
+- Prospection physique & digitale
+- Planification & coordination des plannings
+- Négociation & fidélisation
+- Reporting & analyses des ventes`,
+    type: 'experience',
   },
   {
     year: '2022-2024',
     title: 'Co-Fondateur',
     company: 'Restaurant Le Kin Di Thaï',
-    description: 'Création et organisation complète du restaurant. Recrutement, gestion d\'équipes, stratégie marketing digital et optimisation logistique.',
-    type: 'project'
+    description: `Co-fondateur d’un restaurant japonais/thaïlandais.
+- Conception & concept culinaire
+- Recrutement & formation des équipes
+- Stratégie marketing digital & réseaux sociaux
+- Optimisation des process & qualité de service
+- Gestion fournisseurs & achats
+- Analyse des coûts & marges`,
+    type: 'project',
   },
   {
     year: '2022-2023',
     title: 'Co-Fondateur',
     company: 'Wash Center',
-    description: 'Développement et lancement  du projet. Management d\'équipe, marketing digital et planification stratégique.',
-    type: 'project'
+    description: `Co-fondateur d’un centre de lavage automobile, j'ai pu gagné en expérience entrepreneuriale.
+- Lancement & branding du service
+- Management & organisation d’équipes
+- Campagnes marketing multicanal
+- Planification stratégique & budget
+- Expérience client & retours utilisateurs
+- Suivi des KPI & croissance`,
+    type: 'project',
   },
   {
     year: '2021-2024',
     title: 'Co-Fondateur',
     company: 'Entreprise de transport colis',
-    description: 'Création, gestion de flotte et des litiges clients. Optimisation des tournées, scan automatisé et négociation tarifaire.',
-    type: 'project'
+    description: `Co-fondateur d’une entreprise de transport.
+- Création & gestion de flotte
+- Optimisation des tournées & itinéraires
+- Système de scan automatisé
+- Gestion des litiges & relation client
+- Négociation de partenariats logistiques
+- Suivi des KPI & indicateurs de performance`,
+    type: 'project',
   },
   {
     year: '2015-2021',
     title: 'Maçon',
     company: 'Cazy Guillaume',
-    description: 'Construction (parpaings, briques, coffrages), lecture de plans. Suivi de chantier, sécurité, devis et implication dans le développement commercial.',
-    type: 'experience'
-  }
+    description: `Passionné par le bâtiment, j’ai réalisé des ouvrages de A à Z en garantissant qualité et sécurité.
+- Montage de parpaings, briques & coffrages
+- Lecture de plans & calculs dimensionnels
+- Suivi rigoureux de chantiers
+- Sécurité & normes BTP
+- Devis & estimation des coûts
+- Coordination avec sous-traitants`,
+    type: 'experience',
+  },
 ];
