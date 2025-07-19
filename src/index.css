@@ -741,6 +741,54 @@ html.dark #skills .skill-card-title:hover {
 }
 
 /* ========================================
+   TIMELINE - ICÔNES BLANCHES EN MODE LIGHT UNIQUEMENT
+   ======================================== */
+
+/* Mode light spécifique - forcer les icônes en blanc */
+html.light #timeline .timeline-icon-experience svg,
+html.light #timeline .timeline-icon-project svg,
+html.light #timeline [data-type="experience"] svg,
+html.light #timeline [data-type="project"] svg,
+html.light #timeline .lucide-briefcase,
+html.light #timeline .lucide-rocket {
+  color: #ffffff !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 2 !important;
+}
+
+/* Mode light - sélecteurs très spécifiques pour override */
+html.light body #timeline div[data-type="experience"] svg,
+html.light body #timeline div[data-type="project"] svg,
+html.light body #timeline .timeline-icon-experience svg,
+html.light body #timeline .timeline-icon-project svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+}
+
+/* Mode dark - préserver le comportement original (ne pas forcer) */
+html.dark #timeline .timeline-icon-experience svg,
+html.dark #timeline .timeline-icon-project svg,
+html.dark #timeline [data-type="experience"] svg,
+html.dark #timeline [data-type="project"] svg,
+html.dark #timeline .lucide-briefcase,
+html.dark #timeline .lucide-rocket {
+  /* Laisser les styles originaux du composant Timeline.tsx */
+}
+
+/* Backgrounds des icônes - maintenir les couleurs originales */
+#timeline .timeline-icon-experience,
+#timeline [data-type="experience"] {
+  background-color: #50cf01 !important; /* Vert lime flashy pour expériences */
+}
+
+#timeline .timeline-icon-project,
+#timeline [data-type="project"] {
+  background-color: #f97316 !important; /* Orange pour projets */
+}
+
+/* ========================================
    TIMELINE - DIMENSIONS UNIFORMES 32px × 32px
    ======================================== */
 #timeline .w-8.h-8, #parcours .w-8.h-8, section[id*="timeline"] .w-8.h-8, section[id*="parcours"] .w-8.h-8, .timeline .w-8.h-8 {
