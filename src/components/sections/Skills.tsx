@@ -133,9 +133,6 @@ const Skills: React.FC = () => {
                     </span>
                     <div className="ml-4 flex-1 h-px bg-gradient-to-r from-orange-500 to-transparent"></div>
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {techWebCategory.skills.length} compétence{techWebCategory.skills.length > 1 ? 's' : ''}
-                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
                   {techWebCategory.skills.map((skill, skillIndex) => 
@@ -158,9 +155,6 @@ const Skills: React.FC = () => {
                     </span>
                     <div className="ml-4 flex-1 h-px bg-gradient-to-r from-orange-500 to-transparent"></div>
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {iaCategory.skills.length} compétence{iaCategory.skills.length > 1 ? 's' : ''}
-                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
                   {iaCategory.skills.map((skill, skillIndex) => 
@@ -187,9 +181,6 @@ const Skills: React.FC = () => {
                   </span>
                   <div className="ml-4 flex-1 h-px bg-gradient-to-r from-orange-500 to-transparent"></div>
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  {category.skills.length} compétence{category.skills.length > 1 ? 's' : ''}
-                </p>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 sm:gap-4">
                 {category.skills.map((skill, skillIndex) => 
