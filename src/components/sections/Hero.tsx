@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, ExternalLink, FileText } from 'lucide-react';
+import { Linkedin, Github, ExternalLink, FileText, Globe } from 'lucide-react';
 import { useTypewriter } from '../../hooks/useTypewriter';
 
 // Composant pour l'effet machine à écrire
@@ -72,6 +72,7 @@ const Hero: React.FC = () => {
     { lang: 'fr', flag: '🇫🇷', text: 'Visualisez mon CV', file: '/CV-RAPHAEL-FR.pdf' },
     { lang: 'en', flag: '🇬🇧', text: 'View my CV', file: '/CV-RAPHAEL-EN.pdf' },
     { lang: 'ar', flag: '🇸🇦', text: 'عرض السيرة الذاتية', file: '/CV-RAPHAEL-AR.pdf' },
+    { lang: 'universal', flag: '🌍', text: 'Universal CV - EN', file: '/CV-COMPLET-EN.pdf' },
   ];
 
   // Réinitialiser la valeur du <select> après avoir ouvert un CV
