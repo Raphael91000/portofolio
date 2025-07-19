@@ -87,20 +87,6 @@ const Skills: React.FC = () => {
           <h4 className={`text-orange-600 dark:text-white font-medium ${isCompact ? 'text-xs' : 'text-sm'} leading-tight line-clamp-2 no-hover-effect`}>
             {skill.name}
           </h4>
-          {!isCompact && skill.level && (
-            <div className="mt-2">
-              <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5">
-                <div 
-                  className="bg-orange-500 h-1.5 rounded-full transition-all duration-1000 ease-out"
-                  style={{ 
-                    width: isInView ? `${skill.level}%` : '0%',
-                    transitionDelay: `${categoryIndex * 0.1 + skillIndex * 0.05 + 0.5}s`
-                  }}
-                />
-              </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">{skill.level}%</span>
-            </div>
-          )}
         </div>
       </motion.div>
     );
