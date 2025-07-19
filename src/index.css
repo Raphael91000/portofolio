@@ -741,6 +741,74 @@ html.dark #skills .skill-card-title:hover {
 }
 
 /* ========================================
+   TIMELINE CARDS - SUPPRESSION SÉLECTIVE DES EFFETS HOVER
+   ======================================== */
+
+/* Désactiver SEULEMENT les effets hover problématiques, pas le positionnement */
+#timeline .timeline-card-no-hover,
+#timeline .timeline-card-no-hover *,
+#timeline [data-content-type],
+#timeline [data-content-type] * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Supprimer les transformations hover mais garder le positionnement */
+#timeline .timeline-card-no-hover:hover,
+#timeline [data-content-type]:hover {
+  transform: none !important;
+  scale: 1 !important;
+  animation: none !important;
+  cursor: default !important;
+}
+
+/* Désactiver les classes hover Tailwind spécifiques */
+#timeline .hover\:shadow-xl:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.dark #timeline .hover\:shadow-xl:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+#timeline .hover\:scale-105:hover {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+/* Supprimer les changements de couleur de fond au hover */
+#timeline .hover\:bg-green-50:hover,
+#timeline .hover\:bg-orange-50:hover {
+  background-color: inherit !important;
+}
+
+html.dark #timeline .dark\:hover\:bg-green-900\/10:hover,
+html.dark #timeline .dark\:hover\:bg-orange-900\/10:hover {
+  background-color: inherit !important;
+}
+
+/* Forcer les couleurs de fond correctes */
+#timeline .bg-white,
+#timeline .bg-white:hover {
+  background-color: #ffffff !important;
+}
+
+html.dark #timeline .dark\:bg-gray-900,
+html.dark #timeline .dark\:bg-gray-900:hover {
+  background-color: #111827 !important;
+}
+
+/* Curseur par défaut */
+#timeline .timeline-card-no-hover {
+  cursor: default !important;
+}
+
+/* Ne PAS toucher aux styles de positionnement des icônes */
+/* Les classes .absolute, .left-1/2, .transform, etc. doivent rester intactes */
+
+/* ========================================
    TIMELINE - ICÔNES BLANCHES EN MODE LIGHT UNIQUEMENT
    ======================================== */
 

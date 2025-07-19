@@ -20,7 +20,6 @@ const Timeline: React.FC = () => {
         iconBgColor: 'bg-green-500',
         iconBgColorInline: '#50cf01', // Vert lime flashy
         borderColor: 'border-green-500',
-        hoverBgColor: 'hover:bg-green-50 dark:hover:bg-green-900/10',
         textColor: 'text-green-500',
         badgeBgColor: 'bg-green-100 dark:bg-green-900/20',
         dataType: 'experience'
@@ -30,7 +29,6 @@ const Timeline: React.FC = () => {
         iconBgColor: 'bg-orange-500',
         iconBgColorInline: '#f97316', // Orange
         borderColor: 'border-orange-500',
-        hoverBgColor: 'hover:bg-orange-50 dark:hover:bg-orange-900/10',
         textColor: 'text-orange-500',
         badgeBgColor: 'bg-orange-100 dark:bg-orange-900/20',
         dataType: 'project'
@@ -148,24 +146,80 @@ const Timeline: React.FC = () => {
                         ${isEven ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}
                       `}>
                         <div 
-                          className={`bg-white dark:bg-gray-900 rounded-xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-2 ${config.borderColor} ${config.hoverBgColor}`}
+                          className="rounded-xl p-4 md:p-6 shadow-lg border-2 timeline-card-no-hover timeline-card-static bg-white dark:bg-gray-900"
                           data-content-type={config.dataType}
+                          style={{
+                            transition: 'none !important',
+                            transform: 'none !important',
+                            cursor: 'default !important',
+                            animation: 'none !important',
+                            borderColor: config.dataType === 'project' ? '#f97316' : '#10b981',
+                            borderWidth: '2px',
+                            borderStyle: 'solid',
+                            filter: 'none !important',
+                            opacity: '1 !important'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'none';
+                            e.currentTarget.style.scale = '1';
+                            e.currentTarget.style.transition = 'none';
+                            e.currentTarget.style.filter = 'none';
+                            e.currentTarget.style.opacity = '1';
+                            e.currentTarget.style.borderColor = config.dataType === 'project' ? '#f97316' : '#10b981';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'none';
+                            e.currentTarget.style.scale = '1';
+                            e.currentTarget.style.transition = 'none';
+                            e.currentTarget.style.filter = 'none';
+                            e.currentTarget.style.opacity = '1';
+                            e.currentTarget.style.borderColor = config.dataType === 'project' ? '#f97316' : '#10b981';
+                          }}
                         >
                           <div className="flex items-center mb-3 justify-start gap-2 flex-wrap">
-                            <span className={`text-sm font-medium ${config.textColor} ${config.badgeBgColor} px-3 py-1 rounded-full`}>
+                            <span 
+                              className="text-sm font-medium px-3 py-1 rounded-full timeline-badge-no-hover"
+                              style={{
+                                color: config.dataType === 'project' ? '#f97316' : '#10b981',
+                                backgroundColor: config.dataType === 'project' ? '#fed7aa' : '#d1fae5',
+                                transition: 'none !important',
+                                transform: 'none !important'
+                              }}
+                            >
                               {t(item.year)}
                             </span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                            <span 
+                              className="text-xs timeline-type-no-hover text-gray-500 dark:text-gray-400"
+                              style={{
+                                transition: 'none !important'
+                              }}
+                            >
                               {t(`timeline.${item.type}`)}
                             </span>
                           </div>
-                          <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 text-left">
+                          <h3 
+                            className="text-lg md:text-xl font-bold mb-2 text-left timeline-title-no-hover text-gray-900 dark:text-white"
+                            style={{
+                              transition: 'none !important'
+                            }}
+                          >
                             {t(item.title)}
                           </h3>
-                          <p className="text-orange-600 dark:text-orange-400 font-medium mb-3 text-left">
+                          <p 
+                            className="font-medium mb-3 text-left timeline-company-no-hover"
+                            style={{
+                              transition: 'none',
+                              color: config.dataType === 'experience' ? '#10b981' : '#f97316'
+                            }}
+                          >
                             {t(item.company)}
                           </p>
-                          <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed text-left">
+                          <p 
+                            className="text-sm leading-relaxed text-left timeline-description-no-hover text-gray-700 dark:text-gray-300"
+                            style={{
+                              transition: 'none !important'
+                            }}
+                          >
                             {t(item.description)}
                           </p>
                         </div>
